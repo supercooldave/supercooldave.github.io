@@ -1,0 +1,127 @@
+.buylinks {text-align:center;font-family:Arial,Helvetica,sans-serif}
+
+.srchsml {font-family:Arial, Helvetica, sans-serif; font-size:65%;}
+.srchbld {font-family:Arial, Helvetica, sans-serif; font-size:75%; font-weight:bold}
+
+.white {color:#ffffff;}
+.red {color:red;}
+.qstxt {font-family:Arial, Helvetica, sans-serif; font-size:65%;}
+.other {font-family:Arial, Helvetica, sans-serif; font-size:75%; margin:2px;}
+.lhsef {font-family:Arial, Helvetica, sans-serif; font-size:75%; font-weight:normal}
+.lhsegf {font-family:Arial, Helvetica, sans-serif; font-size:75%; font-weight:normal;color:#777777;}
+.buyghost {color:#888888}
+
+.topheader {font-family:Verdana,Arial,Helvetica,sans-serif;font-weight:bold;font-size:80%}
+.topinfo {font-size:80%}
+
+.navheader {margin-bottom:3px;text-align:center;font-family:Arial,Helvetica,sans-serif;font-size:110%;font-weight:bold}
+.nh {margin-bottom:3px;text-align:center;font-family:Arial,Helvetica,sans-serif;font-size:110%;font-weight:bold}
+
+.navline1 {text-indent:3px;font-family:Arial,Helvetica,sans-serif;color:#000000;font-weight:bold}
+.n1 {text-indent:3px;font-family:Arial,Helvetica,sans-serif;color:#000000;font-weight:bold}
+
+.navline2 {text-indent:15px;font-size:75%;font-family:Arial,Helvetica,sans-serif;background-color:#eeeecc}
+.n2 {text-indent:15px;font-size:75%;font-family:Arial,Helvetica,sans-serif;background-color:#eeeecc}
+
+.navline2s {text-indent:15px;font-size:75%;font-family:Arial,Helvetica,sans-serif;background-color:#ffffff}
+.n2s {text-indent:15px;font-size:75%;font-family:Arial,Helvetica,sans-serif;background-color:#ffffff}
+
+.navline2sni {font-family:Arial,Helvetica,sans-serif;background-color:#ffffff}
+.navline2ni {font-family:Arial,Helvetica,sans-serif}
+
+.navline3 {text-indent:20px;font-size:75%;font-family:Arial,Helvetica,sans-serif}
+.navline3s {text-indent:20px;font-size:75%;font-family:Arial,Helvetica,sans-serif;background-color:#ffffff}
+
+.homenavcol {font-family:Arial,Helvetica,sans-serif;font-size:80%}
+.sbheadline {font-family:Arial,Helvetica,sans-serif;font-size:120%}
+.boardhead {font-family:Arial,Helvetica,sans-serif;font-size:60%}
+
+.ghost {font-style: normal;color:#888888}
+
+.shadedcol {background-color:#FFFFCC}
+.lhscol {background-color:#FFFFCC}
+
+.tagline {font-style:italic;font-family:Arial,Helvetica,sans-serif}
+
+.catheader {white-space:nowrap;font-size:80%;vertical-align:top;font-family:Arial,Helvetica,sans-serif;font-weight:bold}
+.ch {white-space:nowrap;font-size:80%;vertical-align:top;font-family:Arial,Helvetica,sans-serif;font-weight:bold}
+
+.plotoutline {vertical-align:top}
+.commenttease {vertical-align:top;font-style:italic}
+.writers {vertical-align:top}
+.commentaction {font-family:Arial,Helvetica,sans-serif}
+
+.more {font-style:normal;font-size:80%}
+.fromusers {font-family:Arial,Helvetica,sans-serif;font-weight:bold}
+.byline {font-size:75%;font-family:Arial,Helvetica,sans-serif;font-weight:bold}
+
+.qsearch {font-size:75%;font-weight:bold}
+.date {font-family:Arial,Helvetica,sans-serif;color:#993366;font-size:80%}
+.coolheadline {font-family:Arial,Helvetica,sans-serif;font-weight:bold}
+.coolpara {font-size:90%}
+
+.footer {font-family:Arial,Helvetica,sans-serif;font-size:80%}
+.copyright {font-family:Arial,Helvetica,sans-serif;font-size:80%}
+
+.search1 {font-family:Arial,Helvetica,sans-serif;font-weight:bold}
+.searchcell1 {background-color:#cccc99}
+.searchcell2 {background-color:#ffffff}
+.search2 {font-family:Arial,Helvetica,sans-serif;font-weight:bold}
+.search3 {font-family:Arial,Helvetica,sans-serif;font-weight:bold}
+.searchradio {font-family:Arial,Helvetica,sans-serif;font-size:80%}
+
+.results1 {font-family:Arial,Helvetica,sans-serif;font-weight:bold}
+.results2 {font-family:Arial,Helvetica,sans-serif;font-weight:bold}
+.a2z {font-family:Arial,Helvetica,sans-serif;text-align:center}
+.maintitle {font-family:Arial,Helvetica,sans-serif;font-weight:bold}
+.thirteen {font:13pt Courier;}
+
+.awardheader {font-family:Arial,Helvetica,sans-serif;font-weight:bold;background-color:#ffffdb}
+.bghilite {background-color:#ffffdb}
+
+.awardsubheader {font-family:Arial,Helvetica,sans-serif;font-weight:bold;font-size:90%}
+.awardlabel {font-size:80%;font-family:Arial,Helvetica,sans-serif;color:#ff0000}
+.awardindent {margin-left:20pt}
+
+H1 {font-family:Verdana,Arial,Helvetica,sans-serif;font-weight:bold;font-size:18pt}
+H2 {font-family:Verdana,Arial,Helvetica,sans-serif;font-size:16pt}
+H3 {font-family:Verdana,Arial,Helvetica,sans-serif;}
+H4 {font-family:Verdana,Arial,Helvetica,sans-serif;}
+.disclaimer {font:10pt Arial,Helvetica,sans-serif;font-weight:lighter;}
+.commentator {font-weight:bold;}
+.dvdatt {font-family:Arial,Helvetica,sans-serif;}
+
+.userregheader {font-family:Arial,Helvetica,sans-serif;font-weight:bold}
+.userregpara {font-family:Arial,Helvetica,sans-serif;font-size:90%;text-align:justify}
+.userregbold {font-family:Arial,Helvetica,sans-serif;font-weight:bold}
+
+.studiodate {text-align:center;font-family:Arial,Helvetica,sans-serif;font-size:110%;font-weight:bold}
+.studioheadline {font-family:Arial,Helvetica,sans-serif;font-weight:bold}
+.studiopara {font-size:90%;text-align:justify}
+.studioarchive {font-size:60%;font-family:Arial,Helvetica,sans-serif}
+
+.inproda2z {font-family:Arial,Helvetica,sans-serif;font-size:90%;}
+.inprodtitle {font-weight:bold;font-size:105%;font-family:Arial,Helvetica,sans-serif}
+.inprodtext {font-family:Arial,Helvetica,sans-serif;font-size:90%;}
+.inprodsmalltext {font-family:Arial,Helvetica,sans-serif;font-size:80%;}
+
+.topsearchheader {font-family:Arial,Helvetica,sans-serif;font-weight:bold}
+.topsearchpara {font-size:90%;text-align:justify}
+.topsearchsmalltext {font-family:Arial,Helvetica,sans-serif;font-size:80%;}
+.topsearchsmalltext {font-family:Arial,Helvetica,sans-serif;font-size:80%;}
+
+.smalltxt {font-size:80%;font-family:Arial,Helvetica,sans-serif}
+.aspectratio {font-family:Arial,Helvetica,sans-serif;font-weight:bold}
+
+.blackcatheader {white-space:nowrap;font-size:80%;vertical-align:top;font-family:Arial,Helvetica,sans-serif;font-weight:bold; color:black}
+
+.transl {font-style:normal;color:#545454;}
+
+#subNav {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; color: #3046C1; text-align: center; vertical-align: middle; white-space: nowrap}
+#subNav a:link, #subNav a:visited { color: #3046C1;}
+#subNav a:hover, #subNav a:active { text-decoration: underline; background-color:#FFFF66;}
+#loginRegister { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 9px; font-weight: normal; color: #CC0000; text-align: right; vertical-align: middle; white-space: nowrap}
+#loginRegister a:link, #loginRegister a:visited { color:#CC0000;}
+#loginRegister a:hover, #loginRegister a:active { text-decoration: underline; background-color:#FFFF66;}
+#subHead {height: 70px;}
+.splashLine {font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold}

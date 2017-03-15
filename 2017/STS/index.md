@@ -43,8 +43,7 @@ will be very present, the project becomes completely your responsibility.
 
 # JUNK BELOW
 
-    
-Table~\ref{contact moments} lists all the course contact moments and their purpose.
+The following table lists all the course contact moments and their purpose.
 
 |---|---|---|
 | Monday, 20/3 | Introduction Lecture, Course Overview, Team formation, Visit Project Room  | Dave |

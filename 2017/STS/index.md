@@ -19,11 +19,11 @@ knowledge in order to complete the project successfully.
 
 
 The teaching staff are:
-  * Dave Clarke (\url{dave.clarke@it.uu.se})--- lecturer.  
+  * Dave Clarke (`dave.clarke@it.uu.se`) --- lecturer.  
    Expertise: project management, security, programming, software design, ideas.
-  * Anton Axelsson (\url{anton.axelsson@it.uu.se}) --- TA. 
+  * Anton Axelsson (`anton.axelsson@it.uu.se`) --- TA. 
    Expertise: project management, HCI, usability, programming, ideas.
-  * Davide Vega D'Aurelio (\url{davide.vega@it.uu.se}) --- TA.  
+  * Davide Vega D'Aurelio (`davide.vega@it.uu.se`) --- TA.  
   Expertise: project management, web technologies, programming, software design, ideas.
     
 
@@ -38,8 +38,6 @@ visit your lab to see how you are going, and  will be available for meetings.
 It is your job to contact the desired member of staff and organise meetings
 (based on their expertise and your preferences) when you need them  --- 
 it is an independent project and you decide on the interaction model.
-%Meetings are also arranged around milestones, and typically between 
-%managers and teaching staff. 
 After initial rush and planning and requirements efforts, where the teaching staff 
 will be very present, the project becomes completely your responsibility.
 
@@ -47,6 +45,14 @@ will be very present, the project becomes completely your responsibility.
 
     
 Table~\ref{contact moments} lists all the course contact moments and their purpose.
+
+|---|---|---|
+| Monday, 20/3 | Introduction Lecture, Course Overview, Team formation, Visit Project Room  | Dave |
+| Tuesday, 21/3 | 
+        Project Management lecture,
+        Scrum, Kanban, 
+        project management tools: Git, Trello, Taiga, Slack. | Tobias Wrigstad, Kiko Fernandez (guests) |
+
 
 \begin{table}
 \begin{center}

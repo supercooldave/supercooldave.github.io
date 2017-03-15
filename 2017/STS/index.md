@@ -43,6 +43,11 @@ will be very present, the project becomes completely your responsibility.
 
 # JUNK BELOW
 
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+
 The following table lists all the course contact moments and their purpose.
 
 |---|---|---|

@@ -243,7 +243,7 @@ application, including the database. Development will take place
 using Django or PHP, plus SQL and the like.
 
 
-#### Minor Roles
+### Minor Roles
 
 
 In addition to these core positions, a number of other roles that may need to
@@ -298,11 +298,11 @@ submissions are negotiable!!!!**
 | D1     | Pitch \* |  Friday, March 24 | 12 |
 | D2 | Requirements | Friday, March 31 | 13 |
 | D3 | Project Plan | Tuesday, April 4 | 14 |
-| D4 | System Design | Thursday, April 13 | 15 |
+| D4 | System Design and Test Plan | Thursday, April 13 | 15 |
 | D5 | User Profiling | Wednesday, April 19 | 16 |
 | D6 | Security and Privacy Analysis | Wednesday, April 19 | 16 |
 | D7 | Intermediate Presentation \* | Tuesday, April 25 | 17 |
-| D8 | Usability Assessment | Monday, May 8 | 19 |
+| D8 | Usability Assessment | Monday, May 15 | 20 |
 | D9 | Draft Thesis | Monday, May 22 | 21 |
 | D10 | Final Presentation \* | Friday, June 2 | 22 |
 | D11 | Thesis | Friday, June 2 | 22 |
@@ -407,13 +407,13 @@ of tasks and try to account for why this happened.
 
 
 
-### D4: System Design
+### D4: System Design and Test Plan
 
 **Due: Friday, April 13 (wk 15)**
 {: .blue}
 
-This deliverable consists of a high-level system design. The deliverable
-consists of three components:
+This deliverable consists of a high-level system design and a test plan. The deliverable
+consists of four components:
 
 *  **Site Map and UI Design**: A description of the user interface and
         its functionality, perhaps with Photoshop mock-ups.
@@ -424,6 +424,8 @@ consists of three components:
         A description of the architecture of the system,
         using UML diagrams, to capture the relationship between the major components
         of the system.
+* **Test Plan**: A description of how you plan to systematically test your
+        system.
 * **Glossary**: A dictionary of the key terminology used in describing your
         system. For example, if your system records exercise activities which
         you describe as an _event_, your glossary should state that
@@ -480,7 +482,7 @@ system-under-development, not in generic terms.
 
 Lists of various security and privacy threats can be found by looking
 at methodologies [STRIDE](https://www.cs.berkeley.edu/~daw/teaching/cs261-f12/hws/Introduction_to_Threat_Modeling.pdf) and [LINDDUN](https://distrinet.cs.kuleuven.be/software/linddun/), though you do not need to follow these methodologies in any detail.
-
+Also consider *ethical issues* related to the retention of private user data.
 
 
 
@@ -511,7 +513,7 @@ at the introduction of the talk and should reappear for questions.
 
 ### D8: Usability Assessment
 
-**Due: Monday, May 8 (wk 19)**
+**Due: Monday, May 15 (wk 20)**
 {: .blue}
 
 Conduct a usability study of another group's system with 

@@ -1,13 +1,4 @@
-<link rel="stylesheet" href="style.css">
-<style>
-	.markdown-body {
-		box-sizing: border-box;
-		min-width: 200px;
-		max-width: 980px;
-		margin: 0 auto;
-		padding: 45px;
-	}
-</style>
+<link rel="stylesheet" href="path/to/css/splendor.css">
 
 # STS Independent Project 2017
 
@@ -272,9 +263,8 @@ document format  for all of
 your deliverables, presentations, and final thesis.
 
 
-\subsection{Deliverables}
+## Deliverables
 
-%\DAVE{Opposition? Submissions? Thesis submission? Other deliverables?}
 
 
 The project involves a number of compulsory deliverables. 
@@ -283,18 +273,15 @@ feedback on the work in progress and to help structure your work.
 Producing these deliverables should not be stressful.
 Most deliverables can be reused, in updated form, in the final report.
 
-All \textbf{deadlines are 18:00} on the day mentioned, except when the due date 
+All **deadlines are 18:00** on the day mentioned, except when the due date 
 corresponds to a contact moment in the schedule.
-The deliverables are summarised in Table~\ref{deliverables table}.
-Those marked with a star (${}^*$) occur during a scheduled contact moment.
+The deliverables are summarised in the table below.
+Those marked with a star (\*) occur during a scheduled contact moment.
 
-\textbf{All deadlines except those marked with a star (${}^*$) and the thesis 
-submissions are negotiable!!!!}
+**All deadlines except those marked with a star (\*) and the thesis 
+submissions are negotiable!!!!**
 
-\begin{table}[h]
-\begin{center}
-    \begin{tabular}{|c|l|r|c|} 
-        \hline
+
         Number & Title & \multicolumn{1}{c|}{Due Date} & Week \\ \hline \hline
         D1 & Pitch${}^*$ & Friday, March 24 & 12 \\ \hline
         D2 & Requirements & Friday, March 31 & 13 \\ \hline
@@ -308,13 +295,12 @@ submissions are negotiable!!!!}
         D10 & Final Presentation${}^*$ & Friday, June 2 & 22 \\ \hline
         D11 & Thesis & Friday, June 2 & 22 \\ \hline
         D12 & Code & Friday, June 3 & 22 \\ \hline
-    \end{tabular}
-\end{center}
-\caption{Summary of Deliverables}\label{deliverables table}
-\end{table}
-
-\textbf{Note that the thesis may be handed in one week later,
-technically this is after the end of semester.}
+ 
+ 
+ 
+ 
+**Note that the thesis may be handed in one week later,
+technically this is after the end of semester.**
 
 
 Although these deliverables and their order may give the impression
@@ -325,12 +311,17 @@ more about the system-under-development. The deliverables can be
 seen as a snapshot of work in progress, submitted for comment
 and feedback.
 
-\paragraph{Structure of deliverables} 
+#### Structure of deliverables
+
 All textual deliverables should be properly structured documents,
 with an introduction, a description of the structure of the document, 
-the body of the document, and a conclusion.
+the body of the document, and a conclusion. As a rough estimate, there
+should be 2-5 pages of content in the deliverables, not including intro, conclusion,
+references, and images.
 
-\DEL{D1: Pitch}{Lecture on Friday, March 24 (wk 12)}
+
+
+## D1: Pitch --- Lecture on Friday, March 24 (wk 12)
 
 Each group needs to come up with \emph{up to} 3 project ideas
 or variations on single idea.
@@ -342,7 +333,7 @@ During the pitch, team members should introduce themselves.
 The pitch can be delivered by any subset of the team, including just one member
 or all members
 
-\DEL{D2: Requirements}{Friday, March 31 (wk 13)}
+## D2: Requirements --- Friday, March 31 (wk 13)
 
 During the second week of the course, project teams will need to determined
 the requirements of the system. Requirements must consider both functional
@@ -363,7 +354,7 @@ This deliverable will consist of:
 
 All team members should contribute to this deliverable.
 
-\DEL{D3: Project Plan}{Tuesday, April 4 (wk 14)}
+## D3: Project Plan --- Tuesday, April 4 (wk 14)
 
 This deliverable should include:
 \begin{enumerate}
@@ -392,7 +383,7 @@ of tasks and try to account for why this happened.
 
 
 
-\DEL{D4: System Design}{Friday, April 13 (wk 15)}
+## D4: System Design --- Friday, April 13 (wk 15)
 
 This deliverable consists of a high-level system design. The deliverable
 consists of three components:
@@ -418,7 +409,7 @@ and back-end functionality.
 
 %This deliverable is the responsibility of the Development groups.
 
-\DEL{D5: User Profiling}{Wednesday, April 19 (wk 16)}
+## D5: User Profiling --- Wednesday, April 19 (wk 16)
 
 This deliverable aims to answer the question: \emph{Who are your users?}
 and to provide a plan for evaluating the usability of your system.
@@ -439,7 +430,7 @@ The document should include:
 
 %This deliverable is the responsibility of the Usability group.
 
-\DEL{D6: Security \& Privacy Analysis}{Wednesday, April 19 (wk 16)}
+## D6: Security \& Privacy Analysis --- Wednesday, April 19 (wk 16)
 
 
 Each team needs to conduct an analysis of the security and privacy threats
@@ -465,16 +456,14 @@ at methodologies STRIDE%
 
 
 
-%Responsbility for this deliverable needs to be determined by the team.
 
-
-\DEL{D7: Intermediate Presentation}{Monday, April 25 (wk 17)}
+### D7: Intermediate Presentation --- Monday, April 25 (wk 17)
 
 The intermediate presentation gives teams the opportunity to present
 their work in progress --- details of what the presentation should contain
 are found below. The slot for each presentation is 45 minutes 
 (about 30 minutes of content, 10 minutes for questions, 5 minutes of slack).
-%Presentations need to contain technical content.
+
 
 Each team will have another team acting as opposition.
 For this presentation, the opposition does not need to prepare
@@ -488,13 +477,9 @@ Presentations can be given by some subset of your team, including
 just one member or all members. All team members should be present
 at the introduction of the talk and should reappear for questions.
 
-%During intermediate presentations, teams can `steal' ideas from
-%other teams.
+ 
 
-%The Communication Manager is the primary responsible person for this
-%deliverable. 
-
-\DEL{D8: Usability Assessment}{Monday, May 8 (wk 19)}
+## D8: Usability Assessment --- Monday, May 8 (wk 19)
 
 
 Conduct a usability study of another group's system with 
@@ -508,9 +493,8 @@ The team who receives the usability assessment report needs to
 address all usability flaws and report how they have been
 address (or not, with reasons) in the final report.
 
-%This deliverable is the responsibility of the Usability group.
 
-\DEL{D9: Draft Thesis}{Monday, May 22 (wk 21)}
+## D9: Draft Thesis --- Monday, May 22 (wk 21)
 
 A draft of the thesis needs to be submitted so that the other team
 can give feedback and use it as the basis for questions during the final
@@ -518,10 +502,9 @@ presentation. The most important requirement for this deliverable
 is that the structure of the thesis is clear, via, for example, a table
 of contents.
 
-%This deliverable is the responsibility of the Communications Manager.
 
 
-\DEL{D10: Final Presentation}{Friday, June 2 (wk 22)}
+## D10: Final Presentation --- Friday, June 2 (wk 22)
 
 All projects are presented in a final seminar. Each team appointed an opposing 
 team. 
@@ -537,10 +520,9 @@ The format of the presentation is discussed below.
 Feedback will be given after the presentation, for the benefit of your
 future presentations.
 
-%The Communication Manager is the primary responsible person for this
-%deliverable. 
+ 
 
-\DEL{D11: Thesis}{Friday, June 2 (wk 22)}
+## D11: Thesis --- Friday, June 2 (wk 22)
 
 The final outcome of the course is a thesis describing the software system
 developed. Each team will produce a single thesis together. 
@@ -550,23 +532,19 @@ processes taken, various kinds of analysis
 updated versions of all deliverables ---  with added introduction, 
 conclusion and appendices.
 
-%The Communication Manager is the primary responsible person for this
-%deliverable. 
-
-
-\DEL{D12: The Code}{Friday, June 2 (wk 22)}
+## D12: The Code --- Friday, June 2 (wk 22)
 
 Provide a link to your GitHub repository with read access permission 
-given to \texttt{supercooldave}.
+given to `supercooldave`.
 
 Ensure (from the start) that your repository is kept clean. 
 Old versions of the software, experiments, etc, should be removed
-or placed in some ``old'' directory.
+or placed in some "old" directory.
 
-Provide a \texttt{README.md} document to make navigation of the
+Provide a `README.md` document to make navigation of the
 repository easier.
 
-Please \textbf{do not} produce a new repository for submission ---
+Please **do not** produce a new repository for submission ---
 we want to see your development history and the other statistics available
 in GitHub.
 
@@ -576,9 +554,9 @@ solve any technical issues that may arise. \emph{All code borrowed from elsewher
 needs to be properly attributed to avoid problems of plagiarism.}  
 
 
-\section{Guidelines for Presentations}
+## Guidelines for Presentations
 
-\subsection*{Presentation Content}
+### Presentation Content
 
 Both presentations should cover the following topics, not necessarily in
 this order.
@@ -595,7 +573,7 @@ this order.
 \end{enumerate}
 
 
-\subsection*{Recommendations for  Presentations}
+### Recommendations for  Presentations
 
 \begin{itemize}
     \item Communication manager organises presentation and delagates parts (if desired).
@@ -620,7 +598,7 @@ Comment on the process as well: how did your time plan work, what was hard, what
 \end{itemize}
 
 
-\subsection*{Recommendations for the Opposition}
+### Recommendations for the Opposition
 
 
 The role of the opposition is to question the design choices 
@@ -638,7 +616,7 @@ than what is explicitly said in the report/presentation.
 \end{itemize}
 
 
-\section{Guidelines for Thesis}
+## Guidelines for Thesis
 
 
 The thesis reports on the work you have done over the term.
@@ -731,7 +709,7 @@ Try to avoid a chronological story where you are the stars: `We chose to do this
 because ....' Focus on the project, not yourselves. Also avoid writing things like
 `This project was done for STS IP.' Focus on the project, not the course.
 
-\subsection*{Formalities of the report}
+### Formalities of the report
 
 \begin{itemize}
         \item You must write in English.

@@ -12,8 +12,10 @@ th {
 </style>
 
 # STS Independent Project 2017
+{: .no_toc}
 
 ### Lecturer: Dave Clarke
+{: .no_toc}
 
 This document provides  information for  the  STS Independent Project course,
 including details of the teaching staff, contact moments,

@@ -133,13 +133,14 @@ analyse.
 visualisation tools.  
  * You MUST think big.  
 
+
 Perhaps you could ask yourselves _What is missing in your lives?_
 Allow the following keywords to guide you: social software, 
 crowd sourcing, human computation, volunteer computation, ...
 
 
 
-###Technical Constraints
+### Technical Constraints
 
 
 There are no constraints about what language you implement your system in. 
@@ -157,14 +158,10 @@ The choice is yours, based on what you want to learn --- but decide quickly.
 # JUNK BELOW
 
 
-\subsection{Teams}
+## Teams
 
 Teams will ideally consist of 6 members --- the class will be split into
 roughly 6 teams.
-%We will form the teams based on a survey given during the first lecture.
-%The survey will determine your background and preferred roles, and
-%who you would like to work with. 
-We will finalise teams in the first lecture.
 
 Each team member will need to take on a number of roles,
 and each role has certain responsibilities. Some roles are
@@ -173,52 +170,51 @@ team. Roles will need to be distributed among the team
 members at the start of the course or as needed.
 It is important that each member who is doing what.
 
-We stress that \textbf{teams need to be flexible} regarding what roles 
+We stress that **teams need to be flexible** regarding what roles 
 various members take, and these should change as the requirements
 of the project demands.
 
 Every team member needs to be a developer, focussed either on
 the front- or back-end (or both). Other important roles to assign
-now are: \textbf{project manager}, and
-\textbf{usability expert}. 
+now are: **project manager**, and
+**usability expert**. 
 
 
-\subsubsection{Major Roles}
+### Major Roles
 
-\subsubsection*{Management}
+#### Management
 
  
-The \textbf{project manager} is primarily responsible for 
+The **project manager** (= product owner) is primarily responsible for 
 task formulation (which features to implement, priorities), planning, 
 task tracking and follow up, 
-setting deadlines, intra-team communications, and communicating with the teaching staff.%
-\footnote{Note that any student can ask for help at any time.  Group questions may be coordinated through the project manager.}
+setting deadlines, intra-team communications, and communicating with the teaching staff.
+*Note that any student can ask for help at any time.  
+Group questions may be coordinated through the project manager.*
 The project manager needs to focus less on
 the details of the product and more on the ability to navigate the plan. 
 Planning needs to include slack time, and time for team members to gain new knowledge.
 One of the primary skills required by the project manager is the ability to delegate.
 The project manager has the final say in the decision-making process --- this is
 important to avoid deadlocked debates.
-%(Scrum and Kanban -- make up process, say why, later post evaluate)
  
- ~
+
+> The  team needs to ensure that **exactly** one person
+ is in charge, to ensure that decisions are made when they need to 
+ be made. 
+  
  
-The \textbf{communications manager} is responsible for presentations, 
+The **communications manager** is responsible for presentations, 
 communications with other teams (such as when doing usability assessments), 
 preparing reports, and, if you have an external client interested in your work,
 communicating with that client. 
 This is not to say that the communications manager does all the work on these
 presentations and reports. The communications manager is in charge of delegating  to the appropriate other members of the team.
 
-~
-
-The  team needs to ensure that \textbf{exactly} one person
-is in charge, to ensure that decisions are made when they need to 
-be made. %Managers in particular need to be very connected to their teams.
 
 
 
-\subsubsection*{Usability }
+#### Usability 
 
 The usability role
 investigates intended users, making personas, and does interviews and 
@@ -228,7 +224,7 @@ developers to make a usable interface to a useful system by performing
 usability assessments during development. 
 
 
-\subsubsection*{Front-End Developer}
+#### Front-End Developer
 
 
 Front-end developers will set up the client side of
@@ -238,36 +234,35 @@ The front-end developers will interact with the
 UI Designer and the Usability team, along with
 the back-end developers.
                     
-\subsubsection*{Back-End Developer}
+#### Back-End Developer
 
 The back-end developers will set up the server side of the 
 application, including the database. Development will take place
 using Django or PHP, plus SQL and the like.
 
 
-\subsubsection{Minor Roles}
+#### Minor Roles
 
 
 In addition to these core positions, a number of other roles that may need to
 be filled or shared: 
-\begin{itemize}
-    \item security expert
-    \item privacy expert 
-    \item visualisation expert --- if any data needs to be visualised
-    \item test data generator --- if your system collects data from a large number
+
+*  security expert
+*  privacy expert 
+*  visualisation expert --- if any data needs to be visualised
+* test data generator --- if your system collects data from a large number
         of users, you'll need to generate mock data until you get users
-    \item database designer
-    \item data modeller
-    \item UI designer --- design the visual appearance of the web site using Photoshop
-    \item software designer --- aim for a clear separation between 
+* database designer
+* data modeller
+* UI designer --- design the visual appearance of the web site using Photoshop
+* software designer --- aim for a clear separation between 
         front- and back-end functionality
-    \item technical manager --- in charge of getting software installed,
+* technical manager --- in charge of getting software installed,
          setting up github, etc.
-    \item other  --- maybe something specific to your chosen domain.
-\end{itemize}
+* other  --- maybe something specific to your chosen domain.
 
 
-\subsubsection{Team Identity}
+### Team Identity
 
 Think of your team as a small company. Find a snappy name for your
 team and your product. Consider developing a team logo and colour scheme.

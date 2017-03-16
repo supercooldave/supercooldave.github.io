@@ -1,0 +1,866 @@
+<link rel="stylesheet" href="css/splendor.css" />
+
+<style>
+tr:nth-child(even) {background-color: #f2f2f2}
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+.blue {
+  color: blue;
+}
+</style>
+
+<h1 id="sts-independent-project-2017">STS Independent Project 2017</h1>
+
+<h3 id="lecturer-dave-clarke">Lecturer: Dave Clarke</h3>
+
+<p>This document provides  information for  the  STS Independent Project course,
+including details of the teaching staff, contact moments,
+project requirements, project deliverables, and
+suggested project team structure.</p>
+
+<p>The course will provide you an opportunity to learn new IT techniques
+by getting involved in a deep, technical project.
+The project will involve programming, project management, communication,
+brain storming, and much more.
+You <strong>will be required</strong> to independently acquire new
+knowledge in order to complete the project successfully.</p>
+
+<ul id="markdown-toc">
+  <li><a href="#sts-independent-project-2017" id="markdown-toc-sts-independent-project-2017">STS Independent Project 2017</a>    <ul>
+      <li><a href="#lecturer-dave-clarke" id="markdown-toc-lecturer-dave-clarke">Lecturer: Dave Clarke</a></li>
+      <li><a href="#teaching-staff-and-contact-moments" id="markdown-toc-teaching-staff-and-contact-moments">Teaching Staff and Contact Moments</a></li>
+      <li><a href="#project-rooms" id="markdown-toc-project-rooms">Project Rooms</a></li>
+      <li><a href="#grading" id="markdown-toc-grading">Grading</a></li>
+      <li><a href="#the-project" id="markdown-toc-the-project">The Project</a>        <ul>
+          <li><a href="#requirements" id="markdown-toc-requirements">Requirements</a></li>
+          <li><a href="#technical-constraints" id="markdown-toc-technical-constraints">Technical Constraints</a></li>
+        </ul>
+      </li>
+      <li><a href="#teams" id="markdown-toc-teams">Teams</a>        <ul>
+          <li><a href="#major-roles" id="markdown-toc-major-roles">Major Roles</a>            <ul>
+              <li><a href="#management" id="markdown-toc-management">Management</a></li>
+              <li><a href="#usability" id="markdown-toc-usability">Usability</a></li>
+              <li><a href="#front-end-developer" id="markdown-toc-front-end-developer">Front-End Developer</a></li>
+              <li><a href="#back-end-developer" id="markdown-toc-back-end-developer">Back-End Developer</a></li>
+              <li><a href="#minor-roles" id="markdown-toc-minor-roles">Minor Roles</a></li>
+            </ul>
+          </li>
+          <li><a href="#team-identity" id="markdown-toc-team-identity">Team Identity</a></li>
+        </ul>
+      </li>
+      <li><a href="#deliverables" id="markdown-toc-deliverables">Deliverables</a>        <ul>
+          <li><a href="#structure-of-deliverables" id="markdown-toc-structure-of-deliverables">Structure of deliverables</a></li>
+          <li><a href="#d1-pitch" id="markdown-toc-d1-pitch">D1: Pitch</a></li>
+          <li><a href="#d2-requirements" id="markdown-toc-d2-requirements">D2: Requirements</a></li>
+          <li><a href="#d3-project-plan" id="markdown-toc-d3-project-plan">D3: Project Plan</a></li>
+          <li><a href="#d4-system-design" id="markdown-toc-d4-system-design">D4: System Design</a></li>
+          <li><a href="#d5-user-profiling" id="markdown-toc-d5-user-profiling">D5: User Profiling</a></li>
+          <li><a href="#d6-security--privacy-analysis" id="markdown-toc-d6-security--privacy-analysis">D6: Security &amp; Privacy Analysis</a></li>
+          <li><a href="#d7-intermediate-presentation" id="markdown-toc-d7-intermediate-presentation">D7: Intermediate Presentation</a></li>
+          <li><a href="#d8-usability-assessment" id="markdown-toc-d8-usability-assessment">D8: Usability Assessment</a></li>
+          <li><a href="#d9-draft-thesis" id="markdown-toc-d9-draft-thesis">D9: Draft Thesis</a></li>
+          <li><a href="#d10-final-presentation" id="markdown-toc-d10-final-presentation">D10: Final Presentation</a></li>
+          <li><a href="#d11-thesis" id="markdown-toc-d11-thesis">D11: Thesis</a></li>
+          <li><a href="#d12-the-code" id="markdown-toc-d12-the-code">D12: The Code</a></li>
+        </ul>
+      </li>
+      <li><a href="#guidelines-for-presentations" id="markdown-toc-guidelines-for-presentations">Guidelines for Presentations</a>        <ul>
+          <li><a href="#presentation-content" id="markdown-toc-presentation-content">Presentation Content</a></li>
+          <li><a href="#recommendations-for--presentations" id="markdown-toc-recommendations-for--presentations">Recommendations for  Presentations</a></li>
+          <li><a href="#recommendations-for-the-opposition" id="markdown-toc-recommendations-for-the-opposition">Recommendations for the Opposition</a></li>
+        </ul>
+      </li>
+      <li><a href="#guidelines-for-thesis" id="markdown-toc-guidelines-for-thesis">Guidelines for Thesis</a>        <ul>
+          <li><a href="#formalities-of-the-report" id="markdown-toc-formalities-of-the-report">Formalities of the report</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="teaching-staff-and-contact-moments">Teaching Staff and Contact Moments</h2>
+
+<p>The teaching staff are:</p>
+
+<ul>
+  <li>Dave Clarke (<code>dave.clarke@it.uu.se</code>) — lecturer.<br />
+   Expertise: project management, security, programming, software design, ideas.</li>
+  <li>Anton Axelsson (<code>anton.axelsson@it.uu.se</code>) — TA. 
+   Expertise: project management, HCI, usability, programming, ideas.</li>
+  <li>Davide Vega D’Aurelio (<code>davide.vega@it.uu.se</code>) — TA.<br />
+  Expertise: project management, web technologies, programming, software design, ideas.</li>
+</ul>
+
+<p>The main role of the teaching staff in this course are to provide
+guidance, encouragement, inspiration and feedback. 
+The feedback is provided
+not to judge you, but to help you improve your work for later in the course and
+in your future work.</p>
+
+<p>Apart from the explicitly scheduled sessions, the teaching staff will frequently
+visit your lab to see how you are going, and  will be available for meetings.
+It is your job to contact the desired member of staff and organise meetings
+(based on their expertise and your preferences) when you need them  — 
+it is an independent project and you decide on the interaction model.
+After initial rush and planning and requirements efforts, where the teaching staff 
+will be very present, the project becomes completely your responsibility.</p>
+
+<p>The following table lists all the course contact moments and their purpose.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Content</th>
+      <th>Lecturer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Monday, 20/3</td>
+      <td>Introduction Lecture, Course Overview, Team formation, Visit Project Room</td>
+      <td>Dave</td>
+    </tr>
+    <tr>
+      <td>Tuesday, 21/3</td>
+      <td>Project Management lecture, Scrum, Kanban, project management tools: Git, Trello, Taiga, Slack.</td>
+      <td>Tobias Wrigstad, Kiko Fernandez (guests)</td>
+    </tr>
+    <tr>
+      <td>Friday, 24/3</td>
+      <td>Groups pitch their  project ideas.</td>
+      <td>Dave, Davide, Anton</td>
+    </tr>
+    <tr>
+      <td>Monday, 27/3</td>
+      <td>Web Technology lecture</td>
+      <td>Davide</td>
+    </tr>
+    <tr>
+      <td>Thursday, 29/3</td>
+      <td>Security lecture</td>
+      <td>Björn Victor (guest)</td>
+    </tr>
+    <tr>
+      <td>Tuesday, 3/4</td>
+      <td>Usability lecture</td>
+      <td>Anton</td>
+    </tr>
+    <tr>
+      <td>Monday, 25/5</td>
+      <td>Intermediate presentations</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Friday, 2/6</td>
+      <td>Final presentations</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="project-rooms">Project Rooms</h2>
+
+<p>Rooms <strong>ICT 1246</strong> and <strong>1446</strong> are available for you for the entire term to
+work on your projects together with your teams. You can organise the rooms how you
+want (within reason). There will be machines there for you to use — if not, these
+can be ordered. The door is locked, and your student card or a code
+will get you into these offices.</p>
+
+<h2 id="grading">Grading</h2>
+
+<p>The course is graded on a <strong>U/G</strong> scale. 
+Examination is through active participation in the project, 
+timely submission of deliverables, 
+adequate opposition during presenations, and approval of the final report.
+You will be giving feedback on your deliverables, 
+and in the case of an insufficient result, you will be 
+given the chance  to resubmit the relevant components.</p>
+
+<h2 id="the-project">The Project</h2>
+
+<p>The course involves  an extensive software development project. 
+You need to decide the topic of the project.
+The project will be developed in teams of 5-7.</p>
+
+<h3 id="requirements">Requirements</h3>
+
+<p>The following are constraints on the grand idea underlying your project,
+phrased
+in terms of compulsory requirements (MUST), desired requirements (SHOULD),
+and possible requirements (COULD).</p>
+
+<ul>
+  <li>The system MUST be a web information system — a web front end connected to
+a server with a database — or a smart phone app.<br />
+The database will probably contain users and products, 
+for instance.</li>
+  <li>If the system is a web app, it MUST provide a responsive interface, that is, it must automatically adapt
+to desktop and mobile devices.</li>
+  <li>The system MUST support user accounts, automated user registration,
+ and logging in, along with the appropriate security
+support. The service provided by the system MUST be connected to user accounts,
+and allow users to connect to each other.
+Administrator log in and associated functionality MUST be provided.</li>
+  <li>The system MUST have a social component (social involvement, social engineering). 
+The system MUST utilise the connections between users.
+This COULD be realised by having the system connect via a social networking API
+to Facebook  or Twitter.</li>
+  <li>The system MUST be involve some technical challenges.</li>
+  <li>The system SHOULD  be based on a (somewhat) realistic business idea.</li>
+  <li>The system does not have to be original (almost anything that you could think of is on the web anyway), but it SHOULD have some original aspect.</li>
+  <li>The system SHOULD present an attractive user interface to
+     ``regular’’ users.</li>
+  <li>The system COULD source data from the web.</li>
+  <li>The system COULD be, in part, a mashup or integration of other services.</li>
+  <li>The system COULD support and utilise geolocation, perhaps with Google Maps
+or Open Street Map integration.</li>
+  <li>The system COULD generate a lot of data that could be useful and interesting to
+analyse.</li>
+  <li>The system COULD provide support to visualise the data generated, using existing
+visualisation tools.</li>
+  <li>You MUST think big.</li>
+</ul>
+
+<p>Perhaps you could ask yourselves <em>What is missing in your lives?</em>
+Allow the following keywords to guide you: social software, 
+crowd sourcing, human computation, volunteer computation, …</p>
+
+<h3 id="technical-constraints">Technical Constraints</h3>
+
+<p>There are no constraints about what language you implement your system in. 
+You could consider a framework such as <a href="https://www.djangoproject.com/">Django</a>
+(for Python) or Ruby on Rails 
+(for Ruby), or use  Apache, MySQL and PHP (they come in a package like 
+WAMP, MAMP or LAMP — the W, M and L stand for Windows, Mac, and Linux, respectively).
+Last year teams used, in addition: Xamarin, Bootstrap, Less, Angular JS, Java,
+Javascript.</p>
+
+<p>The choice is yours, based on what you want to learn — but decide quickly.</p>
+
+<h2 id="teams">Teams</h2>
+
+<p>Teams will ideally consist of 6 members — the class will be split into
+roughly 6 teams.</p>
+
+<p>Each team member will need to take on a number of roles,
+and each role has certain responsibilities. Some roles are
+small, some are large. Not all roles may be relevant to each
+team. Roles will need to be distributed among the team
+members at the start of the course or as needed.
+It is important that each member who is doing what.</p>
+
+<p>We stress that <strong>teams need to be flexible</strong> regarding what roles 
+various members take, and these should change as the requirements
+of the project demands.</p>
+
+<p>Every team member needs to be a developer, focussed either on
+the front- or back-end (or both). Other important roles to assign
+now are: <strong>project manager</strong>, and
+<strong>usability expert</strong>.</p>
+
+<h3 id="major-roles">Major Roles</h3>
+
+<h4 id="management">Management</h4>
+
+<p>The <strong>project manager</strong> (= product owner) is primarily responsible for 
+task formulation (which features to implement, priorities), planning, 
+task tracking and follow up, 
+setting deadlines, intra-team communications, and communicating with the teaching staff.
+<em>Note that any student can ask for help at any time.<br />
+Group questions may be coordinated through the project manager.</em>
+The project manager needs to focus less on
+the details of the product and more on the ability to navigate the plan. 
+Planning needs to include slack time, and time for team members to gain new knowledge.
+One of the primary skills required by the project manager is the ability to delegate.
+The project manager has the final say in the decision-making process — this is
+important to avoid deadlocked debates.</p>
+
+<blockquote>
+  <p>The  team needs to ensure that <strong>exactly</strong> one person
+ is in charge, to ensure that decisions are made when they need to 
+ be made.</p>
+</blockquote>
+
+<p>The <strong>communications manager</strong> is responsible for presentations, 
+communications with other teams (such as when doing usability assessments), 
+preparing reports, and, if you have an external client interested in your work,
+communicating with that client. 
+This is not to say that the communications manager does all the work on these
+presentations and reports. The communications manager is in charge of delegating  to the appropriate other members of the team.</p>
+
+<h4 id="usability">Usability</h4>
+
+<p>The usability role
+investigates intended users, making personas, and does interviews and 
+testing with users. 
+It cooperates with UI designer(s) and the front-end 
+developers to make a usable interface to a useful system by performing 
+usability assessments during development.</p>
+
+<h4 id="front-end-developer">Front-End Developer</h4>
+
+<p>Front-end developers will set up the client side of
+the application, including the HTML for the web pages,
+styling via CSS, aspects of Django, and interaction using Javascript. 
+The front-end developers will interact with the 
+UI Designer and the Usability team, along with
+the back-end developers.</p>
+
+<h4 id="back-end-developer">Back-End Developer</h4>
+
+<p>The back-end developers will set up the server side of the 
+application, including the database. Development will take place
+using Django or PHP, plus SQL and the like.</p>
+
+<h4 id="minor-roles">Minor Roles</h4>
+
+<p>In addition to these core positions, a number of other roles that may need to
+be filled or shared:</p>
+
+<ul>
+  <li>security expert</li>
+  <li>privacy expert</li>
+  <li>visualisation expert — if any data needs to be visualised</li>
+  <li>test data generator — if your system collects data from a large number
+      of users, you’ll need to generate mock data until you get users</li>
+  <li>database designer</li>
+  <li>data modeller</li>
+  <li>UI designer — design the visual appearance of the web site using Photoshop</li>
+  <li>software designer — aim for a clear separation between 
+      front- and back-end functionality</li>
+  <li>technical manager — in charge of getting software installed,
+       setting up github, etc.</li>
+  <li>other  — maybe something specific to your chosen domain.</li>
+</ul>
+
+<h3 id="team-identity">Team Identity</h3>
+
+<p>Think of your team as a small company. Find a snappy name for your
+team and your product. Consider developing a team logo and colour scheme.
+Use the colour scheme and logo in your software, and all deliverables.
+Consider developing a
+document format  for all of
+your deliverables, presentations, and final thesis.</p>
+
+<h2 id="deliverables">Deliverables</h2>
+
+<p>The project involves a number of compulsory deliverables. 
+Typically these involve a small amount of quality work, and are primarily to obtain
+feedback on the work in progress and to help structure your work. 
+Producing these deliverables should not be stressful.
+Most deliverables can be reused, in updated form, in the final report.</p>
+
+<p>All <strong>deadlines are 18:00</strong> on the day mentioned, except when the due date 
+corresponds to a contact moment in the schedule.
+The deliverables are summarised in the table below.
+Those marked with a star (*) occur during a scheduled contact moment.</p>
+
+<p><strong>All deadlines except those marked with a star (*) and the thesis 
+submissions are negotiable!!!!</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Number</th>
+      <th>Title</th>
+      <th>Due Date</th>
+      <th>Week</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>D1</td>
+      <td>Pitch *</td>
+      <td>Friday, March 24</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>D2</td>
+      <td>Requirements</td>
+      <td>Friday, March 31</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td>D3</td>
+      <td>Project Plan</td>
+      <td>Tuesday, April 4</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td>D4</td>
+      <td>System Design</td>
+      <td>Thursday, April 13</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td>D5</td>
+      <td>User Profiling</td>
+      <td>Wednesday, April 19</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td>D6</td>
+      <td>Security and Privacy Analysis</td>
+      <td>Wednesday, April 19</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td>D7</td>
+      <td>Intermediate Presentation *</td>
+      <td>Tuesday, April 25</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td>D8</td>
+      <td>Usability Assessment</td>
+      <td>Monday, May 8</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td>D9</td>
+      <td>Draft Thesis</td>
+      <td>Monday, May 22</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <td>D10</td>
+      <td>Final Presentation *</td>
+      <td>Friday, June 2</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <td>D11</td>
+      <td>Thesis</td>
+      <td>Friday, June 2</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <td>D12</td>
+      <td>Code</td>
+      <td>Friday, June 3</td>
+      <td>22</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Note that the thesis may be handed in one week later,
+technically this is after the end of semester.</strong></p>
+
+<p>Although these deliverables and their order may give the impression
+that the project should be developed following the waterfall model
+this is not the case. Instead, you should follow an agile process.
+Consider the documents as fluid, changing over time as you learn
+more about the system-under-development. The deliverables can be
+seen as a snapshot of work in progress, submitted for comment
+and feedback.</p>
+
+<h4 id="structure-of-deliverables">Structure of deliverables</h4>
+
+<p>Deliverables may be submitted as a document or, after negotiation with the
+lecturer, delivered as a short presentation  (10–15 minutes).</p>
+
+<p>Textual deliverables should be properly structured documents,
+with an introduction, a description of the structure of the document, 
+the body of the document, and a conclusion. As a rough estimate, there
+should be 2-5 pages of content in the deliverables, not including intro, conclusion,
+references, and images.</p>
+
+<p>Presentations need to be to the point and thus must focus on core issues.</p>
+
+<p>Presentations offer the advantage of immediate feedback. The disadvantage is that
+you will miss out on feedback on your writing, and you will not build up
+material to later use in your thesis chapters.</p>
+
+<h3 id="d1-pitch">D1: Pitch</h3>
+
+<p class="blue"><strong>Due: Lecture on Friday, March 24 (wk 12)</strong></p>
+
+<p>Each group needs to come up with <em>up to</em> 3 project ideas
+or variations on single idea.
+These need to be explained and “sold” in
+    a pitch of up to 10 minutes. Slides are optional.</p>
+
+<p>During the pitch, team members should introduce themselves.</p>
+
+<p>The pitch can be delivered by any subset of the team, including just one member
+or all members.</p>
+
+<h3 id="d2-requirements">D2: Requirements</h3>
+
+<p class="blue"><strong>Due: Friday, March 31 (wk 13)</strong></p>
+
+<p>During the second week of the course, project teams will need to determined
+the requirements of the system. Requirements must consider both functional
+and non-functional aspects.  Teams will also need to identify the intended users
+of the system, and where possible find such users and communicate with them
+about the requirements,</p>
+
+<p>This deliverable will consist of:</p>
+
+<ol>
+  <li>An overview of the system-under-design.</li>
+  <li>An overview of the expected users.</li>
+  <li>An overview of how you would expect to make money from the software,
+     if relevant.</li>
+  <li>A list of features that the system must, should and could exhibit.</li>
+  <li>A list of non-functional constraints on the system, such as those
+     related to security, privacy, performance, quality of service, and so forth.</li>
+</ol>
+
+<p>All team members should contribute to this deliverable.</p>
+
+<h3 id="d3-project-plan">D3: Project Plan</h3>
+
+<p class="blue"><strong>Due: Tuesday, April 4 (wk 14)</strong></p>
+
+<p>This deliverable should include:</p>
+
+<ol>
+  <li>A detailed (but preliminary) project plan covering all activities 
+  and all members.</li>
+  <li>Dependencies between activities.</li>
+  <li>Estimated times of activities.</li>
+  <li>Estimated resources (people) for each activity.</li>
+</ol>
+
+<p>The deliverable could be based on a Gantt chart plus descriptions of the
+various activities, or it could be based on a snapshot of your
+Trello/Taiga board.</p>
+
+<p>The plan must include slack time at the end of term to account for 
+delays that may occur. The plan must include time to learn what needs 
+to be learned, and the writing of deliverables and theses.</p>
+
+<p>The plan needs to be viewed as a living document, adapting
+frequently to differences between projected and actual timing of tasks, and changing
+directions of the team. Please save major versions of the plans so that you can 
+see how it evolves. In the thesis, document major differences in planned and actual timing 
+of tasks and try to account for why this happened.</p>
+
+<h3 id="d4-system-design">D4: System Design</h3>
+
+<p class="blue"><strong>Due: Friday, April 13 (wk 15)</strong></p>
+
+<p>This deliverable consists of a high-level system design. The deliverable
+consists of three components:</p>
+
+<ul>
+  <li><strong>Site Map and UI Design</strong>: A description of the user interface and
+     its functionality, perhaps with Photoshop mock-ups.
+     An overview of the expected flow between the pages 
+     in your system.</li>
+  <li><strong>Data and System Specification</strong>: A description of the data model
+      underlying your system, perhaps using ER diagrams.
+      A description of the architecture of the system,
+      using UML diagrams, to capture the relationship between the major components
+      of the system.</li>
+  <li><strong>Glossary</strong>: A dictionary of the key terminology used in describing your
+      system. For example, if your system records exercise activities which
+      you describe as an <em>event</em>, your glossary should state that
+      an <em>event</em> is a record of an exercise activity.</li>
+</ul>
+
+<p>The system design should support a clean separation between the front-
+and back-end functionality.</p>
+
+<h3 id="d5-user-profiling">D5: User Profiling</h3>
+
+<p class="blue"><strong>Due: Wednesday, April 19 (wk 16)</strong></p>
+
+<p>This deliverable aims to answer the question: <em>Who are your users?</em>
+and to provide a plan for evaluating the usability of your system.</p>
+
+<p>This can be answered by conducting interviews with potential users
+and through group discussion.</p>
+
+<p>The document should include:</p>
+
+<ol>
+  <li>Profiles of the intended users, along with personas of each intended user group.</li>
+  <li>Ideas on on how to do a usability test of the system, which involves a 
+    cognitive walk through of your own system design. In other words, what must
+    a (test) user do to help you evaluate your system. This will include
+    several scenarios the user needs to go through, or tasks the user needs
+    to complete.</li>
+</ol>
+
+<h3 id="d6-security--privacy-analysis">D6: Security &amp; Privacy Analysis</h3>
+
+<p class="blue"><strong>Due: Wednesday, April 19 (wk 16)</strong></p>
+
+<p>Each team needs to conduct an analysis of the security and privacy threats
+associated with their chosen project.</p>
+
+<p>The deliverable should include:</p>
+
+<ol>
+  <li>A list of <em>relevant</em> security and privacy threats.</li>
+  <li>A shorter list of which of these are the most pressing to address
+     — the 
+     key question to ask is <em>which security and privacy threats most
+             affect our system’s users?</em></li>
+  <li>A description of how these security and privacy threats can 
+     be mitigated.</li>
+</ol>
+
+<p>Important: Each threat should be described in terms of an example relevant for the
+system-under-development, not in generic terms.</p>
+
+<p>Lists of various security and privacy threats can be found by looking
+at methodologies <a href="https://www.cs.berkeley.edu/~daw/teaching/cs261-f12/hws/Introduction_to_Threat_Modeling.pdf">STRIDE</a> and <a href="https://distrinet.cs.kuleuven.be/software/linddun/">LINDDUN</a>, though you do not need to follow these methodologies in any detail.</p>
+
+<h3 id="d7-intermediate-presentation">D7: Intermediate Presentation</h3>
+
+<p class="blue"><strong>Due: Monday, April 25 (wk 17)</strong></p>
+
+<p>The intermediate presentation gives teams the opportunity to present
+their work in progress — details of what the presentation should contain
+are found below. The slot for each presentation is 45 minutes 
+(about 30 minutes of content, 10 minutes for questions, 5 minutes of slack).</p>
+
+<p>Each team will have another team acting as opposition.
+For this presentation, the opposition does not need to prepare
+in advance, but does need to ask questions at the end
+of the presentation.</p>
+
+<p>We will provide feedback on your presentations to help improve for
+future presentations.</p>
+
+<p>Presentations can be given by some subset of your team, including
+just one member or all members. All team members should be present
+at the introduction of the talk and should reappear for questions.</p>
+
+<h3 id="d8-usability-assessment">D8: Usability Assessment</h3>
+
+<p class="blue"><strong>Due: Monday, May 8 (wk 19)</strong></p>
+
+<p>Conduct a usability study of another group’s system with 
+5 users matching intended users of that particular system. 
+Make use of the other group’s personas to determine which users 
+to find. This report is to be handed in to the teaching staff 
+as well  as to the group whose system has been tested.</p>
+
+<p>The team who receives the usability assessment report needs to
+address all usability flaws and report how they have been
+address (or not, with reasons) in the final report.</p>
+
+<h3 id="d9-draft-thesis">D9: Draft Thesis</h3>
+
+<p class="blue"><strong>Due: Monday, May 22 (wk 21)</strong></p>
+
+<p>A draft of the thesis needs to be submitted so that the other team
+can give feedback and use it as the basis for questions during the final
+presentation. The most important requirement for this deliverable
+is that the structure of the thesis is clear, via, for example, a table
+of contents.</p>
+
+<h3 id="d10-final-presentation">D10: Final Presentation</h3>
+
+<p class="blue"><strong>Due: Friday, June 2 (wk 22)</strong></p>
+
+<p>All projects are presented in a final seminar. Each team appointed an opposing 
+team. 
+Each presentation will take a 45 minute slot, divided as follows:</p>
+
+<ul>
+  <li>30 minutes of content,</li>
+  <li>10 minutes questioning by opponent,</li>
+  <li>5 minutes for other questions.</li>
+</ul>
+
+<p>The format of the presentation is discussed below.</p>
+
+<p>Feedback will be given after the presentation, for the benefit of your
+future presentations.</p>
+
+<h3 id="d11-thesis">D11: Thesis</h3>
+
+<p class="blue"><strong>Due: Friday, June 2 (wk 22)</strong></p>
+
+<p>The final outcome of the course is a thesis describing the software system
+developed. Each team will produce a single thesis together. 
+The thesis  consists of project plan, technical specifications, business model,
+processes taken, various kinds of analysis
+(requirements, security, etc) done, etc. — essentially,
+updated versions of all deliverables —  with added introduction, 
+conclusion and appendices.</p>
+
+<h3 id="d12-the-code">D12: The Code</h3>
+
+<p class="blue"><strong>Due: Friday, June 2 (wk 22)</strong></p>
+
+<p>Provide a link to your GitHub repository with read access permission 
+given to <code>supercooldave</code>.</p>
+
+<p>Ensure (from the start) that your repository is kept clean. 
+Old versions of the software, experiments, etc, should be removed
+or placed in some “old” directory.</p>
+
+<p>Provide a <code>README.md</code> document to make navigation of the
+repository easier.</p>
+
+<p>Please <strong>do not</strong> produce a new repository for submission —
+we want to see your development history and the other statistics available
+in GitHub.</p>
+
+<p>Note: teams are permitted to borrow code from the
+Internet and to use sites like <a href="stackexchange.com">StackExchange</a> in order to
+solve any technical issues that may arise. <em>All code borrowed from elsewhere
+needs to be properly attributed to avoid problems of plagiarism.</em></p>
+
+<h2 id="guidelines-for-presentations">Guidelines for Presentations</h2>
+
+<h3 id="presentation-content">Presentation Content</h3>
+
+<p>Both presentations should cover the following topics, not necessarily in
+this order.</p>
+
+<ul>
+  <li>Goals of system: purpose and design objectives</li>
+  <li>Expected users of the system and corresponding use cases</li>
+  <li>Architecture diagram: system overview, UML diagrams, etc</li>
+  <li>Major components and functionality</li>
+  <li>Implementation: choice of tools, major challenges</li>
+  <li>User interfaces: HCI issues</li>
+  <li>Evaluation: experiments and results</li>
+  <li>Discussion: lessons learned and (possible) future work</li>
+  <li>Demo</li>
+</ul>
+
+<h3 id="recommendations-for--presentations">Recommendations for  Presentations</h3>
+
+<ul>
+  <li>Communication manager organises presentation and delagates parts (if desired).</li>
+  <li>Test beforehand that your laptop and the projector communicate well 
+      (the projector may have a different resolution that may affect screen shots and Powerpoint presentations).</li>
+  <li>Rehearse the presentation and demo.</li>
+  <li>The audience are your fellow students (not the assistents or  teacher).</li>
+  <li>Take it slow, start from the beginning.</li>
+  <li>You are by now very familiar with the project, the audience is not (even though
+      they are working on the same topic)!</li>
+  <li>Be selective, plan your timing. Include both non-technical and technical aspects.</li>
+  <li>Understand everything you say — don’t say everything you understand.</li>
+  <li>An ER diagram/UML diagram usually helps to clarify your terminology 
+      (but you might want to omit most attributes for clarity).</li>
+  <li>Demonstrate both regular use and incorrect use (error messages, failed login).</li>
+  <li>Sell it! Show through verbal and (most importantly) nonverbal communication that you believe in yourself and in the system. Team members are not yet presenting
+       still send nonverbal signals.</li>
+  <li>Don’t oversell it. Things that don’t work (yet), don’t work. Reflect on the product and say what could be improved (1 or 2 slides: this is mostly a point for the final discussion).
+Comment on the process as well: how did your time plan work, what was hard, what did you learn? (1 or 2 slides: this is mostly a point for the final discussion).</li>
+  <li>Include overview slides in your presentation to help listeners follow your
+     story.</li>
+</ul>
+
+<h3 id="recommendations-for-the-opposition">Recommendations for the Opposition</h3>
+
+<p>The role of the opposition is to question the design choices 
+made by the team being opposed, to ask for clarifications when there 
+are misunderstandings, and to get more information about their project
+than what is explicitly said in the report/presentation.</p>
+
+<ul>
+  <li>All students must participate actively in the opposition.</li>
+  <li>What are the strong aspects of the project? What could have been better (realistically)?</li>
+  <li>What choices did the team make — why?</li>
+  <li>Comment both the presentation and the written report.</li>
+  <li>Don’t dig down into nitty-gritty details during the opposition (“In the first paragraph of page 5 …”) — you can prepare list of issues and discuss them with the authors afterwards.</li>
+</ul>
+
+<h2 id="guidelines-for-thesis">Guidelines for Thesis</h2>
+
+<p>The thesis reports on the work you have done over the term.
+It will include a description of your project, its design, its users,
+the planning, and so forth.</p>
+
+<p>As a rough guideline, each student will contribute approximately 10–15 pages of text,
+not including the appendix describing the individual contribution.</p>
+
+<p>Here is an outline of what should be in the report. 
+Note that the headings used here are generic, make your own more informative
+headings.    You can change the order of sections: write in an order that 
+feels natural, and does not require too many forward pointers. You can 
+join or split sections.
+The order in which you write the report is usually not the order of 
+sections in the report.</p>
+
+<p>Write as you work on the project — as paragraph or a page at a time — 
+and put things into place later; the deliverables force you to do this writing.</p>
+
+<p>Anything that refers to code (methods, .php files) usually belongs in an appendix. 
+Also extensive screen shots or use case diagrams belong in an appendix.</p>
+
+<ul>
+  <li><strong>Abstract</strong></li>
+  <li><strong>Table of contents</strong></li>
+  <li><strong>Introduction</strong>   <br />
+An introduction stating the broad idea,
+and the context of the project (not STS IP is not the context).</li>
+  <li><strong>Socio-economic aspects</strong><br />
+What is your target user group? Why would they be interested?<br />
+How will your system make money (if relevant)?</li>
+  <li><strong>The user perspective</strong> (Administrators are also users!)<br />
+Use cases (what can a user do,  and how)?<br />
+User interfaces. <br />
+Graphical design (is it distinguishing, and attractive for your target group?)<br />
+Do not forget incorrect use (error detection, informative error messages)!<br />
+User involvement, focus group, etc. (this can also be put under “method”) <br />
+Motivate the choices that you made!</li>
+  <li><strong>Method</strong><br />
+Time plan and outcome. <br />
+Process of design and implementation.<br />
+Working methods (work division, group dynamics, what was hard, …) <br />
+Why this (implementation) method was selected.</li>
+  <li><strong>Database design</strong><br />
+ER diagram + explanation + motivation of your choices.<br />
+Tables, keys, …<br />
+How did the design evolve?</li>
+  <li><strong>Technical solutions</strong><br />
+Tools and components used (short description, references that you found useful)<br />
+How things fit together (software architecture)<br />
+Security</li>
+  <li><strong>Evaluation</strong><br />
+Testing methods used, test results (unit tests, system tests, user evaluations)<br />
+Things you would need to fix before launching the site.<br />
+Performance, scalability (would this work “for real”?)</li>
+  <li><strong>Reflection</strong><br />
+How did your process change over the term?<br />
+What would you have done differently were you to start again?<br />
+What hurdles held your team back? How would you get around them if
+you could try again?<br />
+(Perhaps reflection could be distributed across the relevant chapters,
+rather than grouped here)</li>
+  <li><strong>Conclusion</strong> <br />
+Further development: all the ideas that you had,
+but didn’t have time to implement, or that were too difficult with standard technology.<br />
+Lessons learned</li>
+  <li><strong>References</strong> (see below)</li>
+  <li><strong>Appendix</strong><br />
+Each student needs to write 3 pages describing what their role
+in the project was, what work they did, what text they wrote, and what they
+learned during the project.</li>
+</ul>
+
+<p>Try to avoid a chronological story where you are the stars: “We chose to do this project
+because ….” Focus on the project, not yourselves. Also avoid writing things like
+“This project was done for STS IP.” Focus on the project, not the course.</p>
+
+<h3 id="formalities-of-the-report">Formalities of the report</h3>
+
+<ul>
+  <li>You must write in English.</li>
+  <li>To pass, the required level of English must be understandable, not so bad that it prevents us from reading the report.</li>
+  <li>Use section numbers and page numbers.</li>
+  <li>Include a table of contents.</li>
+  <li>Use numbers and captions for figures and tables.</li>
+  <li>Use footnotes for clarifying comments, not for references.</li>
+  <li>References<br />
+In text: preferably short keys ([12], [OsRi2011]).<br />
+Endnotes: sorted on key.<br />
+For a paper reference: authors, year (month), how published.<br />
+For a web reference: URL, date visited, if possible: title, author/organisation. <br />
+Consult a style guide.</li>
+</ul>
+

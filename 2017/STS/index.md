@@ -1,5 +1,16 @@
 <link rel="stylesheet" href="css/splendor.css">
 
+<style>
+tr:nth-child(even) {background-color: #f2f2f2}
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+.blue {
+  color: blue;
+}
+</style>
+
 # STS Independent Project 2017
 
 ### Lecturer: Dave Clarke
@@ -15,6 +26,9 @@ The project will involve programming, project management, communication,
 brain storming, and much more.
 You **will be required** to independently acquire new
 knowledge in order to complete the project successfully.
+
+- TOC
+{:toc}
 
 ## Teaching Staff and Contact Moments
 
@@ -47,12 +61,13 @@ will be very present, the project becomes completely your responsibility.
 
 The following table lists all the course contact moments and their purpose.
 
+| Date | Content | Lecturer |
 |---|---|---|
 | Monday, 20/3 | Introduction Lecture, Course Overview, Team formation, Visit Project Room | Dave |
 | Tuesday, 21/3 | Project Management lecture, Scrum, Kanban, project management tools: Git, Trello, Taiga, Slack. | Tobias Wrigstad, Kiko Fernandez (guests) |
 | Friday, 24/3 | Groups pitch their  project ideas. | Dave, Davide, Anton |
 | Monday, 27/3 | Web Technology lecture             | Davide |
-| Thursday, 29/3 | Security lecture  | Bj\"orn Victor (guest) |
+| Thursday, 29/3 | Security lecture  | Björn Victor (guest) |
 | Tuesday, 3/4 | Usability lecture   | Anton |
 | Monday, 25/5 | Intermediate presentations  |  |
 | Friday, 2/6  | Final presentations         |  |
@@ -280,25 +295,23 @@ submissions are negotiable!!!!**
 
 | Number | Title   | Due Date |  Week |
 | -------|---------|----------|-------|
-| D1     | Pitch * |  Friday, March 24 | 12 |
+| D1     | Pitch \* |  Friday, March 24 | 12 |
 | D2 | Requirements | Friday, March 31 | 13 |
 | D3 | Project Plan | Tuesday, April 4 | 14 |
-| D4 | System Design & Thursday, April 13 & 15 \\ \hline
-        D5 & User Profiling & Wednesday, April 19 & 16 \\ \hline
-        D6 & Security and Privacy Analysis & Wednesday, April 19 & 16 \\ \hline
-        D7 & Intermediate Presentation${}^*$ & Tuesday, April 25 & 17 \\ \hline
-        D8 & Usability Assessment & Monday, May 8 & 19 \\ \hline
-        D9 & Draft Thesis & Monday, May 22 & 21 \\ \hline
-        D10 & Final Presentation${}^*$ & Friday, June 2 & 22 \\ \hline
-        D11 & Thesis & Friday, June 2 & 22 \\ \hline
-        D12 & Code & Friday, June 3 & 22 \\ \hline
+| D4 | System Design | Thursday, April 13 | 15 |
+| D5 | User Profiling | Wednesday, April 19 | 16 |
+| D6 | Security and Privacy Analysis | Wednesday, April 19 | 16 |
+| D7 | Intermediate Presentation \* | Tuesday, April 25 | 17 |
+| D8 | Usability Assessment | Monday, May 8 | 19 |
+| D9 | Draft Thesis | Monday, May 22 | 21 |
+| D10 | Final Presentation \* | Friday, June 2 | 22 |
+| D11 | Thesis | Friday, June 2 | 22 |
+| D12 | Code | Friday, June 3 | 22 |
  
- 
- 
+
  
 **Note that the thesis may be handed in one week later,
 technically this is after the end of semester.**
-
 
 Although these deliverables and their order may give the impression
 that the project should be developed following the waterfall model
@@ -310,27 +323,41 @@ and feedback.
 
 #### Structure of deliverables
 
-All textual deliverables should be properly structured documents,
+Deliverables may be submitted as a document or, after negotiation with the
+lecturer, delivered as a short presentation  (10--15 minutes). 
+
+Textual deliverables should be properly structured documents,
 with an introduction, a description of the structure of the document, 
 the body of the document, and a conclusion. As a rough estimate, there
 should be 2-5 pages of content in the deliverables, not including intro, conclusion,
 references, and images.
 
+Presentations need to be to the point and thus must focus on core issues.
 
+Presentations offer the advantage of immediate feedback. The disadvantage is that
+you will miss out on feedback on your writing, and you will not build up
+material to later use in your thesis chapters.
 
-## D1: Pitch --- Lecture on Friday, March 24 (wk 12)
+### D1: Pitch
 
-Each group needs to come up with \emph{up to} 3 project ideas
+**Due: Lecture on Friday, March 24 (wk 12)**
+{: .blue}
+
+Each group needs to come up with _up to_ 3 project ideas
 or variations on single idea.
-These need to be explained and `sold' in
+These need to be explained and "sold" in
     a pitch of up to 10 minutes. Slides are optional.
 
 During the pitch, team members should introduce themselves.
 
 The pitch can be delivered by any subset of the team, including just one member
-or all members
+or all members.
 
-## D2: Requirements --- Friday, March 31 (wk 13)
+
+### D2: Requirements 
+
+**Due: Friday, March 31 (wk 13)**
+{: .blue}
 
 During the second week of the course, project teams will need to determined
 the requirements of the system. Requirements must consider both functional
@@ -339,34 +366,34 @@ of the system, and where possible find such users and communicate with them
 about the requirements, 
 
 This deliverable will consist of:
-\begin{enumerate}
-    \item An overview of the system-under-design.
-    \item An overview of the expected users.
-    \item An overview of how you would expect to make money from the software,
+
+1. An overview of the system-under-design.
+2. An overview of the expected users.
+3. An overview of how you would expect to make money from the software,
         if relevant.
-    \item A list of features that the system must, should and could exhibit.
-    \item A list of non-functional constraints on the system, such as those
+4. A list of features that the system must, should and could exhibit.
+5. A list of non-functional constraints on the system, such as those
         related to security, privacy, performance, quality of service, and so forth.       
-\end{enumerate}
 
 All team members should contribute to this deliverable.
 
-## D3: Project Plan --- Tuesday, April 4 (wk 14)
+### D3: Project Plan
+
+**Due: Tuesday, April 4 (wk 14)**
+{: .blue}
 
 This deliverable should include:
-\begin{enumerate}
-    \item A detailed (but preliminary) project plan covering all activities 
+
+1. A detailed (but preliminary) project plan covering all activities 
      and all members.
-     \item Dependencies between activities.
-     \item Estimated times of activities.
-     \item Estimated resources (people) for each activity.
-\end{enumerate}
+2. Dependencies between activities.
+3. Estimated times of activities.
+4. Estimated resources (people) for each activity.
 
 The deliverable could be based on a Gantt chart plus descriptions of the
 various activities, or it could be based on a snapshot of your
 Trello/Taiga board.
 
-%This deliverable is primarily the responsibility of the Management.
 
 The plan must include slack time at the end of term to account for 
 delays that may occur. The plan must include time to learn what needs 
@@ -380,35 +407,39 @@ of tasks and try to account for why this happened.
 
 
 
-## D4: System Design --- Friday, April 13 (wk 15)
+### D4: System Design
+
+**Due: Friday, April 13 (wk 15)**
+{: .blue}
 
 This deliverable consists of a high-level system design. The deliverable
 consists of three components:
-\begin{description}
-    \item[Site Map and UI Design] A description of the user interface and
+
+*  **Site Map and UI Design**: A description of the user interface and
         its functionality, perhaps with Photoshop mock-ups.
         An overview of the expected flow between the pages 
         in your system. 
-    \item[Data and System Specification] A description of the data model
+* **Data and System Specification**: A description of the data model
         underlying your system, perhaps using ER diagrams.
         A description of the architecture of the system,
         using UML diagrams, to capture the relationship between the major components
         of the system.
-    \item[Glossary] A dictionary of the key terminology used in describing your
+* **Glossary**: A dictionary of the key terminology used in describing your
         system. For example, if your system records exercise activities which
-        you describe as an \emph{event}, your glossary should state that
-        an \textbf{event} is a record of an exercise activity.        
-\end{description}
+        you describe as an _event_, your glossary should state that
+        an _event_ is a record of an exercise activity.        
 
 The system design should support a clean separation between the front-
 and back-end functionality.
 
 
-%This deliverable is the responsibility of the Development groups.
 
-## D5: User Profiling --- Wednesday, April 19 (wk 16)
+### D5: User Profiling
 
-This deliverable aims to answer the question: \emph{Who are your users?}
+**Due: Wednesday, April 19 (wk 16)**
+{: .blue}
+
+This deliverable aims to answer the question: _Who are your users?_
 and to provide a plan for evaluating the usability of your system.
 
 This can be answered by conducting interviews with potential users
@@ -416,45 +447,47 @@ and through group discussion.
 
 
 The document should include:
-\begin{enumerate}
-    \item Profiles of the intended users, along with personas of each intended user group. 
-    \item Ideas on on how to do a usability test of the system, which involves a 
+
+1. Profiles of the intended users, along with personas of each intended user group. 
+2. Ideas on on how to do a usability test of the system, which involves a 
        cognitive walk through of your own system design. In other words, what must
        a (test) user do to help you evaluate your system. This will include
        several scenarios the user needs to go through, or tasks the user needs
        to complete.
-\end{enumerate}
 
-%This deliverable is the responsibility of the Usability group.
 
-## D6: Security \& Privacy Analysis --- Wednesday, April 19 (wk 16)
+### D6: Security & Privacy Analysis
 
+
+**Due: Wednesday, April 19 (wk 16)**
+{: .blue}
 
 Each team needs to conduct an analysis of the security and privacy threats
 associated with their chosen project. 
 
 The deliverable should include:
-\begin{enumerate}
-    \item A list of \emph{relevant} security and privacy threats.
-    \item A shorter list of which of these are the most pressing to address
+
+1. A list of _relevant_ security and privacy threats.
+2. A shorter list of which of these are the most pressing to address
         --- the 
-        key question to ask is \emph{which security and privacy threats most
-        affect our system's users?}
-    \item A description of how these security and privacy threats can 
+        key question to ask is *which security and privacy threats most
+                affect our system's users?*
+3. A description of how these security and privacy threats can 
         be mitigated.
-\end{enumerate}
 
 Important: Each threat should be described in terms of an example relevant for the
 system-under-development, not in generic terms. 
 
 Lists of various security and privacy threats can be found by looking
-at methodologies STRIDE%
-\footnote{\url{https://www.cs.berkeley.edu/~daw/teaching/cs261-f12/hws/Introduction_to_Threat_Modeling.pdf}}\footnote{\url{https://www.microsoft.com/en-us/sdl/}} and LINDDUN\footnote{\url{https://distrinet.cs.kuleuven.be/software/linddun/}}, though you do not need to follow these methodologies in any detail.
+at methodologies [STRIDE](https://www.cs.berkeley.edu/~daw/teaching/cs261-f12/hws/Introduction_to_Threat_Modeling.pdf) and [LINDDUN](https://distrinet.cs.kuleuven.be/software/linddun/), though you do not need to follow these methodologies in any detail.
 
 
 
 
-### D7: Intermediate Presentation --- Monday, April 25 (wk 17)
+### D7: Intermediate Presentation 
+
+**Due: Monday, April 25 (wk 17)**
+{: .blue}
 
 The intermediate presentation gives teams the opportunity to present
 their work in progress --- details of what the presentation should contain
@@ -476,8 +509,10 @@ at the introduction of the talk and should reappear for questions.
 
  
 
-## D8: Usability Assessment --- Monday, May 8 (wk 19)
+### D8: Usability Assessment
 
+**Due: Monday, May 8 (wk 19)**
+{: .blue}
 
 Conduct a usability study of another group's system with 
 5 users matching intended users of that particular system. 
@@ -491,7 +526,10 @@ address all usability flaws and report how they have been
 address (or not, with reasons) in the final report.
 
 
-## D9: Draft Thesis --- Monday, May 22 (wk 21)
+### D9: Draft Thesis
+
+**Due: Monday, May 22 (wk 21)**
+{: .blue}
 
 A draft of the thesis needs to be submitted so that the other team
 can give feedback and use it as the basis for questions during the final
@@ -501,17 +539,19 @@ of contents.
 
 
 
-## D10: Final Presentation --- Friday, June 2 (wk 22)
+### D10: Final Presentation
+
+**Due: Friday, June 2 (wk 22)**
+{: .blue}
 
 All projects are presented in a final seminar. Each team appointed an opposing 
 team. 
 Each presentation will take a 45 minute slot, divided as follows:
-\begin{itemize}
-    \item 30 minutes of content, 
-    \item 10 minutes questioning by opponent, 
-    \item 5 minutes
-for other questions. 
-\end{itemize}
+
+* 30 minutes of content, 
+* 10 minutes questioning by opponent, 
+* 5 minutes for other questions. 
+
 The format of the presentation is discussed below.
 
 Feedback will be given after the presentation, for the benefit of your
@@ -519,7 +559,10 @@ future presentations.
 
  
 
-## D11: Thesis --- Friday, June 2 (wk 22)
+### D11: Thesis
+
+**Due: Friday, June 2 (wk 22)**
+{: .blue}
 
 The final outcome of the course is a thesis describing the software system
 developed. Each team will produce a single thesis together. 
@@ -529,7 +572,10 @@ processes taken, various kinds of analysis
 updated versions of all deliverables ---  with added introduction, 
 conclusion and appendices.
 
-## D12: The Code --- Friday, June 2 (wk 22)
+### D12: The Code
+
+**Due: Friday, June 2 (wk 22)**
+{: .blue}
 
 Provide a link to your GitHub repository with read access permission 
 given to `supercooldave`.
@@ -546,9 +592,9 @@ we want to see your development history and the other statistics available
 in GitHub.
 
 Note: teams are permitted to borrow code from the
-Internet and to use sites like \url{stackexchange.com} in order to
-solve any technical issues that may arise. \emph{All code borrowed from elsewhere
-needs to be properly attributed to avoid problems of plagiarism.}  
+Internet and to use sites like [StackExchange](stackexchange.com) in order to
+solve any technical issues that may arise. *All code borrowed from elsewhere
+needs to be properly attributed to avoid problems of plagiarism.*  
 
 
 ## Guidelines for Presentations
@@ -557,42 +603,40 @@ needs to be properly attributed to avoid problems of plagiarism.}
 
 Both presentations should cover the following topics, not necessarily in
 this order.
-\begin{enumerate}
-\item Goals of system: purpose and design objectives
-\item Expected users of the system and corresponding use cases
-\item Architecture diagram: system overview, UML diagrams, etc
-\item Major components and functionality
-\item Implementation: choice of tools, major challenges
-\item User interfaces: HCI issues
-\item Evaluation: experiments and results
-\item Discussion: lessons learned and (possible) future work
-\item Demo
-\end{enumerate}
+
+* Goals of system: purpose and design objectives
+* Expected users of the system and corresponding use cases
+* Architecture diagram: system overview, UML diagrams, etc
+* Major components and functionality
+* Implementation: choice of tools, major challenges
+* User interfaces: HCI issues
+* Evaluation: experiments and results
+* Discussion: lessons learned and (possible) future work
+* Demo
 
 
 ### Recommendations for  Presentations
 
-\begin{itemize}
-    \item Communication manager organises presentation and delagates parts (if desired).
-    \item Test beforehand that your laptop and the projector communicate well 
+
+* Communication manager organises presentation and delagates parts (if desired).
+* Test beforehand that your laptop and the projector communicate well 
         (the projector may have a different resolution that may affect screen shots and Powerpoint presentations).
-    \item Rehearse the presentation and demo.
-    \item The audience are your fellow students (not the assistents or  teacher).
-    \item Take it slow, start from the beginning.
-    \item You are by now very familiar with the project, the audience is not (even though
+* Rehearse the presentation and demo.
+* The audience are your fellow students (not the assistents or  teacher).
+* Take it slow, start from the beginning.
+* You are by now very familiar with the project, the audience is not (even though
         they are working on the same topic)!
-    \item Be selective, plan your timing. Include both non-technical and technical aspects.
-    \item Understand everything you say --- don't say everything you understand.
-    \item An ER diagram/UML diagram usually helps to clarify your terminology 
+* Be selective, plan your timing. Include both non-technical and technical aspects.
+* Understand everything you say --- don't say everything you understand.
+* An ER diagram/UML diagram usually helps to clarify your terminology 
         (but you might want to omit most attributes for clarity).
-    \item Demonstrate both regular use and incorrect use (error messages, failed login).
-    \item Sell it! Show through verbal and (most importantly) nonverbal communication that you believe in yourself and in the system. Team members are not yet presenting
+* Demonstrate both regular use and incorrect use (error messages, failed login).
+* Sell it! Show through verbal and (most importantly) nonverbal communication that you believe in yourself and in the system. Team members are not yet presenting
          still send nonverbal signals.
-    \item Don't oversell it. Things that don't work (yet), don't work. Reflect on the product and say what could be improved (1 or 2 slides: this is mostly a point for the final discussion).
+* Don't oversell it. Things that don't work (yet), don't work. Reflect on the product and say what could be improved (1 or 2 slides: this is mostly a point for the final discussion).
 Comment on the process as well: how did your time plan work, what was hard, what did you learn? (1 or 2 slides: this is mostly a point for the final discussion).
-   \item Include overview slides in your presentation to help listeners follow your
+* Include overview slides in your presentation to help listeners follow your
        story.
-\end{itemize}
 
 
 ### Recommendations for the Opposition
@@ -603,14 +647,11 @@ made by the team being opposed, to ask for clarifications when there
 are misunderstandings, and to get more information about their project
 than what is explicitly said in the report/presentation.
 
-\begin{itemize}
-\item All students must participate actively in the opposition.
-\item What are the strong aspects of the project? What could have been better (realistically)?
-\item What choices did the team make --- why?
-\item Comment both the presentation and the written report.
-\item Don't dig down into nitty-gritty details during the opposition 
- (``In the first paragraph of page 5 ...") --- you can prepare list of issues and discuss them with the authors afterwards.
-\end{itemize}
+* All students must participate actively in the opposition.
+* What are the strong aspects of the project? What could have been better (realistically)?
+* What choices did the team make --- why?
+* Comment both the presentation and the written report.
+* Don't dig down into nitty-gritty details during the opposition ("In the first paragraph of page 5 ...") --- you can prepare list of issues and discuss them with the authors afterwards.
 
 
 ## Guidelines for Thesis
@@ -638,93 +679,73 @@ and put things into place later; the deliverables force you to do this writing.
 Anything that refers to code (methods, .php files) usually belongs in an appendix. 
 Also extensive screen shots or use case diagrams belong in an appendix.
 
-\begin{description}
-\item[Abstract]
-\item[Table of contents]
-\item[Introduction] ~ \\ An introduction stating the broad idea,
+* **Abstract**
+* **Table of contents**
+* **Introduction**     
+An introduction stating the broad idea,
 and the context of the project (not STS IP is not the context).
-\item[Socio-economic aspects] ~\\
-What is your target user group? Why would they be interested?  \\
-%How can you market your site? What is the competition (online and offline)? \\
+* **Socio-economic aspects**  
+What is your target user group? Why would they be interested?  
 How will your system make money (if relevant)?
-%Are there (intended or unintended) social, economical, environmental, ethical effects that need 
-%to be considered?
-
-\item[The user perspective] (Administrators are also users!) \\
-Use cases (what can a user do,  and how)? \\
-User interfaces. \\
-Graphical design (is it distinguishing, and attractive for your target group?) \\
-Do not forget incorrect use (error detection, informative error messages)! \\
-User involvement, focus group, etc. (this can also be put under ``method") \\
-Motivate the choices that you made!
-
-\item[Method] ~ \\
-Time plan and outcome. \\
-Process of design and implementation. \\
-Working methods (work division, group dynamics, what was hard, ...) \\
+* **The user perspective** (Administrators are also users!)  
+Use cases (what can a user do,  and how)?  
+User interfaces.   
+Graphical design (is it distinguishing, and attractive for your target group?)  
+Do not forget incorrect use (error detection, informative error messages)!  
+User involvement, focus group, etc. (this can also be put under "method")   
+Motivate the choices that you made!  
+* **Method**  
+Time plan and outcome.   
+Process of design and implementation.  
+Working methods (work division, group dynamics, what was hard, ...)   
 Why this (implementation) method was selected.
-
-\item[Database design] ~ \\
-ER diagram + explanation + motivation of your choices. \\
-Tables, keys, ... \\
+* **Database design**  
+ER diagram + explanation + motivation of your choices.  
+Tables, keys, ...  
 How did the design evolve?
-
-\item[Technical solutions] ~ \\
-Tools and components used (short description, references that you found useful) \\
-How things fit together (software architecture) \\
+* **Technical solutions**  
+Tools and components used (short description, references that you found useful)  
+How things fit together (software architecture)  
 Security
-
-\item[Evaluation] ~ \\
-Testing methods used, test results (unit tests, system tests, user evaluations) \\
-Things you would need to fix before launching the site.  \\
-Performance, scalability (would this work ``for real"?)
-
-\item[Reflection] ~ \\
-How did your process change over the term? \\
-What would you have done differently were you to start again? \\
+* **Evaluation**  
+Testing methods used, test results (unit tests, system tests, user evaluations)  
+Things you would need to fix before launching the site.  
+Performance, scalability (would this work "for real"?)
+* **Reflection**  
+How did your process change over the term?  
+What would you have done differently were you to start again?  
 What hurdles held your team back? How would you get around them if
-you could try again? \\
+you could try again?  
 (Perhaps reflection could be distributed across the relevant chapters,
 rather than grouped here)
-
-\item[Conclusion] ~ \\
-Further development: all the ideas that you had, 
-but didn't have time to implement, or that were too difficult with standard technology. \\
+* **Conclusion**   
+Further development: all the ideas that you had,
+but didn't have time to implement, or that were too difficult with standard technology.  
 Lessons learned
-
-\item[References] 
-(see below)
-
-\item[Appendix] ~ \\
+* **References** (see below)
+* **Appendix**  
 Each student needs to write 3 pages describing what their role
 in the project was, what work they did, what text they wrote, and what they
 learned during the project.
 
-\end{description}
 
-Try to avoid a chronological story where you are the stars: `We chose to do this project
-because ....' Focus on the project, not yourselves. Also avoid writing things like
-`This project was done for STS IP.' Focus on the project, not the course.
+Try to avoid a chronological story where you are the stars: "We chose to do this project
+because ...." Focus on the project, not yourselves. Also avoid writing things like
+"This project was done for STS IP." Focus on the project, not the course.
 
 ### Formalities of the report
 
-\begin{itemize}
-        \item You must write in English.
-    \item 
-To pass, the required level of English must be understandable, not so bad that it prevents us from reading the report.
-    \item
-Use section numbers and page numbers.
-\item Include a table of contents.
-\item
-Use numbers and captions for figures and tables.
-\item 
-Use footnotes for clarifying comments, not for references.
-\item
-References \\
-  In text: preferably short keys ([12], [OsRi2011]). \\
-  Endnotes: sorted on key. \\
-  For a paper reference: authors, year (month), how published. \\
-  For a web reference: URL, date visited, if possible: title, author/organisation.  \\
+
+* You must write in English.
+* To pass, the required level of English must be understandable, not so bad that it prevents us from reading the report.
+* Use section numbers and page numbers.
+* Include a table of contents.
+* Use numbers and captions for figures and tables.
+* Use footnotes for clarifying comments, not for references.
+* References  
+  In text: preferably short keys (\[12\], \[OsRi2011\]).  
+  Endnotes: sorted on key.  
+  For a paper reference: authors, year (month), how published.  
+  For a web reference: URL, date visited, if possible: title, author/organisation.   
   Consult a style guide.
-\end{itemize}
 

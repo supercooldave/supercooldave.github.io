@@ -71,7 +71,7 @@ will get you into these offices.
 
 ##Grading
 
-The course is graded on a \textbf{U/G} scale. 
+The course is graded on a **U/G*** scale. 
 Examination is through active participation in the project, 
 timely submission of deliverables, 
 adequate opposition during presenations, and approval of the final report.
@@ -80,72 +80,52 @@ and in the case of an insufficient result, you will be
 given the chance  to resubmit the relevant components. 
 
 
-%\subsection*{Competition}    
-    
-%All teams will begin their project from the same starting description, though
-%along the way teams will naturally take different paths and the outcomes will
-%be very different.
-%To keep you motivated to make something awesome, there will be a prize for the team
-%that produces the best software system --- note that this is independent of your grade
-%and for fun only.  
-    
 
 
-\section{The Project}
+
+##The Project
 
 The course involves  an extensive software development project. 
 You need to decide the topic of the project.
-The project will be developed in teams of 6 ($\pm 1$).
+The project will be developed in teams of 5-7.
 
-\subsection{Requirements}
+###Requirements
 
 The following are constraints on the grand idea underlying your project,
 phrased
 in terms of compulsory requirements (MUST), desired requirements (SHOULD),
 and possible requirements (COULD).
 
-\begin{itemize}
-    \item
-The system MUST be a web information system --- a web front end connected to
+
+ * The system MUST be a web information system --- a web front end connected to
 a server with a database --- or a smart phone app.  
 The database will probably contain users and products, 
 for instance.
-    \item
-If the system is a web app, it MUST provide a responsive interface, that is, it must automatically adapt
+ * If the system is a web app, it MUST provide a responsive interface, that is, it must automatically adapt
 to desktop and mobile devices.
-    \item
-The system MUST support user accounts, automated user registration,
+ * The system MUST support user accounts, automated user registration,
  and logging in, along with the appropriate security
 support. The service provided by the system MUST be connected to user accounts,
 and allow users to connect to each other.
 Administrator log in and associated functionality MUST be provided.
-    \item
-The system MUST have a social component (social involvement, social engineering). 
+ *  The system MUST have a social component (social involvement, social engineering). 
 The system MUST utilise the connections between users.
 This COULD be realised by having the system connect via a social networking API
 to Facebook  or Twitter.
-    \item
-The system MUST be involve some technical challenges.
-    \item The system SHOULD  be based on a (somewhat) realistic business idea.
-    \item The system does not have to be original (almost anything that you could think of is on the web anyway), but it SHOULD have some original aspect.
-    \item The system SHOULD present an attractive user interface to
+ * The system MUST be involve some technical challenges.
+ * The system SHOULD  be based on a (somewhat) realistic business idea.
+ * The system does not have to be original (almost anything that you could think of is on the web anyway), but it SHOULD have some original aspect.
+ * The system SHOULD present an attractive user interface to
         ``regular'' users.
-    \item
-The system COULD source data from the web.
-    \item
-The system COULD be, in part, a mashup or integration of other services.
-    \item
-The system COULD support and utilise geolocation, perhaps with Google Maps
+ * The system COULD source data from the web.
+ * The system COULD be, in part, a mashup or integration of other services.
+ * The system COULD support and utilise geolocation, perhaps with Google Maps
 or Open Street Map integration.
-    \item
-The system COULD generate a lot of data that could be useful and interesting to
+ * The system COULD generate a lot of data that could be useful and interesting to
 analyse.
-    \item
-The system COULD provide support to visualise the data generated, using existing
+ * The system COULD provide support to visualise the data generated, using existing
 visualisation tools.
-    \item
-    You MUST think big.
-\end{itemize}
+ * You MUST think big.
 
 
 Perhaps you could ask yourselves \emph{What is missing in your lives?}%
@@ -155,7 +135,7 @@ crowd sourcing, human computation, volunteer computation, ...
 
 
 
-\subsection{Technical Constraints}
+###Technical Constraints
 
 
 There are no constraints about what language you implement your system in. 

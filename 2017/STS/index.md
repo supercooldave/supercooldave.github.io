@@ -66,13 +66,18 @@ The following table lists all the course contact moments and their purpose.
 | Date | Content | Lecturer |
 |---|---|---|
 | Monday, 20/3 | Introduction Lecture, Course Overview, Team formation, Visit Project Room | Dave |
-| Tuesday, 21/3 | Project Management lecture, Scrum, Kanban, project management tools: Git, Trello, Taiga, Slack. | Tobias Wrigstad, Kiko Fernandez (guests) |
+| Tuesday, 21/3 | Project Management lecture, Scrum, Kanban, project management tools: [Git](github.com/), [Trello](https://trello.com/), [Taiga](https://taiga.io/), [Slack](http://slack.com). | Tobias Wrigstad, Kiko Fernandez (guests) |
 | Friday, 24/3 | Groups pitch their  project ideas. | Dave, Davide, Anton |
 | Monday, 27/3 | Web Technology lecture             | Davide |
 | Thursday, 29/3 | Security lecture  | Björn Victor (guest) |
 | Tuesday, 3/4 | Usability lecture   | Anton |
 | Monday, 25/5 | Intermediate presentations  |  |
 | Friday, 2/6  | Final presentations         |  |
+
+
+#### Slack Channel
+
+The Slack site [stsip.slack.com](https://stsip.slack.com/) will allow you to chat directly to the teaching and receive announcements from them. 
 
 ## Project Rooms
 
@@ -81,6 +86,7 @@ work on your projects together with your teams. You can organise the rooms how y
 want (within reason). There will be machines there for you to use --- if not, these
 can be ordered. The door is locked, and your student card or a code
 will get you into these offices.
+
 
 
 ## Grading
@@ -92,8 +98,6 @@ adequate opposition during presenations, and approval of the final report.
 You will be giving feedback on your deliverables, 
 and in the case of an insufficient result, you will be 
 given the chance  to resubmit the relevant components. 
-
-
 
 
 
@@ -394,7 +398,7 @@ This deliverable should include:
 
 The deliverable could be based on a Gantt chart plus descriptions of the
 various activities, or it could be based on a snapshot of your
-Trello/Taiga board.
+[Trello](https://trello.com/)/[Taiga](https://taiga.io/) board.
 
 
 The plan must include slack time at the end of term to account for 

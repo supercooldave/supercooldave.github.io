@@ -51,54 +51,25 @@ will be very present, the project becomes completely your responsibility.
 The following table lists all the course contact moments and their purpose.
 
 |---|---|---|
-| Monday, 20/3 | Introduction Lecture, Course Overview, Team formation, Visit Project Room  | Dave |
-| Tuesday, 21/3 | 
-        Project Management lecture,
-        Scrum, Kanban, 
-        project management tools: Git, Trello, Taiga, Slack. | Tobias Wrigstad, Kiko Fernandez (guests) |
+| Monday, 20/3 | Introduction Lecture, Course Overview, Team formation, Visit Project Room | Dave |
+| Tuesday, 21/3 | Project Management lecture, Scrum, Kanban, project management tools: Git, Trello, Taiga, Slack. | Tobias Wrigstad, Kiko Fernandez (guests) |
+| Friday, 24/3 | Groups pitch their  project ideas. | Dave, Davide, Anton |
+| Monday, 27/3 | Web Technology lecture             | Davide |
+| Thursday, 29/3 | Security lecture  | Bj\"orn Victor (guest) |
+| Tuesday, 3/4 | Usability lecture   | Anton |
+| Monday, 25/5 | Intermediate presentations  |  |
+| Friday, 2/6  | Final presentations         |  |
 
+## Project Rooms
 
-\begin{table}
-\begin{center}
-\begin{tabular}{|l|L{9cm}|}\hline
-    \textbf{Monday, 20/3} & Introduction lecture (Dave).  \newline
-     Course Overview. 
-    Survey on background and interests. 
-    Team formation. Visit project room.  \\  \hline
-    \textbf{TBD} & Team Building Exercise.  \newline
-        Run by external company for whole group (excluding teaching staff). \\ \hline
-    \textbf{Tuesday, 21/3} &
-        Project Management lecture (Tobias Wrigstad \& Kiko Fernandez (guests)). \newline
-        Scrum, Kanban, 
-        project management tools: Git, Trello, Taiga, Slack. 
-        Discuss the status of your search for project ideas. \\    \hline
-    \textbf{Friday, 24/3} & Idea Pitch (Dave, Davide, Anton). \newline
-        Groups pitch their  project ideas. \\ \hline
-    \textbf{Monday, 27/3} & Web Technology lecture (Davide).  \newline
-        Django. \\ \hline
-    \textbf{Thursday, 29/3} & Security lecture (Bj\"orn Victor (guest)). \\ \hline
-    \textbf{Tuesday, 3/4} & Usability lecture (Anton). \\ \hline
-    \textbf{Monday, 25/5} & Intermediate presentations. \\ \hline
-    \textbf{Friday, 2/6} & Final presentations.  \\ 
-    \hline
-\end{tabular}
-\end{center}
-\caption{Lectures and Other Contact Moments}\label{contact moments}
-\end{table}
-
-
-%TA with data spec experience checks the data specification.
-
-
-\section{Project Rooms}
-
-Rooms \textbf{ICT 1246} and \textbf{1446} are available for you for the entire term to
+Rooms **ICT 1246** and **1446** are available for you for the entire term to
 work on your projects together with your teams. You can organise the rooms how you
 want (within reason). There will be machines there for you to use --- if not, these
-can be ordered. The door is locked, and your student card will get you into the office.
+can be ordered. The door is locked, and your student card or a code
+will get you into these offices.
 
 
-\section{Grading}
+##Grading
 
 The course is graded on a \textbf{U/G} scale. 
 Examination is through active participation in the project, 

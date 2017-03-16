@@ -41,12 +41,6 @@ it is an independent project and you decide on the interaction model.
 After initial rush and planning and requirements efforts, where the teaching staff 
 will be very present, the project becomes completely your responsibility.
 
-# JUNK BELOW
-
-| First Header  | Second Header |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
 
 The following table lists all the course contact moments and their purpose.
 
@@ -69,9 +63,9 @@ can be ordered. The door is locked, and your student card or a code
 will get you into these offices.
 
 
-##Grading
+## Grading
 
-The course is graded on a **U/G*** scale. 
+The course is graded on a **U/G** scale. 
 Examination is through active participation in the project, 
 timely submission of deliverables, 
 adequate opposition during presenations, and approval of the final report.
@@ -83,13 +77,13 @@ given the chance  to resubmit the relevant components.
 
 
 
-##The Project
+## The Project
 
 The course involves  an extensive software development project. 
 You need to decide the topic of the project.
 The project will be developed in teams of 5-7.
 
-###Requirements
+### Requirements
 
 The following are constraints on the grand idea underlying your project,
 phrased
@@ -127,6 +121,7 @@ analyse.
 visualisation tools.
  * You MUST think big.
 
+# JUNK BELOW
 
 Perhaps you could ask yourselves \emph{What is missing in your lives?}%
 \footnote{We asked ourselves that question, but more software wasn't the answer.}

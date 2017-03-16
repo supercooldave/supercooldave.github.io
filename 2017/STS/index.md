@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="path/to/css/splendor.css">
+<link rel="stylesheet" href="css/splendor.css">
 
 # STS Independent Project 2017
 
@@ -135,18 +135,14 @@ crowd sourcing, human computation, volunteer computation, ...
 
 
 There are no constraints about what language you implement your system in. 
-You could consider a framework such as Django 
-(\url{https://www.djangoproject.com/})
+You could consider a framework such as [Django](https://www.djangoproject.com/)
 (for Python) or Ruby on Rails 
 (for Ruby), or use  Apache, MySQL and PHP (they come in a package like 
 WAMP, MAMP or LAMP --- the W, M and L stand for Windows, Mac, and Linux, respectively).
 Last year teams used, in addition: Xamarin, Bootstrap, Less, Angular JS, Java,
 Javascript.
 
-
 The choice is yours, based on what you want to learn --- but decide quickly.
-
-# JUNK BELOW
 
 
 ## Teams
@@ -282,11 +278,12 @@ Those marked with a star (\*) occur during a scheduled contact moment.
 submissions are negotiable!!!!**
 
 
-        Number & Title & \multicolumn{1}{c|}{Due Date} & Week \\ \hline \hline
-        D1 & Pitch${}^*$ & Friday, March 24 & 12 \\ \hline
-        D2 & Requirements & Friday, March 31 & 13 \\ \hline
-        D3 & Project Plan & Tuesday, April 4 & 14\\ \hline
-        D4 & System Design & Thursday, April 13 & 15 \\ \hline
+| Number | Title   | Due Date |  Week |
+| -------|---------|----------|-------|
+| D1     | Pitch * |  Friday, March 24 | 12 |
+| D2 | Requirements | Friday, March 31 | 13 |
+| D3 | Project Plan | Tuesday, April 4 | 14 |
+| D4 | System Design & Thursday, April 13 & 15 \\ \hline
         D5 & User Profiling & Wednesday, April 19 & 16 \\ \hline
         D6 & Security and Privacy Analysis & Wednesday, April 19 & 16 \\ \hline
         D7 & Intermediate Presentation${}^*$ & Tuesday, April 25 & 17 \\ \hline

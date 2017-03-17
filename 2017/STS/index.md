@@ -77,7 +77,8 @@ The following table lists all the course contact moments and their purpose.
 
 #### Slack Channel
 
-The Slack site [stsip.slack.com](https://stsip.slack.com/) will allow you to chat directly to the teaching and receive announcements from them. 
+The Slack site [stsip.slack.com](https://stsip.slack.com/) will allow you to chat directly to the teaching and receive announcements from them. You will receive an invitation 
+early in the course.
 
 ## Project Rooms
 
@@ -160,6 +161,7 @@ You could consider a framework such as [Django](https://www.djangoproject.com/)
 (for Python) or Ruby on Rails 
 (for Ruby), or use  Apache, MySQL and PHP (they come in a package like 
 WAMP, MAMP or LAMP --- the W, M and L stand for Windows, Mac, and Linux, respectively).
+You can use a NoSQL database, a cloud-based database like Google Firebase, whatever.
 Last year teams used, in addition: Xamarin, Bootstrap, Less, Angular JS, Java,
 Javascript.
 
@@ -245,7 +247,8 @@ the back-end developers.
 #### Back-End Developer
 
 The back-end developers will set up the server side of the 
-application, including the database. Development will take place
+application, including the database. 
+Development will take place
 using Django or PHP, plus SQL and the like.
 
 

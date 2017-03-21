@@ -230,7 +230,7 @@ Also consider *ethical issues* related to the retention of private user data.
 
 ### D7: Intermediate Presentation 
 
-**Due: Monday, April 25 (wk 17)**
+**Due: Tuesday, April 25 (wk 17)**
 {: .blue}
 
 The intermediate presentation gives teams the opportunity to present

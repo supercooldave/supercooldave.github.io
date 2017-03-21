@@ -71,7 +71,7 @@ The following table lists all the course contact moments and their purpose.
 | Monday, 27/3 | Web Technology lecture             | Davide |
 | Thursday, 29/3 | Security lecture  | Björn Victor (guest) |
 | Tuesday, 3/4 | Usability lecture   | Anton |
-| Monday, 25/5 | Intermediate presentations  |  |
+| Monday, 25/4 | Intermediate presentations  |  |
 | Friday, 2/6  | Final presentations         |  |
 
 

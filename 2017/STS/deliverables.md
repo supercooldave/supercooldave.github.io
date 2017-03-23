@@ -88,7 +88,7 @@ material to later use in your thesis chapters.
 Each group needs to come up with _up to_ 3 project ideas
 or variations on single idea.
 These need to be explained and "sold" in
-    a pitch of up to 10 minutes. Slides are optional.
+    a pitch of up to 10 minutes (per group). Slides are optional.
 
 During the pitch, team members should introduce themselves.
 
@@ -110,10 +110,11 @@ about the requirements,
 This deliverable will consist of:
 
 1. An overview of the system-under-design.
-2. An overview of the expected users.
+2. A brief overview of the expected users.
 3. An overview of how you would expect to make money from the software,
         if relevant.
-4. A list of features that the system must, should and could exhibit.
+4. A list of features that the system must, should and could exhibit. For example,
+  *The system should allow users to record the amount of hours they sleep on a daily basis.*
 5. A list of non-functional constraints on the system, such as those
         related to security, privacy, performance, quality of service, and so forth.       
 

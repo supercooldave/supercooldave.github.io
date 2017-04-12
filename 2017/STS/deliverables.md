@@ -236,8 +236,8 @@ Also consider *ethical issues* related to the retention of private user data.
 
 The intermediate presentation gives teams the opportunity to present
 their work in progress --- details of what the presentation should contain
-are found below. The slot for each presentation is 45 minutes 
-(about 30 minutes of content, 10 minutes for questions, 5 minutes of slack).
+are found below. The slot for each presentation is 35 minutes 
+(about 30 minutes of content, 5 minutes for questions).
 
 
 Each team will have another team acting as opposition.
@@ -291,11 +291,10 @@ of contents.
 
 All projects are presented in a final seminar. Each team appointed an opposing 
 team. 
-Each presentation will take a 45 minute slot, divided as follows:
+Each presentation will take a 40 minute slot, divided as follows:
 
 * 30 minutes of content, 
-* 10 minutes questioning by opponent, 
-* 5 minutes for other questions. 
+* 10 minutes questioning by opponent, and others.
 
 The format of the presentation is discussed below.
 

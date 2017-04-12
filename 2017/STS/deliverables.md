@@ -236,8 +236,8 @@ Also consider *ethical issues* related to the retention of private user data.
 
 The intermediate presentation gives teams the opportunity to present
 their work in progress --- details of what the presentation should contain
-are found below. The slot for each presentation is 35 minutes 
-(about 30 minutes of content, 5 minutes for questions).
+are found below. The slot for each presentation is 30 minutes 
+(about 25 minutes of content, 5 minutes for questions).
 
 
 Each team will have another team acting as opposition.
@@ -252,7 +252,9 @@ Presentations can be given by some subset of your team, including
 just one member or all members. All team members should be present
 at the introduction of the talk and should reappear for questions.
 
- 
+In the last 30 minutes of the 4 hour lecture block, there will
+be the chance for further discussion and the teaching
+staff will provide feedback on the presentations. 
 
 ### D8: Usability Assessment
 

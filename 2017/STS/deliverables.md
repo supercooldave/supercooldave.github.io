@@ -148,7 +148,7 @@ directions of the team. Please save major versions of the plans so that you can
 see how it evolves. In the thesis, document major differences in planned and actual timing 
 of tasks and try to account for why this happened.
 
-
+[//]: # "Team structure, working process, tools used and how, milestones" 
 
 ### D4: System Design and Test Plan
 
@@ -164,15 +164,18 @@ consists of four components:
         in your system. 
 * **Data and System Specification**: A description of the data model
         underlying your system, perhaps using ER diagrams.
-        A description of the architecture of the system,
+        A description of the architecture of the system, perhaps
         using UML diagrams, to capture the relationship between the major components
         of the system.
 * **Test Plan**: A description of how you plan to systematically test your
-        system.
+        system. This is not about usability testing, but testing the software
+        to find and remove bugs.
 * **Glossary**: A dictionary of the key terminology used in describing your
         system. For example, if your system records exercise activities which
         you describe as an _event_, your glossary should state that
-        an _event_ is a record of an exercise activity.        
+        an _event_ is a record of an exercise activity.    The terms defined
+        in the glossary should be specific for your system, not generic, software-related  
+        terms.
 
 The system design should support a clean separation between the front-
 and back-end functionality.
@@ -261,16 +264,33 @@ staff will provide feedback on the presentations.
 **Due: Monday, May 15 (wk 20)**
 {: .blue}
 
-Conduct a usability study of another group's system with 
-5 users matching intended users of that particular system. 
-Make use of the other group's personas to determine which users 
-to find. This report is to be handed in to the teaching staff 
-as well  as to the group whose system has been tested.
+Organise a usability study of *your system* with 5 users, ideally
+matching the intended users of your system. 
 
+The principle aim of the  deliverable is to get someone to  work 
+through your system trying to perform various tasks and then 
+give feedback on the experience, which you will then take to improve your system.
 
-The team who receives the usability assessment report needs to
-address all usability flaws and report how they have been
-address (or not, with reasons) in the final report.
+*Who* walks through the system? Ideally, the person or persons 
+match the personas described in your previous usability deliverable.
+In practice this might be difficult. So try to find some external 
+person matching the personas. If that fails, try to find one 
+other group to walk through your system, or ask individuals from the other groups.
+But if that is too difficult to arrange, you can walk through your own systems. 
+Ideally find different kinds of people to evaluate your system.
+
+*The deliverable* should include a description of 
+
+* the kind persons who are testing your system, 
+* the tasks they are meant to perform and why such tasks have been chosen, 
+* how they performed in each task and what problems they encountered, and 
+* what you are going to do to address those problems.
+
+This sounds like a lot. The information gathered in the usability testing is primarily of importance for your teams to improve your systems. The deliverable can include a snapshot of the kinds of results obtained, rather than an exhaustive account of everything.
+
+The usability assessement report should be used to address the flaws
+in the system. How these flaws are addressed (or not, with reasons)
+should be recorded in the final report.
 
 
 ### D9: Draft Thesis

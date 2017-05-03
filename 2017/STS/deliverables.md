@@ -264,33 +264,29 @@ staff will provide feedback on the presentations.
 **Due: Monday, May 15 (wk 20)**
 {: .blue}
 
-Organise a usability study of *your system* with 5 users, ideally
-matching the intended users of your system. 
+Organise a usability study of *your own system* with (at least) 5 participants, ideally matching the intended users of your system.
 
-The principle aim of the  deliverable is to get someone to  work 
-through your system trying to perform various tasks and then 
-give feedback on the experience, which you will then take to improve your system.
+The principle aim of the deliverable is to get some people to work through your system trying to perform various tasks and thus providing feedback to you on the experience, which you will then take to improve your system.
 
-*Who* walks through the system? Ideally, the person or persons 
-match the personas described in your previous usability deliverable.
-In practice this might be difficult. So try to find some external 
-person matching the personas. If that fails, try to find one 
-other group to walk through your system, or ask individuals from the other groups.
-But if that is too difficult to arrange, you can walk through your own systems. 
-Ideally find different kinds of people to evaluate your system.
+The test sessions should be performed using a concurrent verbalisation protocol (think-aloud), where participants are given tasks based on use cases of your system and asked to think out loud what is going through their minds as they navigate the system. To prepare for the tests, you should create a test protocol that you use with each participant to make sure all participants are given the same instructions, tasks, and questions. You finish the test by giving the participants a System Usability Scale (SUS) questionnaire.
 
-*The deliverable* should include a description of 
+Please read the usability lecture slides for more information on the SUS questionnaire as well as test procedures.
 
-* the kind persons who are testing your system, 
-* the tasks they are meant to perform and why such tasks have been chosen, 
-* how they performed in each task and what problems they encountered, and 
-* what you are going to do to address those problems.
+When your system is ready for testing, book a test session with Anton  (anton.axelsson@it.uu.se) he will act as a pilot participant for you to test your protocol. You will then be given verbal feedback and pointers on how to improve the protocol and test session.
 
-This sounds like a lot. The information gathered in the usability testing is primarily of importance for your teams to improve your systems. The deliverable can include a snapshot of the kinds of results obtained, rather than an exhaustive account of everything.
+Who participates? Ideally, individuals that match the personas described in D5. In practice this might be difficult. So try to find some external person matching the personas. If that fails, try to find one other group to perform the tasks in your system.
 
-The usability assessement report should be used to address the flaws
-in the system. How these flaws are addressed (or not, with reasons)
-should be recorded in the final report.
+The deliverable should include
+
+* demographic data on who were participating in your tests,
+* a description on the tasks they performed,
+* a result section on how participants performed in each task and what problems they encountered, and
+* a discussion on what you are going to do to address the elicited problems.
+
+The information gathered in the usability testing is primarily of importance for your teams to improve your systems. The deliverable can include a snapshot of the kinds of results obtained, rather than an exhaustive account of everything.
+
+The usability assessment report should be used to address the flaws in the system. How these flaws are addressed (or not, with reasons) should be recorded in the final thesis.
+
 
 
 ### D9: Draft Thesis

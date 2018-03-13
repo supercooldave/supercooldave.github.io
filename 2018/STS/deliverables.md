@@ -15,7 +15,8 @@ th {
 ## Deliverables
 {: .no_toc}
 
-** The description of deliverables correspond to the 2017 version of the
+
+**The description of deliverables correspond to the 2017 version of the
 course. We will discuss which deliverable you want to deliver,
 how compulsary you want them to be, and how feedback will
 be given on them.**

@@ -1,0 +1,334 @@
+<link rel="stylesheet" href="css/splendor.css" />
+
+<style>
+tr:nth-child(even) {background-color: #f2f2f2}
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+.blue {
+  color: blue;
+}
+</style>
+
+<h1 class="no_toc" id="sts-independent-project-2018">STS Independent Project 2018</h1>
+
+<h3 class="no_toc" id="lecturer-dave-clarke">Lecturer: Dave Clarke</h3>
+
+<p>This document provides  information for  the  STS Independent Project course,
+including details of the teaching staff, contact moments,
+project requirements, project deliverables, and
+suggested project team structure.</p>
+
+<p>The course will provide you an opportunity to learn new IT techniques
+by getting involved in a deep, technical project.
+The project will involve programming, project management, communication,
+brain storming, and much more.
+You <strong>will be required</strong> to independently acquire new
+knowledge in order to complete the project successfully.</p>
+
+<ul id="markdown-toc">
+  <li><a href="#teaching-staff-and-contact-moments" id="markdown-toc-teaching-staff-and-contact-moments">Teaching Staff and Contact Moments</a>    <ul>
+      <li><a href="#slack-channel" id="markdown-toc-slack-channel">Slack Channel</a></li>
+    </ul>
+  </li>
+  <li><a href="#project-rooms" id="markdown-toc-project-rooms">Project Rooms</a></li>
+  <li><a href="#grading" id="markdown-toc-grading">Grading</a></li>
+  <li><a href="#the-project" id="markdown-toc-the-project">The Project</a>    <ul>
+      <li><a href="#requirements" id="markdown-toc-requirements">Requirements</a></li>
+      <li><a href="#technical-constraints" id="markdown-toc-technical-constraints">Technical Constraints</a></li>
+    </ul>
+  </li>
+  <li><a href="#teams" id="markdown-toc-teams">Teams</a>    <ul>
+      <li><a href="#major-roles" id="markdown-toc-major-roles">Major Roles</a>        <ul>
+          <li><a href="#management" id="markdown-toc-management">Management</a></li>
+          <li><a href="#usability" id="markdown-toc-usability">Usability</a></li>
+          <li><a href="#front-end-developer" id="markdown-toc-front-end-developer">Front-End Developer</a></li>
+          <li><a href="#back-end-developer" id="markdown-toc-back-end-developer">Back-End Developer</a></li>
+        </ul>
+      </li>
+      <li><a href="#minor-roles" id="markdown-toc-minor-roles">Minor Roles</a></li>
+      <li><a href="#team-identity" id="markdown-toc-team-identity">Team Identity</a></li>
+    </ul>
+  </li>
+  <li><a href="#deliverables" id="markdown-toc-deliverables">Deliverables</a></li>
+</ul>
+
+<h2 id="teaching-staff-and-contact-moments">Teaching Staff and Contact Moments</h2>
+
+<p>The teaching staff are:</p>
+
+<ul>
+  <li>Dave Clarke (<code>dave.clarke@it.uu.se</code>) — lecturer.<br />
+   Expertise: project management, security, programming, software design, ideas.</li>
+  <li>Miran Nadir (<code>miran.nadir@it.uu.se</code>) — TA. 
+   Expertise: TBD</li>
+</ul>
+
+<p>The main role of the teaching staff in this course are to provide
+guidance, encouragement, inspiration and feedback. 
+The feedback is provided not to judge you, but to help you 
+improve your work for later in the course and
+in your future work.</p>
+
+<p>Apart from the explicitly scheduled sessions, the teaching staff will frequently
+visit your lab to see how you are going, and  will be available for meetings.
+It is your job to contact the desired member of staff and organise meetings
+(based on their expertise and your preferences) when you need them  — 
+it is an independent project and you decide on the interaction model.
+After initial rush and planning and requirements efforts, where the teaching staff 
+will be very present, the project becomes completely your responsibility.</p>
+
+<p>The following table lists all the course contact moments and their purpose.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Content</th>
+      <th>Lecturer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Monday, 19/3</td>
+      <td>Introduction Lecture, Course Overview, Team formation, Visit Project Room</td>
+      <td>Dave</td>
+    </tr>
+    <tr>
+      <td>Wednesday, 21/3</td>
+      <td>Project Management lecture, Scrum, Kanban, project management tools: <a href="github.com/">Git</a>, <a href="https://trello.com/">Trello</a>, <a href="https://taiga.io/">Taiga</a>, <a href="http://slack.com">Slack</a>.</td>
+      <td>Dave</td>
+    </tr>
+    <tr>
+      <td>Thursday, 22/3</td>
+      <td>Team Building.</td>
+      <td>External.</td>
+    </tr>
+    <tr>
+      <td>Friday, 23/3</td>
+      <td>Groups pitch their  project ideas.</td>
+      <td>Dave, Miran</td>
+    </tr>
+    <tr>
+      <td>Tuesday, 27/3</td>
+      <td>Web and Technology lecture</td>
+      <td>Miran/IBM</td>
+    </tr>
+    <tr>
+      <td>Wednesday, 28/3</td>
+      <td>Security lecture</td>
+      <td>Björn Victor (guest)</td>
+    </tr>
+    <tr>
+      <td>Monday, 9/4</td>
+      <td>Usability lecture</td>
+      <td>Dave</td>
+    </tr>
+    <tr>
+      <td>Thursday, 26/4</td>
+      <td>Intermediate presentations</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Thursday, 31/5</td>
+      <td>Final presentations</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="slack-channel">Slack Channel</h4>
+
+<p>The Slack site <a href="https://stsip.slack.com/">sts-ip.slack.com</a> will allow you to chat directly to the teaching and receive announcements from them. You will receive an invitation early in the course. Your team-mates should be able to a</p>
+
+<h2 id="project-rooms">Project Rooms</h2>
+
+<p>Rooms <strong>ICT 1246</strong> and <strong>1446</strong> are available for you for the entire term to
+work on your projects together with your teams. You can organise the rooms how you
+want (within reason). There will be machines there for you to use. 
+The door is locked, and your student card or a code
+will get you into these offices.</p>
+
+<h2 id="grading">Grading</h2>
+
+<p>The course is graded on a <strong>U/G</strong> scale. 
+Examination is through active participation in the project, 
+adequate opposition during presenations, and approval of the final report.
+You will be giving feedback on your deliverables, 
+and in the case of an insufficient result, you will be 
+given the chance  to resubmit the relevant components.</p>
+
+<h2 id="the-project">The Project</h2>
+
+<p>The course involves an extensive software development project. 
+You need to decide the topic of the project.
+The project will be developed in teams of 2-5.</p>
+
+<h3 id="requirements">Requirements</h3>
+
+<p>The following are constraints on the grand idea underlying your project,
+phrased
+in terms of compulsory requirements (MUST), desired requirements (SHOULD),
+and possible requirements (COULD).</p>
+
+<ul>
+  <li>The system MUST be a web information system — a web front end connected to
+a server with a database — or a smart phone app.<br />
+The database will probably contain users and products, 
+for instance.</li>
+  <li>The system MUST be involve some technical challenges.</li>
+  <li>If the system is a web app, it SHOULD provide a responsive interface, that is, it must automatically adapt
+to desktop and mobile devices.</li>
+  <li>The system SHOULD support user accounts, automated user registration,
+ and logging in, along with the appropriate security
+support. The service provided by the system MUST be connected to user accounts,
+and allow users to connect to each other.
+Administrator log in and associated functionality MUST be provided.</li>
+  <li>The system SHOULD have a social component (social involvement, social engineering). 
+The system SHOULD utilise the connections between users.
+This COULD be realised by having the system connect via a social networking API
+to Facebook  or Twitter.</li>
+  <li>The system SHOULD  be based on a (somewhat) realistic business idea.</li>
+  <li>The system does not have to be original (almost anything that you could think of is on the web anyway), but it SHOULD have some original aspect.</li>
+  <li>The system SHOULD present an attractive user interface to
+     ``regular’’ users.</li>
+  <li>The system COULD source data from the web.</li>
+  <li>The system COULD be, in part, a mashup or integration of other services.</li>
+  <li>The system COULD support and utilise geolocation, perhaps with Google Maps
+or Open Street Map integration.</li>
+  <li>The system COULD generate a lot of data that could be useful and interesting to
+analyse.</li>
+  <li>The system COULD provide support to visualise the data generated, using existing
+visualisation tools.</li>
+  <li>You MUST think big.</li>
+</ul>
+
+<p>Perhaps you could ask yourselves <em>What is missing in your lives?</em></p>
+
+<p>Allow the following keywords to guide you: social software, 
+crowd-sourcing, human computation, volunteer computation, …</p>
+
+<h3 id="technical-constraints">Technical Constraints</h3>
+
+<p>There are no constraints about what language you implement your system in. 
+You could consider a framework such as <a href="https://www.djangoproject.com/">Django</a>
+(for Python) or Ruby on Rails 
+(for Ruby), or use  Apache, MySQL and PHP (they come in a package like 
+WAMP, MAMP or LAMP — the W, M and L stand for Windows, Mac, and Linux, respectively).
+You can use a NoSQL database like MongoDB, a cloud-based database like Google Firebase, whatever.
+Last year teams used, in addition: Xamarin, Bootstrap, Less, Angular JS, Java,
+Javascript.</p>
+
+<p>The choice is yours, based on what you want to learn — but decide quickly.</p>
+
+<h2 id="teams">Teams</h2>
+
+<p>Teams will consist of 2-5 members, which you have pre-organised but
+we will finalise.</p>
+
+<p>Each team member will need to take on a number of roles,
+and each role has certain responsibilities. Some roles are
+small, some are large. Not all roles may be relevant to each
+team. Roles will need to be distributed among the team
+members at the start of the course or as needed.
+It is important that each member who is doing what.</p>
+
+<p>We stress that <strong>teams need to be flexible</strong> regarding what roles 
+various members take, and these should change as the requirements
+of the project demands.</p>
+
+<p>Every team member needs to be a developer, focussed either on
+the front- or back-end (or both). Other important roles to assign
+now are: <strong>project manager</strong>, and
+<strong>usability expert</strong>.</p>
+
+<h3 id="major-roles">Major Roles</h3>
+
+<h4 id="management">Management</h4>
+
+<p>The <strong>project manager</strong> (= product owner) is primarily responsible for 
+task formulation (which features to implement, priorities), planning, 
+task tracking and follow up, 
+setting deadlines, intra-team communications, and communicating with the teaching staff.
+<em>Note that any student can ask for help at any time.<br />
+Group questions may be coordinated through the project manager.</em>
+The project manager needs to focus less on
+the details of the product and more on the ability to navigate the plan. 
+Planning needs to include slack time, and time for team members to gain new knowledge.
+One of the primary skills required by the project manager is the ability to delegate.
+The project manager has the final say in the decision-making process — this is
+important to avoid deadlocked debates.</p>
+
+<blockquote>
+  <p>The  team needs to ensure that <strong>exactly</strong> one person
+ is in charge, to ensure that decisions are made when they need to 
+ be made.</p>
+</blockquote>
+
+<p>The <strong>communications manager</strong> is responsible for presentations, 
+communications with other teams (such as when doing usability assessments), 
+preparing reports, and, if you have an external client interested in your work,
+communicating with that client. 
+This is not to say that the communications manager does all the work on these
+presentations and reports. The communications manager is in charge of delegating  to the appropriate other members of the team.</p>
+
+<h4 id="usability">Usability</h4>
+
+<p>The usability role
+investigates intended users, making personas, and does interviews and 
+testing with users. 
+It cooperates with UI designer(s) and the front-end 
+developers to make a usable interface to a useful system by performing 
+usability assessments during development.</p>
+
+<h4 id="front-end-developer">Front-End Developer</h4>
+
+<p>Front-end developers will set up the client side of
+the application, including the HTML for the web pages,
+styling via CSS, aspects of Django, and interaction using Javascript. 
+The front-end developers will interact with the 
+UI Designer and the Usability team, along with
+the back-end developers.</p>
+
+<h4 id="back-end-developer">Back-End Developer</h4>
+
+<p>The back-end developers will set up the server side of the 
+application, including the database. 
+Development will take place
+using Django or PHP, plus SQL and the like.</p>
+
+<h3 id="minor-roles">Minor Roles</h3>
+
+<p>In addition to these core positions, a number of other roles that may need to
+be filled or shared:</p>
+
+<ul>
+  <li>security expert</li>
+  <li>privacy expert</li>
+  <li>visualisation expert — if any data needs to be visualised</li>
+  <li>test data generator — if your system collects data from a large number
+      of users, you’ll need to generate mock data until you get users</li>
+  <li>database designer</li>
+  <li>data modeller</li>
+  <li>UI designer — design the visual appearance of the web site using Photoshop</li>
+  <li>software designer — aim for a clear separation between 
+      front- and back-end functionality</li>
+  <li>technical manager — in charge of getting software installed,
+       setting up github, etc.</li>
+  <li>other  — maybe something specific to your chosen domain.</li>
+</ul>
+
+<h3 id="team-identity">Team Identity</h3>
+
+<p>Think of your team as a small company. Find a snappy name for your
+team and your product. Consider developing a team logo and colour scheme.
+Use the colour scheme and logo in your software, and all deliverables.
+Consider developing a
+document format  for all of
+your deliverables, presentations, and final thesis.</p>
+
+<h2 id="deliverables">Deliverables</h2>
+
+<p>See  <a href="deliverables.html">Deliverables</a> document.</p>
+

@@ -16,15 +16,16 @@ th {
 {: .no_toc}
 
 
-**The description of deliverables correspond to the 2017 version of the
-course. We will discuss which deliverable you want to deliver,
-how compulsary you want them to be, and how feedback will
-be given on them.**
+**These are being updated**
 
-The project involves a number of deliverables. 
+The project involves a number of totally optional deliverables, with completely
+flexibly guidelines.
+ 
 Typically these involve a small amount of quality work, and are primarily to obtain
-feedback on the work in progress and to help structure your work. 
+feedback on the work in progress and to help structure your work. You can produce a document for these deliverables, or just have a discussion with Dave or Davide.
+
 Producing these deliverables should not be stressful.
+
 Most deliverables can be reused, in updated form, in the final report.
 
 
@@ -32,29 +33,24 @@ Most deliverables can be reused, in updated form, in the final report.
 {:toc}
 
 
-All **deadlines are 18:00** on the day mentioned, except when the due date 
-corresponds to a contact moment in the schedule.
-The deliverables are summarised in the table below.
-Those marked with a star (\*) occur during a scheduled contact moment.
-
-**All deadlines except those marked with a star (\*) and the thesis 
-submissions are negotiable!!!!**
+All deadlines are purely guidelines, except for the deliverables marked
+with a star (\*).
 
 
-| Number | Title   | Due Date |  Week |
-| -------|---------|----------|-------|
-| D1     | Pitch \* |  Friday, March 24 | 12 |
-| D2 | Requirements | Friday, March 31 | 13 |
-| D3 | Project Plan | Tuesday, April 4 | 14 |
-| D4 | System Design and Test Plan | Thursday, April 13 | 15 |
-| D5 | User Profiling | Wednesday, April 19 | 16 |
-| D6 | Security and Privacy Analysis | Wednesday, April 19 | 16 |
-| D7 | Intermediate Presentation \* | Tuesday, April 25 | 17 |
-| D8 | Usability Assessment | Monday, May 15 | 20 |
-| D9 | Draft Thesis | Monday, May 22 | 21 |
-| D10 | Final Presentation \* | Friday, June 2 | 22 |
-| D11 | Thesis | Friday, June 2 | 22 |
-| D12 | Code | Friday, June 3 | 22 |
+| Number | Title   | Due Date |  Week | Obligatory |
+| -------|---------|----------|-------|------------|
+| D1     | Pitch |  Friday, March 23 | 12 | Yes |
+| D2     | Requirements | Friday, March 31 | 13 | No |
+| D3     | Project Plan | Tuesday, April 4 | 14 | No |
+| D4     | System Design and Test Plan | Thursday, April 13 | 15 | No |
+| D5     | User Profiling | Wednesday, April 19 | 16 | No |
+| D6     | Security and Privacy Analysis | Wednesday, April 19 | 16 | No |
+| D7     | Intermediate Presentation\* | Tuesday, April 25 | 17 | Yes |
+| D8     | Usability Assessment | Monday, May 15 | 20 |  No |
+| D9     | Draft Thesis | Monday, May 22 | 21 | No |
+| D10    | Final Presentation\* | Friday, June 2 | 22 | Yes |
+| D11    | Thesis\* | Friday, June 2 | 22 | Yes |
+| D12    | Code\* | Friday, June 3 | 22 | Yes |
  
 
  
@@ -88,21 +84,19 @@ material to later use in your thesis chapters.
 
 ### D1: Pitch
 
-**Due: Lecture on Friday, March 24 (wk 12)**
+**Due: Lecture on Friday, March 23 (wk 12)**
 {: .blue}
 
 Each group needs to come up with _up to_ 3 project ideas
 or variations on single idea.
 These need to be explained and "sold" in
-    a pitch of up to 10 minutes (per group). Slides are optional.
+    a pitch of up to 5 minutes (per group). Slides are optional.
 
 During the pitch, team members should introduce themselves.
 
-The pitch can be delivered by any subset of the team, including just one member
-or all members.
+The pitch can be delivered by any member(s) of the team.
 
-
-### D2: Requirements 
+### D2: Requirements  NOT YET UPDATED
 
 **Due: Friday, March 31 (wk 13)**
 {: .blue}
@@ -126,7 +120,7 @@ This deliverable will consist of:
 
 All team members should contribute to this deliverable.
 
-### D3: Project Plan
+### D3: Project Plan  NOT YET UPDATED
 
 **Due: Tuesday, April 4 (wk 14)**
 {: .blue}
@@ -156,7 +150,7 @@ of tasks and try to account for why this happened.
 
 [//]: # "Team structure, working process, tools used and how, milestones" 
 
-### D4: System Design and Test Plan
+### D4: System Design and Test Plan  NOT YET UPDATED
 
 **Due: Friday, April 13 (wk 15)**
 {: .blue}
@@ -188,7 +182,7 @@ and back-end functionality.
 
 
 
-### D5: User Profiling
+### D5: User Profiling  NOT YET UPDATED
 
 **Due: Wednesday, April 19 (wk 16)**
 {: .blue}
@@ -210,7 +204,7 @@ The document should include:
        to complete.
 
 
-### D6: Security & Privacy Analysis
+### D6: Security & Privacy Analysis  NOT YET UPDATED
 
 
 **Due: Wednesday, April 19 (wk 16)**
@@ -238,7 +232,7 @@ Also consider *ethical issues* related to the retention of private user data.
 
 
 
-### D7: Intermediate Presentation 
+### D7: Intermediate Presentation  NOT YET UPDATED
 
 **Due: Tuesday, April 25 (wk 17)**
 {: .blue}
@@ -265,7 +259,7 @@ In the last 30 minutes of the 4 hour lecture block, there will
 be the chance for further discussion and the teaching
 staff will provide feedback on the presentations. 
 
-### D8: Usability Assessment
+### D8: Usability Assessment NOT YET UPDATED
 
 **Due: Monday, May 15 (wk 20)**
 {: .blue}
@@ -295,7 +289,7 @@ The usability assessment report should be used to address the flaws in the syste
 
 
 
-### D9: Draft Thesis
+### D9: Draft Thesis  NOT YET UPDATED
 
 **Due: Monday, May 22 (wk 21)**
 {: .blue}
@@ -306,9 +300,11 @@ presentation. The most important requirement for this deliverable
 is that the structure of the thesis is clear, via, for example, a table
 of contents.
 
+If you submit a draft thesis for feedback, you will be required to
+give feedback on some other team's thesis. If you do not submit,
+then you will not get feedback on your thesis.
 
-
-### D10: Final Presentation
+### D10: Final Presentation  NOT YET UPDATED
 
 **Due: Friday, June 2 (wk 22)**
 {: .blue}
@@ -327,7 +323,7 @@ future presentations.
 
  
 
-### D11: Thesis
+### D11: Thesis  NOT YET UPDATED
 
 **Due: Friday, June 2 (wk 22)**
 {: .blue}
@@ -340,7 +336,7 @@ processes taken, various kinds of analysis
 updated versions of all deliverables ---  with added introduction, 
 conclusion and appendices.
 
-### D12: The Code
+### D12: The Code  NOT YET UPDATED
 
 **Due: Friday, June 2 (wk 22)**
 {: .blue}
@@ -365,7 +361,7 @@ solve any technical issues that may arise. *All code borrowed from elsewhere
 needs to be properly attributed to avoid problems of plagiarism.*  
 
 
-## Guidelines for Presentations
+## Guidelines for Presentations  NOT YET UPDATED
 
 ### Presentation Content
 

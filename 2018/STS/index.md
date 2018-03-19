@@ -66,8 +66,8 @@ The following table lists all the course contact moments and their purpose.
 | Monday, 19/3 | Introduction Lecture, Course Overview, Team formation, Visit Project Room | Dave |
 | Wednesday, 21/3 | Project Management lecture, Scrum, Kanban, project management tools: [Git](github.com/), [Trello](https://trello.com/), [Taiga](https://taiga.io/), [Slack](http://slack.com). | Dave |
 | Thursday, 22/3 | Team Building. | External. |
-| Friday, 23/3 | Groups pitch their  project ideas. | Dave, Miran |
-| Tuesday, 27/3 | Web and Technology lecture             | Miran/IBM |
+| Friday, 23/3 | Groups pitch their  project ideas. | Dave, Davide |
+| Tuesday, 27/3 | Web and Technology lecture             | Davide, IBM |
 | Wednesday, 28/3 | Security lecture  | Björn Victor (guest) |
 | Monday, 9/4 | Usability lecture   | Dave |
 | Thursday, 26/4 | Intermediate presentations  |  |
@@ -76,7 +76,7 @@ The following table lists all the course contact moments and their purpose.
 
 #### Slack Channel
 
-The Slack site [sts-ip.slack.com](https://stsip.slack.com/) will allow you to chat directly to the teaching and receive announcements from them. You will receive an invitation early in the course. Your team-mates should be able to a
+The Slack site [sts-ip.slack.com](https://stsip.slack.com/) will allow you to chat directly to the teaching and receive announcements from them. You will receive an invitation early in the course, see the Course Information page on the student portal.
 
 ## Project Rooms
 

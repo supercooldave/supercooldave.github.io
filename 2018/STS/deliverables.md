@@ -96,9 +96,9 @@ During the pitch, team members should introduce themselves.
 
 The pitch can be delivered by any member(s) of the team.
 
-### D2: Requirements  NOT YET UPDATED
+### D2: Requirements  
 
-**Due: Friday, March 31 (wk 13)**
+**Due: Friday Week 13**
 {: .blue}
 
 During the second week of the course, project teams will need to determined
@@ -120,9 +120,9 @@ This deliverable will consist of:
 
 All team members should contribute to this deliverable.
 
-### D3: Project Plan  NOT YET UPDATED
+### D3: Project Plan
 
-**Due: Tuesday, April 4 (wk 14)**
+**Due: Wednesday Week 14**
 {: .blue}
 
 This deliverable should include:
@@ -150,9 +150,9 @@ of tasks and try to account for why this happened.
 
 [//]: # "Team structure, working process, tools used and how, milestones" 
 
-### D4: System Design and Test Plan  NOT YET UPDATED
+### D4: System Design and Test Plan
 
-**Due: Friday, April 13 (wk 15)**
+**Due: Friday Week 15**
 {: .blue}
 
 This deliverable consists of a high-level system design and a test plan. The deliverable
@@ -182,9 +182,9 @@ and back-end functionality.
 
 
 
-### D5: User Profiling  NOT YET UPDATED
+### D5: User Profiling  
 
-**Due: Wednesday, April 19 (wk 16)**
+**Due: Friday Week 16**
 {: .blue}
 
 This deliverable aims to answer the question: _Who are your users?_
@@ -204,10 +204,10 @@ The document should include:
        to complete.
 
 
-### D6: Security & Privacy Analysis  NOT YET UPDATED
+### D6: Security & Privacy Analysis
 
 
-**Due: Wednesday, April 19 (wk 16)**
+**Due: Friday Week 16**
 {: .blue}
 
 Each team needs to conduct an analysis of the security and privacy threats

@@ -16,7 +16,6 @@ th {
 {: .no_toc}
 
 
-**These are being updated**
 
 The project involves a number of totally optional deliverables, with completely
 flexibly guidelines.
@@ -40,17 +39,17 @@ with a star (\*).
 | Number | Title   | Due Date |  Week | Obligatory |
 | -------|---------|----------|-------|------------|
 | D1     | Pitch |  Friday, March 23 | 12 | Yes |
-| D2     | Requirements | Friday, March 31 | 13 | No |
-| D3     | Project Plan | Tuesday, April 4 | 14 | No |
-| D4     | System Design and Test Plan | Thursday, April 13 | 15 | No |
-| D5     | User Profiling | Wednesday, April 19 | 16 | No |
-| D6     | Security and Privacy Analysis | Wednesday, April 19 | 16 | No |
-| D7     | Intermediate Presentation\* | Tuesday, April 25 | 17 | Yes |
-| D8     | Usability Assessment | Monday, May 15 | 20 |  No |
-| D9     | Draft Thesis | Monday, May 22 | 21 | No |
-| D10    | Final Presentation\* | Friday, June 2 | 22 | Yes |
-| D11    | Thesis\* | Friday, June 2 | 22 | Yes |
-| D12    | Code\* | Friday, June 3 | 22 | Yes |
+| D2     | Requirements |  | 13 | No |
+| D3     | Project Plan |  | 14 | No |
+| D4     | System Design and Test Plan |  | 15 | No |
+| D5     | User Profiling |  | 16 | No |
+| D6     | Security and Privacy Analysis |  | 16 | No |
+| D7     | Intermediate Presentation\* | Thursday, April 26 | 17 | Yes |
+| D8     | Usability Assessment |  | 20 |  No |
+| D9     | Draft Thesis |  | 21 | No |
+| D10    | Final Presentation\* | Friday, May 31 | 22 | Yes |
+| D11    | Thesis\* |  | 22 | Yes |
+| D12    | Code\* |  | 22 | Yes |
  
 
  
@@ -111,12 +110,13 @@ This deliverable will consist of:
 
 1. An overview of the system-under-design.
 2. A brief overview of the expected users.
-3. An overview of how you would expect to make money from the software,
-        if relevant.
-4. A list of features that the system must, should and could exhibit. For example,
+3. A list of features that the system must, should and could exhibit. For example,
   *The system should allow users to record the amount of hours they sleep on a daily basis.*
-5. A list of non-functional constraints on the system, such as those
-        related to security, privacy, performance, quality of service, and so forth.       
+4. A list of non-functional constraints on the system, such as those
+        related to security, privacy, performance, quality of service, and so forth. 
+5. An overview of how you would expect to make money from the software,
+        if relevant.
+    
 
 All team members should contribute to this deliverable.
 
@@ -145,8 +145,10 @@ to be learned, and the writing of deliverables and theses.
 The plan needs to be viewed as a living document, adapting
 frequently to differences between projected and actual timing of tasks, and changing
 directions of the team. Please save major versions of the plans so that you can 
-see how it evolves. In the thesis, document major differences in planned and actual timing 
-of tasks and try to account for why this happened.
+see how it evolves. In the thesis, document major differences in planned and actual timing of tasks and try to account for why this happened.
+
+**This deliverable could be presented live, by showing Dave or Davide your
+plan.**
 
 [//]: # "Team structure, working process, tools used and how, milestones" 
 
@@ -210,6 +212,13 @@ The document should include:
 **Due: Friday Week 16**
 {: .blue}
 
+**You may want to ignore this deliverable, unless security, privacy,
+or safety are crucial for your app. One lightweight approach to
+dealing with the deliverable is to make a list of all the security,
+privacy, and safety concerns related to your app, and discuss
+with Dave or Davide this list to see whether there are things
+you may have missed.**
+
 Each team needs to conduct an analysis of the security and privacy threats
 associated with their chosen project. 
 
@@ -228,25 +237,22 @@ system-under-development, not in generic terms.
 
 Lists of various security and privacy threats can be found by looking
 at methodologies [STRIDE](https://www.cs.berkeley.edu/~daw/teaching/cs261-f12/hws/Introduction_to_Threat_Modeling.pdf) and [LINDDUN](https://distrinet.cs.kuleuven.be/software/linddun/), though you do not need to follow these methodologies in any detail.
-Also consider *ethical issues* related to the retention of private user data.
+Also consider *ethical issues* related to the retention of private user data,
+especially in the context of the new European General Data Protection Regulation (GDPR).
+
+Are there any safety issues relevant to your app?
 
 
 
-### D7: Intermediate Presentation  NOT YET UPDATED
+### D7: Intermediate Presentation
 
-**Due: Tuesday, April 25 (wk 17)**
+**Due: Week 17**
 {: .blue}
 
 The intermediate presentation gives teams the opportunity to present
 their work in progress --- details of what the presentation should contain
-are found below. The slot for each presentation is 30 minutes 
-(about 25 minutes of content, 5 minutes for questions).
-
-
-Each team will have another team acting as opposition.
-For this presentation, the opposition does not need to prepare
-in advance, but does need to ask questions at the end
-of the presentation. 
+are found below. The slot for each presentation is 20 minutes 
+(about 15 minutes of content, 5 minutes for questions).
 
 We will provide feedback on your presentations to help improve for
 future presentations.
@@ -255,13 +261,10 @@ Presentations can be given by some subset of your team, including
 just one member or all members. All team members should be present
 at the introduction of the talk and should reappear for questions.
 
-In the last 30 minutes of the 4 hour lecture block, there will
-be the chance for further discussion and the teaching
-staff will provide feedback on the presentations. 
 
-### D8: Usability Assessment NOT YET UPDATED
+### D8: Usability Assessment
 
-**Due: Monday, May 15 (wk 20)**
+**Due: Week 20**
 {: .blue}
 
 Organise a usability study of *your own system* with (at least) 5 participants, ideally matching the intended users of your system.
@@ -272,7 +275,8 @@ The test sessions should be performed using a concurrent verbalisation protocol 
 
 Please read the usability lecture slides for more information on the SUS questionnaire as well as test procedures.
 
-When your system is ready for testing, book a test session with Anton  (anton.axelsson@it.uu.se) he will act as a pilot participant for you to test your protocol. You will then be given verbal feedback and pointers on how to improve the protocol and test session.
+When your system is ready for testing, you can ask Dave or Davide to act as
+a pilot participant to test your protocol. You will then be given verbal feedback and pointers on how to improve the protocol and test session.
 
 Who participates? Ideally, individuals that match the personas described in D5. In practice this might be difficult. So try to find some external person matching the personas. If that fails, try to find one other group to perform the tasks in your system.
 
@@ -289,9 +293,9 @@ The usability assessment report should be used to address the flaws in the syste
 
 
 
-### D9: Draft Thesis  NOT YET UPDATED
+### D9: Draft Thesis
 
-**Due: Monday, May 22 (wk 21)**
+**Due: Early Week 21**
 {: .blue}
 
 A draft of the thesis needs to be submitted so that the other team
@@ -304,9 +308,9 @@ If you submit a draft thesis for feedback, you will be required to
 give feedback on some other team's thesis. If you do not submit,
 then you will not get feedback on your thesis.
 
-### D10: Final Presentation  NOT YET UPDATED
+### D10: Final Presentation
 
-**Due: Friday, June 2 (wk 22)**
+**Due: Thursday 31st May, Week 22**
 {: .blue}
 
 All projects are presented in a final seminar. Each team appointed an opposing 
@@ -323,9 +327,9 @@ future presentations.
 
  
 
-### D11: Thesis  NOT YET UPDATED
+### D11: Thesis
 
-**Due: Friday, June 2 (wk 22)**
+**Due: Week 22**
 {: .blue}
 
 The final outcome of the course is a thesis describing the software system
@@ -336,9 +340,9 @@ processes taken, various kinds of analysis
 updated versions of all deliverables ---  with added introduction, 
 conclusion and appendices.
 
-### D12: The Code  NOT YET UPDATED
+### D12: The Code
 
-**Due: Friday, June 2 (wk 22)**
+**Due: Week 22**
 {: .blue}
 
 Provide a link to your GitHub repository with read access permission 
@@ -355,18 +359,26 @@ Please **do not** produce a new repository for submission ---
 we want to see your development history and the other statistics available
 in GitHub.
 
+If you cannot release your code for some reason, for example, due
+to constraints imposed by the company you are working with,
+please arrange for Dave to see your code before the course finishes.
+
 Note: teams are permitted to borrow code from the
 Internet and to use sites like [StackExchange](stackexchange.com) in order to
 solve any technical issues that may arise. *All code borrowed from elsewhere
 needs to be properly attributed to avoid problems of plagiarism.*  
 
+**If you are working at a company, and cannot release your code,
+could you schedule some time with Dave to go through the code.**
 
-## Guidelines for Presentations  NOT YET UPDATED
+## Guidelines for Presentations
 
 ### Presentation Content
 
-Both presentations should cover the following topics, not necessarily in
-this order.
+Both presentations may cover the following topics, not necessarily in
+this order. Try to tell a good story of your app, it's context,
+and your progress. We don't want to hear a chronological story of
+how your work has evolved.
 
 * Goals of system: purpose and design objectives
 * Expected users of the system and corresponding use cases
@@ -382,11 +394,13 @@ this order.
 ### Recommendations for  Presentations
 
 
+** The following are guidelines. You chose the structure of your presentation.**
+
 * Communication manager organises presentation and delagates parts (if desired).
 * Test beforehand that your laptop and the projector communicate well 
         (the projector may have a different resolution that may affect screen shots and Powerpoint presentations).
 * Rehearse the presentation and demo.
-* The audience are your fellow students (not the assistents or  teacher).
+* The audience are your fellow students (not the assistents or teacher).
 * Take it slow, start from the beginning.
 * You are by now very familiar with the project, the audience is not (even though
         they are working on the same topic)!
@@ -425,7 +439,7 @@ The thesis reports on the work you have done over the term.
 It will include a description of your project, its design, its users,
 the planning, and so forth. 
 
-As a rough guideline, each student will contribute approximately 10--15 pages of text,
+As a rough guideline, **each student will contribute approximately 10--15 pages of text**,
 not including the appendix describing the individual contribution.
 
 
@@ -441,7 +455,11 @@ Write as you work on the project --- as paragraph or a page at a time ---
 and put things into place later; the deliverables force you to do this writing.
 
 Anything that refers to code (methods, .php files) usually belongs in an appendix. 
-Also extensive screen shots or use case diagrams belong in an appendix.
+Also extensive screen shots or use-case diagrams belong in an appendix.
+
+**For smaller groups, feel free to scale down whichever aspects are less
+interesting for you. For instance, if Security is not especially important
+for your app, describe why in a few lines.**
 
 * **Abstract**
 * **Table of contents**
@@ -490,7 +508,8 @@ Lessons learned
 * **Appendix**  
 Each student needs to write 3 pages describing what their role
 in the project was, what work they did, what text they wrote, and what they
-learned during the project.
+learned during the project. **This part is obligatory, regardless of what size your
+project group is.**
 
 
 Try to avoid a chronological story where you are the stars: "We chose to do this project

@@ -315,10 +315,10 @@ then you will not get feedback on your thesis.
 
 All projects are presented in a final seminar. Each team appointed an opposing 
 team. 
-Each presentation will take a 40 minute slot, divided as follows:
+Each presentation will take a 20 minute slot, divided as follows:
 
-* 30 minutes of content, 
-* 10 minutes questioning by opponent, and others.
+* 15 minutes of content, 
+* 5 minutes questioning by opponent, and others.
 
 The format of the presentation is discussed below.
 

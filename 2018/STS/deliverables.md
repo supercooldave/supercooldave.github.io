@@ -401,6 +401,7 @@ how your work has evolved.
         (the projector may have a different resolution that may affect screen shots and Powerpoint presentations).
 * Rehearse the presentation and demo.
 * The audience are your fellow students (not the assistents or teacher).
+* Present as if you are presenting to people who do *NOT* know about your topic -- so do not refer back to previous talks.
 * Take it slow, start from the beginning.
 * You are by now very familiar with the project, the audience is not (even though
         they are working on the same topic)!
@@ -409,12 +410,14 @@ how your work has evolved.
 * An ER diagram/UML diagram usually helps to clarify your terminology 
         (but you might want to omit most attributes for clarity).
 * Demonstrate both regular use and incorrect use (error messages, failed login).
+* For your demo, you can use a video of your app in use if that makes more sense.
 * Sell it! Show through verbal and (most importantly) nonverbal communication that you believe in yourself and in the system. Team members are not yet presenting
          still send nonverbal signals.
 * Don't oversell it. Things that don't work (yet), don't work. Reflect on the product and say what could be improved (1 or 2 slides: this is mostly a point for the final discussion).
-Comment on the process as well: how did your time plan work, what was hard, what did you learn? (1 or 2 slides: this is mostly a point for the final discussion).
+* Comment on the process as well: how did your time plan work, what was hard, what did you learn? (1 or 2 slides: this is mostly a point for the final discussion).
 * Include overview slides in your presentation to help listeners follow your
        story.
+
 
 
 ### Recommendations for the Opposition

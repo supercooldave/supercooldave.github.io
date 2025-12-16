@@ -268,44 +268,70 @@ li::marker {
    Reading List Specific Styles
    ============================================ */
 
-/* Stats Summary */
+/* Reading Page Layout */
+.reading-layout {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+/* Stats Sidebar */
 .reading-stats {
+  position: sticky;
+  top: var(--space-lg);
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: var(--space-md);
-  justify-content: center;
   padding: var(--space-lg);
   background: linear-gradient(135deg, var(--color-bg-alt) 0%, var(--color-card-bg) 100%);
   border-radius: var(--border-radius);
-  margin-bottom: var(--space-2xl);
   border: 1px solid var(--color-border);
 }
 
 .stat-item {
   text-align: center;
-  padding: var(--space-sm) var(--space-lg);
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.stat-item:last-child {
+  border-bottom: none;
 }
 
 .stat-number {
   display: block;
   font-family: var(--font-heading);
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: 700;
   color: var(--color-accent);
   line-height: 1.2;
 }
 
 .stat-label {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--color-text-muted);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
 .stat-item.total {
-  border-right: 2px solid var(--color-border);
-  padding-right: var(--space-xl);
-  margin-right: var(--space-md);
+  padding-bottom: var(--space-md);
+  margin-bottom: var(--space-sm);
+  border-bottom: 2px solid var(--color-accent);
+}
+
+.stat-item.best .stat-number {
+  color: #2E7D32;
+}
+
+.stat-item.worst .stat-number {
+  color: #C62828;
+}
+
+/* Hide year stats in sidebar (too much info) */
+#year-stats {
+  display: none;
 }
 
 /* Year Sections - Collapsible */
@@ -484,18 +510,28 @@ li::marker {
     text-align: center;
   }
   
+  .reading-layout {
+    grid-template-columns: 1fr;
+  }
+  
   .reading-stats {
-    flex-direction: column;
-    align-items: center;
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .stat-item {
+    border-bottom: none;
+    padding: var(--space-sm) var(--space-md);
   }
   
   .stat-item.total {
-    border-right: none;
-    border-bottom: 2px solid var(--color-border);
+    border-bottom: none;
+    border-right: 2px solid var(--color-accent);
     padding-right: var(--space-lg);
-    padding-bottom: var(--space-md);
-    margin-right: 0;
-    margin-bottom: var(--space-md);
+    margin-right: var(--space-md);
+    margin-bottom: 0;
   }
   
   .countries-list {

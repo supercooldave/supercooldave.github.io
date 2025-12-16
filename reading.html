@@ -28,15 +28,24 @@
     </header>
 
     <main id="main" class="main">
-      <div id="reading-stats" class="reading-stats">
-        <div class="stat-item total">
-          <span class="stat-number" id="total-books">-</span>
-          <span class="stat-label">Total Books</span>
-        </div>
-        <div id="year-stats"></div>
-      </div>
+      <div class="reading-layout">
+        <aside id="reading-stats" class="reading-stats">
+          <div class="stat-item total">
+            <span class="stat-number" id="total-books">-</span>
+            <span class="stat-label">Total Books</span>
+          </div>
+          <div class="stat-item best">
+            <span class="stat-number" id="best-year-count">-</span>
+            <span class="stat-label">Best (<span id="best-year">-</span>)</span>
+          </div>
+          <div class="stat-item worst">
+            <span class="stat-number" id="worst-year-count">-</span>
+            <span class="stat-label">Worst (<span id="worst-year">-</span>)</span>
+          </div>
+          <div id="year-stats"></div>
+        </aside>
 
-      <div id="reading-list">
+        <div id="reading-list">
 	
 <section class="year-section" data-year="2025">
 <button class="year-header" aria-expanded="true">
@@ -1399,7 +1408,8 @@ Garc&iacute;a M&aacute;rquez</strong>  </li>
 </div>
 </section>
 
-      </div><!-- end reading-list -->
+        </div><!-- end reading-list -->
+      </div><!-- end reading-layout -->
     </main>
 
     <footer class="footer">
@@ -1440,6 +1450,17 @@ Garc&iacute;a M&aacute;rquez</strong>  </li>
       
       // Update total
       document.getElementById('total-books').textContent = totalBooks;
+      
+      // Calculate best and worst years (exclude Pre-1999 as it's a selection, not a full year)
+      const validYearStats = yearStats.filter(s => s.year !== 'Pre-1999');
+      const bestYear = validYearStats.reduce((best, curr) => curr.count > best.count ? curr : best);
+      const worstYear = validYearStats.reduce((worst, curr) => curr.count < worst.count ? curr : worst);
+      
+      // Update best/worst year displays
+      document.getElementById('best-year-count').textContent = bestYear.count;
+      document.getElementById('best-year').textContent = bestYear.year;
+      document.getElementById('worst-year-count').textContent = worstYear.count;
+      document.getElementById('worst-year').textContent = worstYear.year;
       
       // Create year stats (show recent years)
       const yearStatsContainer = document.getElementById('year-stats');

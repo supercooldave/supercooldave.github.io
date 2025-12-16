@@ -1,53 +1,50 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-
-<title>Dave Clarke's Reading</title>
-
-<meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
-<meta name="author" content="Dave Clarke " />
-<meta name="description" content="Site Description Here" />
-<meta name="keywords" content="keywords, here" />
-<meta name="robots" content="index, follow, noarchive" />
-<meta name="googlebot" content="noarchive" />
-
-<link rel="stylesheet" type="text/css" media="screen" href="css/screen.css" />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dave Clarke's Reading List</title>
+  <meta name="author" content="Dave Clarke">
+  <meta name="description" content="Dave Clarke's reading list - books read by year">
+  <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="css/screen.css">
+  <link rel="icon" href="images/favicon.ico">
 </head>
-
 <body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  
+  <div class="wrap">
+    <header class="header">
+      <h1 class="logo-text"><a href="index.html">Dave Clarke</a></h1>
+      <p class="slogan">No Longer Bringing Science to the Masses ...</p>
+      
+      <nav class="nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="phd.html">PhD Writeup Tips</a></li>
+          <li class="current"><a href="reading.html" aria-current="page">Reading</a></li>
+          <li><a href="misc.html">Miscellaneous</a></li>
+        </ul>
+      </nav>
+    </header>
 
-<!-- wrap starts here -->
-<div id="wrap">
+    <main id="main" class="main">
+      <div id="reading-stats" class="reading-stats">
+        <div class="stat-item total">
+          <span class="stat-number" id="total-books">-</span>
+          <span class="stat-label">Total Books</span>
+        </div>
+        <div id="year-stats"></div>
+      </div>
 
-	<!--header -->
-	<div id="header">			
-				
-		<h1 id="logo-text"><a href="index.html" title="">Dave Clarke</a></h1>		
-		<p id="slogan">No Longer Bringing Science to the Masses ... </p>	
-		
-		<div  id="nav">
-			<ul>
-				<li><a href="phd.html">PhD Writeup Tips</a></li>		
-				<li class="first" id="current"><a href="reading.html">Reading</a></li>
-				<li><a href="misc.html">Miscellaneous</a></li>
-			</ul>		
-		</div>	
-		
-		<div id="header-image"></div>
-						
-	<!--header ends-->					
-	</div>
-
-
-
-<!--main-->
-<div id="main">
+      <div id="reading-list">
 	
-<h2>2025</h2>
-<ol>
+<section class="year-section" data-year="2025">
+<button class="year-header" aria-expanded="true">
+<h2>2025 <span class="year-count"></span></h2>
+<span class="year-chevron" aria-hidden="true">▼</span>
+</button>
+<div class="year-content">
+<ol class="book-list">
 	<li><strong>Special Envoy</strong> <i>by</i> <strong>Jean Echenoz</strong>  </li>
 	<li><strong>American Spy</strong> <i>by</i> <strong>Lauren Wilkinson</strong>  </li>
 	<li><strong>Coming. Apart.</strong> <i>by</i> <strong>Edy Poppy</strong>  </li>
@@ -122,10 +119,17 @@
 	<li><strong>Held</strong> <i>by</i> <strong>Anne Michaels</strong>  </li>	
 	<li><strong>The Tetherballs of Bougainville</strong> <i>by</i> <strong>Mark Leyner</strong>  </li>	
 	<li><strong>Newspaper</strong> <i>by</i> <strong>Edouard Levé</strong>  </li>	
-</ol>	
-	
-<h2>2024</h2>
-<ol>
+</ol>
+</div>
+</section>
+
+<section class="year-section collapsed" data-year="2024">
+<button class="year-header" aria-expanded="false">
+<h2>2024 <span class="year-count"></span></h2>
+<span class="year-chevron" aria-hidden="true">▼</span>
+</button>
+<div class="year-content">
+<ol class="book-list">
 	<li><strong>We Three</strong> <i>by</i> <strong>Jean Echenoz</strong>  </li>
 	<li><strong>Animal Farm</strong> <i>by</i> <strong>George Orwell</strong>  </li>
 	<li><strong>Creation Lake</strong> <i>by</i> <strong>Rachel Kushner</strong>  </li>
@@ -189,10 +193,17 @@
 	<li><strong>The Faster I Walk the Smaller I am</strong> <i>by</i> <strong>Kjersti A. Skomsvold</strong>  </li>
 	<li><strong>The Book of Laughter and Forgetting</strong> <i>by</i> <strong>Milan Kundera</strong>  </li>
 	<li><strong>ARC d'X</strong> <i>by</i> <strong>Steve Erickson</strong>  </li>
-</ol>	
-	
-<h2>2023</h2>
-<ol>
+</ol>
+</div>
+</section>
+
+<section class="year-section collapsed" data-year="2023">
+<button class="year-header" aria-expanded="false">
+<h2>2023 <span class="year-count"></span></h2>
+<span class="year-chevron" aria-hidden="true">▼</span>
+</button>
+<div class="year-content">
+<ol class="book-list">
 	<li><strong>Cursed Bunny</strong> <i>by</i> <strong>Bora Chung</strong>  </li>
 	<li><strong>Un Amor</strong> <i>by</i> <strong>Sara Mesa</strong>  </li>
 	<li><strong>Jimi Hendrix Live in Lviv</strong> <i>by</i> <strong>Andrey Kurkov</strong>  </li>
@@ -330,10 +341,17 @@
 	<li><strong>Norwegian Wood</strong> <i>by</i> <strong>Haruki Murakami</strong>  </li>
 	<li><strong>Berge</strong> <i>by</i> <strong>Jan Kjærstad</strong>  </li>
 	<li><strong>The Luminaries</strong> <i>by</i> <strong>Eleanor Catton</strong>  </li>
-</ol>    
-    
-<h2>2022</h2>
-<ol>
+</ol>
+</div>
+</section>
+
+<section class="year-section collapsed" data-year="2022">
+<button class="year-header" aria-expanded="false">
+<h2>2022 <span class="year-count"></span></h2>
+<span class="year-chevron" aria-hidden="true">▼</span>
+</button>
+<div class="year-content">
+<ol class="book-list">
   <li><strong>Happening</strong> <i>by</i> <strong>Annie Ernaux</strong></li>  <li><strong>Island Home: A Landscape Memoir</strong> <i>by</i> <strong>Tim Winton</strong></li>
   <li><strong>Lapvona</strong> <i>by</i> <strong>Ottessa Moshfegh</strong></li>
   <li><strong>Armand V.</strong> <i>by</i> <strong>Dag Solstad</strong></li>
@@ -399,11 +417,16 @@
   <li><strong>My Struggle 1: A Death in the Family</strong> <i>by</i> <strong>Karl Ove Knausgaard</strong></li>
 
 </ol>
+</div>
+</section>
 
-    
-    
-<h2>2021</h2>
-<ol>
+<section class="year-section collapsed" data-year="2021">
+<button class="year-header" aria-expanded="false">
+<h2>2021 <span class="year-count"></span></h2>
+<span class="year-chevron" aria-hidden="true">▼</span>
+</button>
+<div class="year-content">
+<ol class="book-list">
     <li><strong>Ducks, Newburyport</strong> <i>by</i> <strong>Lucy Elmann</strong>  </li>    <li><strong>Brother in Ice</strong> <i>by</i> <strong>Alicia Kopf</strong>  </li>
     <li><strong>Invisible Hands</strong> <i>by</i> <strong>Stig Sæterbakken</strong>  </li>
     <li><strong>The Shining</strong> <i>by</i> <strong>Stephen King</strong>  </li>
@@ -471,9 +494,16 @@
 	<li><strong>Lie with me</strong> <i>by</i> <strong>Philippe Besson</strong>  </li>
 
 </ol>
+</div>
+</section>
 
-<h2>2020</h2>
-<ol>
+<section class="year-section collapsed" data-year="2020">
+<button class="year-header" aria-expanded="false">
+<h2>2020 <span class="year-count"></span></h2>
+<span class="year-chevron" aria-hidden="true">▼</span>
+</button>
+<div class="year-content">
+<ol class="book-list">
 	<li><strong>Macroanalysis</strong> <i>by</i> <strong>Matthew L. Jockers</strong>  </li>
 	<li><strong>Graphs Maps Trees</strong> <i>by</i> <strong>Franco Moretti</strong>  </li>
 	<li><strong>Reading Machines</strong> <i>by</i> <strong>Stephen Ramsay</strong>  </li>
@@ -497,9 +527,16 @@
 	<li><strong>Remainder</strong> <i>by</i> <strong>Tom McCarthy</strong>  </li>
 	<li><strong>The Incompletes</strong> <i>by</i> <strong>Sergio Chejfec</strong>  </li>
 </ol>
+</div>
+</section>
 
-<h2>2019</h2>
-<ol>
+<section class="year-section collapsed" data-year="2019">
+<button class="year-header" aria-expanded="false">
+<h2>2019 <span class="year-count"></span></h2>
+<span class="year-chevron" aria-hidden="true">▼</span>
+</button>
+<div class="year-content">
+<ol class="book-list">
 	<li><strong>The Nickel Boys</strong> <i>by</i> <strong>Colson Whitehead</strong>  </li>
 	<li><strong>Asymmetry</strong> <i>by</i> <strong>Lisa Halliday</strong>  </li>
     <li><strong>John Dies at the End</strong> <i>by</i> <strong>David Wong</strong>  </li>
@@ -542,10 +579,17 @@
  	<li><strong>Weapons of Math Destruction</strong> <i>by</i> <strong>Cathy O'Neil</strong>  </li>
  	<li><strong>The Solitary Twin</strong> <i>by</i> <strong>Harry Mathews</strong>  </li>
  	<li><strong>Why I Killed My Best Friend</strong> <i>by</i> <strong>Amanda Michalopoulou</strong>  </li>
-</ol>    
+</ol>
+</div>
+</section>
 
-<h2>2018</h2>
-<ol>
+<section class="year-section collapsed" data-year="2018">
+<button class="year-header" aria-expanded="false">
+<h2>2018 <span class="year-count"></span></h2>
+<span class="year-chevron" aria-hidden="true">▼</span>
+</button>
+<div class="year-content">
+<ol class="book-list">
 	<li><strong>Tómas Jónsson, Bestseller</strong> <i>by</i> <strong>Guðbergur Bergsson</strong>  </li>
 	<li><strong>Agape&#x305; Agape</strong> <i>by</i> <strong>William Gaddis</strong>  </li>
 	<li><strong>Ava</strong> <i>by</i> <strong>Carole Maso</strong>  </li>
@@ -557,8 +601,16 @@
 	<li><strong>Stoner</strong> <i>by</i> <strong>John Williams</strong> </li>
  	<li><strong>Absolute Pandemonium</strong> <i>by</i> <strong>Brian Blessed</strong>  </li>
 </ol>
-<h2>2017</h2>
-<ol>
+</div>
+</section>
+
+<section class="year-section collapsed" data-year="2017">
+<button class="year-header" aria-expanded="false">
+<h2>2017 <span class="year-count"></span></h2>
+<span class="year-chevron" aria-hidden="true">▼</span>
+</button>
+<div class="year-content">
+<ol class="book-list">
 	<li><strong>Not Thomas</strong> <i>by</i> <strong>Sara Gethin</strong>  </li>
 	<li><strong>Kitchen</strong> <i>by</i> <strong>Banana Yoshimoto</strong>  </li>
 	<li><strong>Blue Mondays</strong> <i>by</i> <strong>Arnon Grunberg</strong>  </li>
@@ -608,8 +660,16 @@
 	<li><strong>Please Look After Mother</strong> <i>by</i> <strong>Kyung-Sook Shin</strong> </li>
 	<li><strong>The Confessions of Noa Weber</strong> <i>by</i> <strong>Gail Hareven</strong> </li>
 </ol>
-<h2>2016</h2>
-<ol>
+</div>
+</section>
+
+<section class="year-section collapsed" data-year="2016">
+<button class="year-header" aria-expanded="false">
+<h2>2016 <span class="year-count"></span></h2>
+<span class="year-chevron" aria-hidden="true">▼</span>
+</button>
+<div class="year-content">
+<ol class="book-list">
 	<li><strong>The Festival of Insignificance</strong> <i>by</i> <strong>Milan Kundera</strong> </li>
 	<li><strong>White Teeth</strong> <i>by</i> <strong>Zadie Smith</strong> </li>
 	<li><strong>Outer Dark</strong> <i>by</i> <strong>Cormac McCarthy</strong> </li>
@@ -659,8 +719,16 @@
     <li><strong>Jamilia</strong> <i>by</i> <strong>Chingiz Aïtmatov</strong> </li>
     <li><strong>Raymond Roussel and the Republic of Dreams</strong> <i>by</i> <strong>Mark Ford</strong> </li>
 </ol>
-<h2>2015</h2>
-<ol>
+</div>
+</section>
+
+<section class="year-section collapsed" data-year="2015">
+<button class="year-header" aria-expanded="false">
+<h2>2015 <span class="year-count"></span></h2>
+<span class="year-chevron" aria-hidden="true">▼</span>
+</button>
+<div class="year-content">
+<ol class="book-list">
 	<li><strong>Portrait of a Man</strong> <i>by</i> <strong>Georges Perec</strong> 	    
 	<li><strong>Winter Journeys</strong> <i>by</i> <strong>The OULIPO</strong> 	    
 	<li><strong>What If?</strong> <i>by</i> <strong>Randall Munroe</strong> 	    
@@ -689,17 +757,30 @@
 	<li><strong>Cakes, Custard, and Category Theory</strong> <i>by</i> <strong>Eugenia Cheng</strong> </li>	
 	<li><strong>The Almost Nearly Perfect People</strong> <i>by</i> <strong>Michael Booth</strong> </li>	<li><strong>Vanishing Point</strong> <i>by</i> <strong>David Markson</strong> </li>
 <li><strong>The Big Sleep</strong> <i>by</i> <strong>Raymond Chandler</strong> </li>
-</ol>	
-	
-	
-<h2>2014</h2>
-<ol>
+</ol>
+</div>
+</section>
+
+<section class="year-section collapsed" data-year="2014">
+<button class="year-header" aria-expanded="false">
+<h2>2014 <span class="year-count"></span></h2>
+<span class="year-chevron" aria-hidden="true">▼</span>
+</button>
+<div class="year-content">
+<ol class="book-list">
 <li><strong>Dark Chatter</strong> <i>by</i> <strong>Andrew Branch</strong> </li>
 <li><strong>The Ballad of Dingus Magee</strong> <i>by</i> <strong>David Markson</strong> </li>
 </ol>
+</div>
+</section>
 
-<h2>2013</h2>
-<ol>
+<section class="year-section collapsed" data-year="2013">
+<button class="year-header" aria-expanded="false">
+<h2>2013 <span class="year-count"></span></h2>
+<span class="year-chevron" aria-hidden="true">▼</span>
+</button>
+<div class="year-content">
+<ol class="book-list">
 <li><strong>The International Bank of Bob: Connecting Our Worlds One $25 Kiva Loan at a Time</strong> <i>by</i> <strong>Bob Harris</strong> </li>
 <li><strong>Dad is Fat</strong> <i>by</i> <strong>Jim Gaffigan</strong> </li>
 <li><strong>Teach Your Children Well: Parenting for Authentic Success</strong> <i>by</i> <strong>Madeline Levine</strong> </li>
@@ -707,15 +788,30 @@
 <li><strong>Epitaph for a Tramp</strong> <i>by</i> <strong>David Markson</strong> </li>
 <li><strong>Shakespeare</strong> <i>by</i> <strong>Bill Bryson</strong> </li>
 </ol>
+</div>
+</section>
 
-<h2>2012</h2>
-<ol>
+<section class="year-section collapsed" data-year="2012">
+<button class="year-header" aria-expanded="false">
+<h2>2012 <span class="year-count"></span></h2>
+<span class="year-chevron" aria-hidden="true">▼</span>
+</button>
+<div class="year-content">
+<ol class="book-list">
 <li><strong>Grouped</strong> <i>by</i> <strong>Paul Adams</strong> </li>
 <li><strong>Turtles, Termites and Traffic Jams</strong> <i>by</i> <strong>Mitchell Resnick</strong> </li>
 <li><strong>Linked</strong> <i>by</i> <strong>Albert-laszlo Barabasi</strong> </li> 
 </ol>
+</div>
+</section>
 
-<h2>2011</h2><ol>
+<section class="year-section collapsed" data-year="2011">
+<button class="year-header" aria-expanded="false">
+<h2>2011 <span class="year-count"></span></h2>
+<span class="year-chevron" aria-hidden="true">▼</span>
+</button>
+<div class="year-content">
+<ol class="book-list">
 <li><strong>Phase Transitions</strong> <i>by</i> <strong>Ricard Sol&eacute;</s
 trong></li>
 <li><strong>Diversity and Complexity</strong> <i>by</i> <strong>Scott E. Page</strong></li>
@@ -735,9 +831,16 @@ trong></li>
 <li><strong>Privacy: A Manifesto</strong> <i>by</i> <strong>Wolfgang Sofsky</strong> </li>
 <li><strong>Drive: The Surprising Truth About What Motivates Us</strong> <i>by</i> <strong>Daniel H. Pink</strong></li>
 </ol>
+</div>
+</section>
 
-<h2>2010</h2>
-<ol>
+<section class="year-section collapsed" data-year="2010">
+<button class="year-header" aria-expanded="false">
+<h2>2010 <span class="year-count"></span></h2>
+<span class="year-chevron" aria-hidden="true">▼</span>
+</button>
+<div class="year-content">
+<ol class="book-list">
 <li><strong>Never Let Me Go</strong> <i>by</i> <strong>Kazuo Ishiguro</strong></li>
 <li><strong>Blood Meridian</strong> <i>by</i> <strong>Cormac McCarthy</strong></li>
 <li><strong>The Killer Inside Me</strong> <i>by</i> <strong>Jim Thompson</strong></li>
@@ -754,9 +857,16 @@ trong></li>
 <li><strong>Slow Learner</strong> <i>by</i> <strong>Thomas Pynchon</strong></li>
 <li><strong>Logicomix</strong> <i>by</i> <strong>Apostolos Doxiadis, Christos H. Papadimitriou, Alecos Papadatos, Annie Di Donna</li>
 </ol>
+</div>
+</section>
 
-<h2>2009</h2>
-<ol>
+<section class="year-section collapsed" data-year="2009">
+<button class="year-header" aria-expanded="false">
+<h2>2009 <span class="year-count"></span></h2>
+<span class="year-chevron" aria-hidden="true">▼</span>
+</button>
+<div class="year-content">
+<ol class="book-list">
 <li><strong>The Dice Man</strong> <i>by</i> <strong>Luke Rhinehart</strong></li>
 <li><strong>The First Man</strong> <i>by</i> <strong>Albert Camus</strong></li>
 <li><strong>A Living Soul</strong> <i>by</i> <strong>P C Jersild</strong></li>
@@ -768,9 +878,16 @@ trong></li>
 <strong>Bert Kruismans and Peter Perceval</strong>
 <li><strong>Fooled by Randomness</strong> <i>by</i> <strong>Nassim Nicholas Taleb</strong>
 </ol>
+</div>
+</section>
 
-<h2>2008</H2>
-<ol>
+<section class="year-section collapsed" data-year="2008">
+<button class="year-header" aria-expanded="false">
+<h2>2008 <span class="year-count"></span></h2>
+<span class="year-chevron" aria-hidden="true">▼</span>
+</button>
+<div class="year-content">
+<ol class="book-list">
 <li><strong>At First Sight</strong> <i>by</i> <strong>Nicholas Sparks</strong> </li>
 <li><strong>Rational Ritual: Culture, Coordination, and Common Knowledge</strong> <i>by</i> <strong>Michael Suk-Young Chwe</strong> </li>
 <li><strong>The Book of Laughter and Forgetting</strong> <i>by</i> <strong>Milan Kundera</strong> (<i>third time</i>) </li>
@@ -788,12 +905,16 @@ trong></li>
 <li><strong>The Long Tail</strong> <i>by</i> <strong>Chris Anderson</strong> </li>
 <li><strong>The Tipping Point</strong> <i>by</i> <strong>Malcolm Gladwell</strong> </li>
 </ol>
+</div>
+</section>
 
-<H2>
-2007
-</H2>
-
-<ol>
+<section class="year-section collapsed" data-year="2007">
+<button class="year-header" aria-expanded="false">
+<h2>2007 <span class="year-count"></span></h2>
+<span class="year-chevron" aria-hidden="true">▼</span>
+</button>
+<div class="year-content">
+<ol class="book-list">
 <li><strong>Falling Man</strong> <i>by</i> <strong>Don DeLillo</strong></li>
 <li><strong>Kaas</strong> <i>by</i> <strong>Willem Elsschot</strong> </li>
 <li><strong>Nooit Meer Slapen</strong> <i>by</i> <strong>Willem Frederik Hermans</strong> </li>
@@ -811,12 +932,16 @@ trong></li>
 <li><strong>jPod</strong> <i>by</i> <strong>Douglas Coupland</strong>  </li>
 <li><strong>The Wind-up Bird Chronicle</strong> <i>by</i> <strong>Haruki Murakami</strong>  </li>
 </ol>
+</div>
+</section>
 
-<H2>
-2006
-</H2>
-
-<ol>
+<section class="year-section collapsed" data-year="2006">
+<button class="year-header" aria-expanded="false">
+<h2>2006 <span class="year-count"></span></h2>
+<span class="year-chevron" aria-hidden="true">▼</span>
+</button>
+<div class="year-content">
+<ol class="book-list">
 <li><strong>The Nature of Economies</strong> <i>by</i> <strong>Jane Jacobs</strong> </li>
 <li><strong>Games People Play</strong> <i>by</i> <strong>Eric Berne</strong> </li>
 <li><strong>Everything and More: A Compact History of Infinity</strong> <i>by</i> <strong>David Foster Wallace</strong> </li>
@@ -831,13 +956,16 @@ trong></li>
 <li><strong>The Tax Inspector</strong> <i>by</i> <strong>Peter Carey</strong> </li>
 
 </ol>
+</div>
+</section>
 
-
-<H2>
-2005
-</H2>
-
-<ol>
+<section class="year-section collapsed" data-year="2005">
+<button class="year-header" aria-expanded="false">
+<h2>2005 <span class="year-count"></span></h2>
+<span class="year-chevron" aria-hidden="true">▼</span>
+</button>
+<div class="year-content">
+<ol class="book-list">
 <li><strong>The Pragmatic Programmer</strong> <i>by</i> <strong>Andrew Hunt and David Thomas</strong> </li>
 <li><strong>The Tinder Box</strong> <i>by</i> <strong>Minette Walters</strong>  </li>
 <li><strong>A Dog's Life</strong> <i>by</i> <strong>Paul Bailey</strong>  </li>
@@ -852,25 +980,32 @@ trong></li>
 <li><strong>Gould's Book of Fish</strong> <i>by</i> <strong>Richard Flanagan</strong>   </li>
 
 </ol>
+</div>
+</section>
 
-
-<H2>
-2004
-</H2>
-
-<ol>
+<section class="year-section collapsed" data-year="2004">
+<button class="year-header" aria-expanded="false">
+<h2>2004 <span class="year-count"></span></h2>
+<span class="year-chevron" aria-hidden="true">▼</span>
+</button>
+<div class="year-content">
+<ol class="book-list">
 <li><strong>The Heart of the Matter</strong> <i>by</i> <strong>Graham Greene</strong>  </li>
 <li><strong>The Birth of Venus</strong> <i>by</i> <strong>Sarah Dunant</strong>  </li>
 <li><strong>The Little Town Where Time Stood Still</strong> <i>by</i> <strong>Bohumul Hrabal</strong>  </li>
 <li><strong>The Master and Margarita</strong> <i>by</i> <strong>Mikhail Bulgakov</strong>  </li>
 <li><strong>The Names</strong> <i>by</i> <strong>Don DeLillo</strong>  </li>
 </ol>
+</div>
+</section>
 
-
-
-<H2>2003</H2>
-
-<ol>
+<section class="year-section collapsed" data-year="2003">
+<button class="year-header" aria-expanded="false">
+<h2>2003 <span class="year-count"></span></h2>
+<span class="year-chevron" aria-hidden="true">▼</span>
+</button>
+<div class="year-content">
+<ol class="book-list">
 <li><strong>The Life of Pi</strong> <i>by</i> <strong>Yann Martel</strong>  </li>
 <li><strong>Ignorance</strong> <i>by</i> <strong>Milan Kundera</strong></li>
 <li><strong>Stupid White Men</strong> <i>by</i> <strong>Michael Moore</strong>  </li>
@@ -878,12 +1013,16 @@ trong></li>
 <li><strong>Laughter in the Dark</strong> <i>by</i> <strong>Vladimir Nobokov</strong>  </li>
 <li><strong>Dirt Music</strong> <i>by</i> <strong>Tim Winton</strong>  </li>
 </ol>
+</div>
+</section>
 
-
-
-<H2>2002</H2>
-
-<ol>
+<section class="year-section collapsed" data-year="2002">
+<button class="year-header" aria-expanded="false">
+<h2>2002 <span class="year-count"></span></h2>
+<span class="year-chevron" aria-hidden="true">▼</span>
+</button>
+<div class="year-content">
+<ol class="book-list">
 <li><strong>Chene et Chien</strong> <i>by</i> <strong>Raymond Queneau</strong>  </li>
 <li><strong>Tractatus Logico-Philosophicus</strong> <i>by</i> <strong>Ludwig Wittgenstein</strong>  </li>
 <li><strong>Hortense in exile</strong> <i>by</i> <strong>Jacques Roubaud</strong>  </li>
@@ -926,13 +1065,16 @@ trong></li>
 <li><strong>Naming and Unnaming: On Raymond Queneau</strong> <i>by</i> <strong>Jordan Stump</strong>  </li>
 <li><strong>I Served the King of England</strong> <i>by</i> <strong>Bohumil Hrabal</strong>  </li>
 </ol>
+</div>
+</section>
 
-
-
-<h2>2001</h2>
-
-
-<ol>
+<section class="year-section collapsed" data-year="2001">
+<button class="year-header" aria-expanded="false">
+<h2>2001 <span class="year-count"></span></h2>
+<span class="year-chevron" aria-hidden="true">▼</span>
+</button>
+<div class="year-content">
+<ol class="book-list">
 <li><strong>Ta Kaihau/The Windeater</strong> <i>by</i> <strong>Kerry Hulme</strong>  </li>
 <li><strong>Ladies Almanac</strong> <i>by</i> <strong>Djuna Barnes</strong>  </li>
 <li><strong>Only Forward</strong> <i>by</i> <strong>Michael Marshall Smith</strong>  </li>
@@ -966,12 +1108,16 @@ trong></li>
 <li><strong>The Tomb of Boris Davidovic</strong> <i>by</i> <strong>Danilo Kis</strong>  </li>
 <li><strong>The Inner Side of the Wind</strong> <i>by</i> <strong>Milorad Pavi&cacute;</strong>  </li>
 </ol>
+</div>
+</section>
 
-
-
-<h2>2000</h2>
-
-<ol>
+<section class="year-section collapsed" data-year="2000">
+<button class="year-header" aria-expanded="false">
+<h2>2000 <span class="year-count"></span></h2>
+<span class="year-chevron" aria-hidden="true">▼</span>
+</button>
+<div class="year-content">
+<ol class="book-list">
 <li><strong>The Bosnian Chronicle</strong> <i>by</i> <strong>Ivo Andric</strong>  </li>
 <li><strong>The Glass Heart</strong> <i>by</i> <strong>Katerina Cosgrove</strong> </li>
 <li><strong>The Sheltering Sky</strong> <i>by</i> <strong>Paul Bowles</strong> </li>
@@ -1047,12 +1193,16 @@ trong></li>
 <li><strong>Immortality</strong>  <i>by</i> <strong>Milan Kundera</strong>  </li>
 <li><strong>Waiting for the Barbarians</strong>  <i>by</i> <strong>J. M. Coetzee</strong> </li>
 </ol>
+</div>
+</section>
 
-
-
-<H2>1999</H2>
-
-<ol>
+<section class="year-section collapsed" data-year="1999">
+<button class="year-header" aria-expanded="false">
+<h2>1999 <span class="year-count"></span></h2>
+<span class="year-chevron" aria-hidden="true">▼</span>
+</button>
+<div class="year-content">
+<ol class="book-list">
 <li><strong>Eucalyptus</strong> <i>by</i> <strong>Murray Bail</strong> </li>
 <li><strong>Drift Street</strong> <i>by</i> <strong>Clare Mendes</strong></li>
 <li><strong>Leaving Las Vegas</strong> <i>by</i> <strong>John O'Brien</strong></li>
@@ -1182,15 +1332,16 @@ Garc&iacute;a M&aacute;rquez</strong>  </li>
 <li><strong>The Literature Machine</strong> <i>by</i> <strong>Italo Calvino</strong> </li>
 <li><strong>Catch-22</strong> <i>by</i> <strong>Joseph Heller</strong> </li>
 </ol>
+</div>
+</section>
 
-
-
-<H2>
-Prior to 1999 (selection)
-</H2>
-
-
-<ol>
+<section class="year-section collapsed" data-year="pre1999">
+<button class="year-header" aria-expanded="false">
+<h2>Prior to 1999 <span class="year-count"></span></h2>
+<span class="year-chevron" aria-hidden="true">▼</span>
+</button>
+<div class="year-content">
+<ol class="book-list">
 <li><strong>The Beach</strong> <i>by</i> <strong>Alex Garland</strong>  </li>
 <li><strong>Our Man in Havana</strong> <i>by</i> <strong>Graham Greene</strong> </li>
 <li><strong>Jazz</strong> <i>by</i> <strong>Toni Morrison</strong> </li>
@@ -1245,29 +1396,133 @@ Prior to 1999 (selection)
 <li><strong> 53 Days</strong> <i>by</i> <strong>Georges Perec</strong></li>
 <li><strong> Ulysses</strong> <i>by</i> <strong>James Joyce</strong></li>
 </ol>
-
-
-<!--main ends-->					
 </div>
+</section>
 
+      </div><!-- end reading-list -->
+    </main>
 
-	
-	<!-- footer-bottom starts -->		
-	<div id="footer-bottom">
-		<div class="bottom-left">
-			<p>
-			&copy; 2016 <strong>Dave Clarke</strong>&nbsp; &nbsp; &nbsp;
-			<a href="http://www.bluewebtemplates.com/" title="Website Templates">website templates</a> by <a href="http://www.styleshout.com/">styleshout</a>
-			</p>
-		</div>
-	
+    <footer class="footer">
+      <p>
+        &copy; 2016 <strong>Dave Clarke</strong> &nbsp;&bull;&nbsp;
+        <a href="http://www.bluewebtemplates.com/" title="Website Templates">website templates</a> by 
+        <a href="http://www.styleshout.com/">styleshout</a>
+      </p>
+    </footer>
+  </div>
 
-	<!-- footer-bottom ends -->		
-	</div>
-	
-<!-- wrap ends here -->
-</div>
-
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Calculate and display statistics
+      const sections = document.querySelectorAll('.year-section');
+      let totalBooks = 0;
+      const yearStats = [];
+      
+      sections.forEach(section => {
+        const year = section.dataset.year;
+        const books = section.querySelectorAll('.book-list li');
+        const count = books.length;
+        totalBooks += count;
+        
+        // Update year count in header
+        const countSpan = section.querySelector('.year-count');
+        if (countSpan) {
+          countSpan.textContent = `(${count} books)`;
+        }
+        
+        // Store for stats display
+        if (year !== 'pre1999') {
+          yearStats.push({ year, count });
+        } else {
+          yearStats.push({ year: 'Pre-1999', count });
+        }
+      });
+      
+      // Update total
+      document.getElementById('total-books').textContent = totalBooks;
+      
+      // Create year stats (show recent years)
+      const yearStatsContainer = document.getElementById('year-stats');
+      const recentYears = yearStats.slice(0, 5);
+      yearStatsContainer.innerHTML = recentYears.map(({ year, count }) => `
+        <div class="stat-item">
+          <span class="stat-number">${count}</span>
+          <span class="stat-label">${year}</span>
+        </div>
+      `).join('');
+      
+      // Collapsible functionality
+      sections.forEach(section => {
+        const header = section.querySelector('.year-header');
+        const content = section.querySelector('.year-content');
+        const chevron = section.querySelector('.year-chevron');
+        
+        header.addEventListener('click', function() {
+          const isCollapsed = section.classList.contains('collapsed');
+          
+          if (isCollapsed) {
+            section.classList.remove('collapsed');
+            header.setAttribute('aria-expanded', 'true');
+          } else {
+            section.classList.add('collapsed');
+            header.setAttribute('aria-expanded', 'false');
+          }
+        });
+        
+        // Keyboard accessibility
+        header.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            header.click();
+          }
+        });
+      });
+      
+      // Store collapse state in localStorage
+      const storageKey = 'reading-list-expanded';
+      
+      function saveState() {
+        const expanded = [];
+        sections.forEach(section => {
+          if (!section.classList.contains('collapsed')) {
+            expanded.push(section.dataset.year);
+          }
+        });
+        localStorage.setItem(storageKey, JSON.stringify(expanded));
+      }
+      
+      function loadState() {
+        try {
+          const saved = localStorage.getItem(storageKey);
+          if (saved) {
+            const expanded = JSON.parse(saved);
+            sections.forEach(section => {
+              const year = section.dataset.year;
+              if (expanded.includes(year)) {
+                section.classList.remove('collapsed');
+                section.querySelector('.year-header').setAttribute('aria-expanded', 'true');
+              } else {
+                section.classList.add('collapsed');
+                section.querySelector('.year-header').setAttribute('aria-expanded', 'false');
+              }
+            });
+          }
+        } catch (e) {
+          // Ignore localStorage errors
+        }
+      }
+      
+      // Load saved state
+      loadState();
+      
+      // Save state on change
+      sections.forEach(section => {
+        section.querySelector('.year-header').addEventListener('click', () => {
+          setTimeout(saveState, 100);
+        });
+      });
+    });
+  </script>
 </body>
 </html>
 

@@ -8,99 +8,161 @@
   :root {
     --bg: #0f1216;
     --panel: #1a1f27;
-    --panel2: #222834;
-    --ink: #e6e9ef;
-    --muted: #98a2b3;
+    --panel2: #2a3140;
+    --ink: #eef1f6;
+    --muted: #aeb7c6;
     --accent: #4f9dff;
-    --line: #303845;
+    --line: #38414f;
     --susceptible: #525c6e;
     --vaccinated: #2f6fd0;
     --infected: #ff4d4d;
     --frontier: #ffb03d;
     --immune: #2ecc71;
   }
-  * { box-sizing: border-box; }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; }
   body {
-    margin: 0; background: var(--bg); color: var(--ink);
-    font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg); color: var(--ink);
+    font: 18px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    -webkit-text-size-adjust: 100%;
   }
-  header {
-    padding: 16px 20px; border-bottom: 1px solid var(--line);
-    display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;
+  /* Portrait, iPad-shaped column */
+  #app {
+    max-width: 1240px; margin: 0 auto; min-height: 100vh;
+    padding: 16px 18px 36px; display: flex; flex-direction: column; gap: 16px;
   }
-  header h1 { font-size: 18px; margin: 0; }
-  header .sub { color: var(--muted); font-size: 13px; }
-  .tabs { display: flex; gap: 6px; margin-left: auto; }
+  /* Landscape: view on the left, controls on the right */
+  .workspace { display: flex; flex-direction: row; gap: 18px; align-items: flex-start; }
+  .viewpane { flex: 1 1 auto; min-width: 0; }
+  .view { display: flex; flex-direction: column; gap: 14px; }
+  .controls { flex: 0 0 360px; }
+  @media (max-width: 860px) {
+    .workspace { flex-direction: column; }
+    .controls { flex-basis: auto; width: 100%; }
+  }
+  header { display: flex; align-items: center; gap: 12px 16px; flex-wrap: wrap; }
+  .titlewrap { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  header h1 { font-size: 26px; margin: 0; font-weight: 700; }
+  .sub { color: var(--muted); font-size: 15px; }
+  #buildStamp { color: var(--accent); }
+  .tabs { display: flex; gap: 8px; margin-left: auto; }
   .tab {
-    padding: 7px 14px; border: 1px solid var(--line); background: var(--panel);
-    color: var(--ink); border-radius: 8px; cursor: pointer; font-size: 13px;
+    padding: 14px 22px; border: 2px solid var(--line); background: var(--panel);
+    color: var(--ink); border-radius: 12px; cursor: pointer; font-size: 19px; font-weight: 600;
+    min-height: 54px;
   }
   .tab.active { background: var(--accent); border-color: var(--accent); color: #fff; }
-  main { display: grid; grid-template-columns: 320px 1fr; gap: 0; min-height: calc(100vh - 62px); }
-  .controls { padding: 18px 20px; border-right: 1px solid var(--line); background: var(--panel); }
-  .stage { padding: 18px 20px; overflow: auto; }
-  .field { margin-bottom: 14px; }
-  .field label { display: block; color: var(--muted); font-size: 12px; margin-bottom: 4px; }
-  .field .val { color: var(--accent); font-variant-numeric: tabular-nums; }
-  input[type=range] { width: 100%; }
+
+  /* Fixed-size grid box; the cells scale to fill it as the cell count changes */
+  #gridBox {
+    width: 100%; aspect-ratio: 4 / 3; max-height: 82vh;
+    background: #0b0e12; border: 2px solid var(--line); border-radius: 16px;
+    display: flex; align-items: center; justify-content: center; overflow: hidden;
+  }
+  #grid { image-rendering: pixelated; display: block; }
+  #chartBox { width: 100%; }
+  #chart { width: 100%; height: auto; background: #0b0e12; border: 2px solid var(--line); border-radius: 16px; display: block; }
+
+  .stats { display: flex; gap: 12px; flex-wrap: wrap; }
+  .stat { flex: 1 1 auto; min-width: 96px; background: var(--panel); border-radius: 12px; padding: 12px 14px; }
+  .stat .n { font-size: 30px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .stat .l { color: var(--muted); font-size: 14px; text-transform: uppercase; letter-spacing: .04em; }
+
+  .legend { display: flex; gap: 18px; flex-wrap: wrap; font-size: 16px; color: var(--muted); }
+  .legend span { display: inline-flex; align-items: center; gap: 8px; }
+  .sw { width: 20px; height: 20px; border-radius: 5px; display: inline-block; border: 1px solid rgba(255,255,255,.15); }
+
+  .controls { background: var(--panel); border: 2px solid var(--line); border-radius: 16px; padding: 20px; }
+  h3 { font-size: 15px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 0 0 16px; }
+  .field { margin-bottom: 20px; }
+  .field label { display: block; color: var(--ink); font-size: 18px; margin-bottom: 10px; }
+  .field .val { color: var(--accent); font-weight: 700; font-variant-numeric: tabular-nums; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   input[type=number] {
-    width: 100%; background: var(--panel2); border: 1px solid var(--line);
-    color: var(--ink); border-radius: 6px; padding: 6px 8px; font-size: 13px;
+    width: 100%; background: var(--panel2); border: 2px solid var(--line);
+    color: var(--ink); border-radius: 10px; padding: 12px 14px; font-size: 20px; min-height: 54px;
   }
-  .row { display: flex; gap: 10px; }
-  .row .field { flex: 1; }
-  .btns { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
-  button.act {
-    padding: 8px 14px; border: 1px solid var(--accent); background: var(--accent);
-    color: #fff; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600;
+  /* Large touch-friendly sliders */
+  input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 40px; background: transparent; margin: 0; }
+  input[type=range]::-webkit-slider-runnable-track { height: 12px; background: var(--panel2); border-radius: 8px; border: 1px solid var(--line); }
+  input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 38px; height: 38px; margin-top: -14px; border-radius: 50%; background: var(--accent); border: 3px solid #fff; }
+  input[type=range]::-moz-range-track { height: 12px; background: var(--panel2); border-radius: 8px; }
+  input[type=range]::-moz-range-thumb { width: 34px; height: 34px; border-radius: 50%; background: var(--accent); border: 3px solid #fff; }
+  .btns { display: flex; gap: 12px; flex-wrap: wrap; }
+  button.act, button.ghost {
+    flex: 1 1 auto; min-width: 120px; min-height: 60px; font-size: 20px; font-weight: 700;
+    border-radius: 12px; cursor: pointer; padding: 14px 18px;
   }
-  button.ghost { background: var(--panel2); border-color: var(--line); color: var(--ink); }
-  button:disabled { opacity: .5; cursor: not-allowed; }
-  hr { border: none; border-top: 1px solid var(--line); margin: 18px 0; }
-  h3 { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 0 0 10px; }
-  canvas { background: #0b0e12; border: 1px solid var(--line); border-radius: 8px; image-rendering: pixelated; max-width: 100%; }
-  .stats { display: flex; gap: 18px; flex-wrap: wrap; margin: 14px 0; }
-  .stat { min-width: 90px; }
-  .stat .n { font-size: 22px; font-weight: 700; font-variant-numeric: tabular-nums; }
-  .stat .l { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .05em; }
-  .legend { display: flex; gap: 16px; flex-wrap: wrap; margin: 10px 0; font-size: 12px; color: var(--muted); }
-  .legend span { display: inline-flex; align-items: center; gap: 6px; }
-  .sw { width: 12px; height: 12px; border-radius: 3px; display: inline-block; border: 1px solid rgba(255,255,255,.12); }
-  .hidden { display: none; }
-  .note { color: var(--muted); font-size: 12px; }
-  .progress { height: 6px; background: var(--panel2); border-radius: 4px; overflow: hidden; margin: 10px 0; }
+  button.act { border: 2px solid var(--accent); background: var(--accent); color: #fff; }
+  button.ghost { background: var(--panel2); border: 2px solid var(--line); color: var(--ink); }
+  button:disabled { opacity: .45; }
+  hr { border: none; border-top: 2px solid var(--line); margin: 20px 0; }
+  .note { color: var(--muted); font-size: 16px; margin: 14px 0 0; }
+  .progress { height: 12px; background: var(--panel2); border-radius: 8px; overflow: hidden; margin: 6px 0 12px; }
   .progress > div { height: 100%; width: 0; background: var(--accent); transition: width .1s; }
-  table.res { border-collapse: collapse; font-size: 12px; margin-top: 12px; }
-  table.res th, table.res td { border: 1px solid var(--line); padding: 4px 10px; text-align: right; }
+  table.res { border-collapse: collapse; font-size: 16px; margin-top: 14px; width: 100%; }
+  table.res th, table.res td { border: 1px solid var(--line); padding: 8px 12px; text-align: right; }
   table.res th { color: var(--muted); font-weight: 600; }
+  .hidden { display: none; }
 </style>
 </head>
 <body>
-<header>
-  <h1>Vaccination Simulator</h1>
-  <span class="sub">Grid-based disease spread &amp; herd immunity</span>
-  <span class="sub" id="buildStamp" style="color:var(--accent);">build&nbsp;5</span>
-  <div class="tabs">
-    <button class="tab active" data-mode="single">Single scenario</button>
-    <button class="tab" data-mode="sweep">Sweep all rates</button>
-  </div>
-</header>
+<div id="app">
+  <header>
+    <div class="titlewrap">
+      <h1>Vaccination Simulator</h1>
+      <span class="sub" id="buildStamp">build&nbsp;11</span>
+    </div>
+    <div class="tabs">
+      <button class="tab active" data-mode="single">Single</button>
+      <button class="tab" data-mode="sweep">Sweep</button>
+    </div>
+  </header>
 
-<main>
+  <div class="workspace">
+   <div class="viewpane">
+  <!-- SINGLE MODE -->
+  <div id="singleView" class="view">
+    <div class="stats">
+      <div class="stat"><div class="n" id="sInfected">0</div><div class="l">Infected</div></div>
+      <div class="stat"><div class="n" id="sPct">0%</div><div class="l">of population</div></div>
+      <div class="stat"><div class="n" id="sImmune">0</div><div class="l">Resisted</div></div>
+      <div class="stat"><div class="n" id="sRound">0</div><div class="l">Ticks</div></div>
+      <div class="stat"><div class="n" id="sStatus">idle</div><div class="l">Status</div></div>
+    </div>
+    <div id="gridBox"><canvas id="grid"></canvas></div>
+    <div class="legend">
+      <span><i class="sw" style="background:var(--susceptible)"></i>Susceptible</span>
+      <span><i class="sw" style="background:var(--vaccinated)"></i>Vaccinated</span>
+      <span><i class="sw" style="background:var(--frontier)"></i>Active</span>
+      <span><i class="sw" style="background:var(--infected)"></i>Infected</span>
+      <span><i class="sw" style="background:var(--immune)"></i>Resisted</span>
+    </div>
+  </div>
+
+  <!-- SWEEP MODE -->
+  <div id="sweepView" class="view hidden">
+    <div class="progress"><div id="progBar"></div></div>
+    <div id="chartBox"><canvas id="chart" width="760" height="620"></canvas></div>
+    <p class="note" id="sweepNote">Each vaccination rate is simulated over 50 trials in 2% steps; the line shows the mean infection percentage with ±1 standard-deviation shading.</p>
+  </div>
+   </div><!-- /viewpane -->
+
+  <!-- CONTROLS -->
   <section class="controls">
     <h3>Configuration</h3>
-    <div class="row">
-      <div class="field">
-        <label>Grid width <span class="val" id="wLabel">40</span></label>
+    <div class="grid2">
+      <div class="field" style="margin-bottom:0;">
+        <label>Cells across <span class="val" id="wLabel">40</span></label>
         <input type="number" id="width" min="1" max="256" value="40">
       </div>
-      <div class="field">
-        <label>Grid height <span class="val" id="hLabel">100</span></label>
-        <input type="number" id="height" min="1" max="256" value="100">
+      <div class="field" style="margin-bottom:0;">
+        <label>Cells down <span class="val" id="hLabel">30</span></label>
+        <input type="number" id="height" min="1" max="256" value="30">
       </div>
     </div>
 
-    <div class="field">
+    <div class="field" style="margin-top:20px;">
       <label>Transmission probability <span class="val" id="pLabel">0.85</span></label>
       <input type="range" id="ptrans" min="0" max="1" step="0.01" value="0.85">
     </div>
@@ -110,40 +172,15 @@
       <input type="range" id="eff" min="0" max="1" step="0.01" value="0.8">
     </div>
 
-    <!-- Single-mode only -->
     <div class="field single-only">
       <label>Vaccination rate <span class="val" id="vaxLabel">20%</span></label>
       <input type="range" id="vax" min="0" max="1" step="0.01" value="0.2">
-    </div>
-
-    <!-- Sweep-mode only -->
-    <div class="row sweep-only hidden">
-      <div class="field">
-        <label>Rate step <span class="val" id="stepLabel">5%</span></label>
-        <input type="range" id="step" min="0.01" max="0.25" step="0.01" value="0.05">
-      </div>
-      <div class="field">
-        <label>Trials / rate</label>
-        <input type="number" id="trials" min="1" max="200" value="20">
-      </div>
-    </div>
-
-    <div class="field">
-      <label>Random seed</label>
-      <input type="number" id="seed" min="0" value="1">
-    </div>
-
-    <div class="field single-only">
-      <label>Animation speed <span class="val" id="spdLabel">medium</span></label>
-      <input type="range" id="speed" min="0" max="4" step="1" value="2">
     </div>
 
     <hr>
 
     <div class="btns single-only">
       <button class="act" id="runBtn">Run</button>
-      <button class="ghost" id="pauseBtn" disabled>Pause</button>
-      <button class="ghost" id="stepBtn">Step</button>
       <button class="ghost" id="resetBtn">Reset</button>
     </div>
 
@@ -152,38 +189,10 @@
       <button class="ghost" id="cancelBtn" disabled>Cancel</button>
     </div>
 
-    <p class="note" id="popNote" style="margin-top:14px;"></p>
+    <p class="note" id="popNote"></p>
   </section>
-
-  <section class="stage">
-    <!-- SINGLE MODE -->
-    <div id="singleView">
-      <div class="stats">
-        <div class="stat"><div class="n" id="sInfected">0</div><div class="l">Infected</div></div>
-        <div class="stat"><div class="n" id="sPct">0%</div><div class="l">of population</div></div>
-        <div class="stat"><div class="n" id="sImmune">0</div><div class="l">Resisted</div></div>
-        <div class="stat"><div class="n" id="sRound">0</div><div class="l">Round</div></div>
-        <div class="stat"><div class="n" id="sStatus">idle</div><div class="l">Status</div></div>
-      </div>
-      <div class="legend">
-        <span><i class="sw" style="background:var(--susceptible)"></i>Susceptible</span>
-        <span><i class="sw" style="background:var(--vaccinated)"></i>Vaccinated</span>
-        <span><i class="sw" style="background:var(--frontier)"></i>Frontier</span>
-        <span><i class="sw" style="background:var(--infected)"></i>Infected</span>
-        <span><i class="sw" style="background:var(--immune)"></i>Resisted (immune)</span>
-      </div>
-      <canvas id="grid"></canvas>
-    </div>
-
-    <!-- SWEEP MODE -->
-    <div id="sweepView" class="hidden">
-      <div class="progress"><div id="progBar"></div></div>
-      <p class="note" id="sweepNote">Configure and press “Run sweep”. Each vaccination rate is simulated over the chosen number of trials; the line shows the mean infection percentage with ±1 standard-deviation shading.</p>
-      <canvas id="chart" width="900" height="520"></canvas>
-      <div id="resWrap"></div>
-    </div>
-  </section>
-</main>
+  </div><!-- /workspace -->
+</div>
 
 <script>
 "use strict";
@@ -197,6 +206,8 @@ function mulberry32(a) {
     return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
   };
 }
+// Fresh, non-reproducible 32-bit seed — the app no longer uses a fixed seed.
+function randSeed() { return ((Date.now() >>> 0) ^ Math.floor(Math.random() * 0x100000000)) >>> 0; }
 
 /* ---------- State encoding ---------- */
 const S = 0;   // susceptible (unvaccinated)
@@ -291,7 +302,6 @@ function readConfig() {
     vaxRate: parseFloat($("vax").value)
   });
 }
-function readSeed() { return clampInt($("seed").value, 0, 0xffffffff, 12345) >>> 0; }
 
 /* ---------- Live labels ---------- */
 function bindLabels() {
@@ -301,13 +311,10 @@ function bindLabels() {
     $("pLabel").textContent = parseFloat($("ptrans").value).toFixed(2);
     $("effLabel").textContent = Math.round(parseFloat($("eff").value) * 100) + "%";
     $("vaxLabel").textContent = Math.round(parseFloat($("vax").value) * 100) + "%";
-    $("stepLabel").textContent = Math.round(parseFloat($("step").value) * 100) + "%";
-    const names = ["paused", "slow", "medium", "fast", "instant"];
-    $("spdLabel").textContent = names[parseInt($("speed").value, 10)];
     const w = clampInt($("width").value, 1, 256, 40), h = clampInt($("height").value, 1, 256, 100);
     $("popNote").textContent = "Population: " + (w * h).toLocaleString() + " agents (" + w + " × " + h + ").";
   };
-  ["width", "height", "ptrans", "eff", "vax", "step", "speed"].forEach(id =>
+  ["width", "height", "ptrans", "eff", "vax"].forEach(id =>
     $(id).addEventListener("input", upd));
   upd();
 }
@@ -321,6 +328,8 @@ function setMode(m) {
   document.querySelectorAll(".sweep-only").forEach(e => e.classList.toggle("hidden", m !== "sweep"));
   $("singleView").classList.toggle("hidden", m !== "single");
   $("sweepView").classList.toggle("hidden", m !== "sweep");
+  if (m === "single") { layoutGrid(); }
+  else { sizeChart(); renderChart(lastSweep.results, lastSweep.rates); }
 }
 document.querySelectorAll(".tab").forEach(t =>
   t.addEventListener("click", () => { stopSingle(); setMode(t.dataset.mode); }));
@@ -331,14 +340,24 @@ document.querySelectorAll(".tab").forEach(t =>
 const canvas = $("grid"), ctx = canvas.getContext("2d");
 let sim = null; // {cfg, state, frontier, rounds, rng, running, timer}
 const COLORS = { [S]: "#525c6e", [SV]: "#2f6fd0", [INF]: "#ff4d4d", [IMM]: "#2ecc71" };
-const SPEED_MS = [0, 100, 30, 8, 0]; // per-tick delay by speed slider; ticks are now small sampled batches, so delays are short. 0 (paused) and 4 (instant) handled specially
+const STEP_MS = 30; // fixed "medium" per-tick delay (speed control removed)
 
-// Larger cells for low-vision readability: never smaller than MIN_CELL px.
-// The stage scrolls, so tall/large grids scroll rather than shrink the cells.
+// The grid box has a FIXED on-screen size; the cells scale to fill it, so changing
+// the cell count changes the cell size (fewer cells = larger cells for readability).
 function cellSize(cfg) {
-  const MIN_CELL = 12, maxW = 1200, maxH = 820;
-  const fit = Math.floor(Math.min(maxW / cfg.width, maxH / cfg.height));
-  return Math.max(MIN_CELL, fit);
+  const box = document.getElementById("gridBox");
+  const bw = box.clientWidth || 320, bh = box.clientHeight || 400;
+  return Math.max(1, Math.floor(Math.min(bw / cfg.width, bh / cfg.height)));
+}
+// Re-fit the grid canvas to the box (e.g. on resize / orientation change) without
+// disturbing the current simulation state.
+function layoutGrid() {
+  if (!sim) return;
+  const cell = cellSize(sim.cfg);
+  sim.cell = cell;
+  canvas.width = sim.cfg.width * cell;
+  canvas.height = sim.cfg.height * cell;
+  drawGrid();
 }
 function drawGrid() {
   const cfg = sim.cfg, cs = sim.cell, W = cfg.width, H = cfg.height;
@@ -382,7 +401,7 @@ function buildLayout(cfg, rng) {
 // call so every run starts in a different spot. Returns the index, or -1 if the whole
 // population is vaccinated. Also seeds the run's RNG used for the spread.
 function seedPatientZero() {
-  sim.rng = mulberry32(((Date.now() >>> 0) ^ Math.floor(Math.random() * 0x100000000)) >>> 0);
+  sim.rng = mulberry32(randSeed());
   const st = sim.state, N = st.length;
   let c0 = 0; for (let i = 0; i < N; i++) if (st[i] === S) c0++;
   if (c0 === 0) { sim.ended = true; sim.started = true; return -1; }
@@ -402,7 +421,7 @@ function clearSpread() {
 function resetSingle() {
   stopSingle();
   const cfg = readConfig();
-  const layout = buildLayout(cfg, mulberry32(readSeed()));
+  const layout = buildLayout(cfg, mulberry32(randSeed()));
   const cell = cellSize(cfg);
   canvas.width = cfg.width * cell;
   canvas.height = cfg.height * cell;
@@ -410,7 +429,6 @@ function resetSingle() {
           rounds: 0, rng: null, running: false, timer: null, ended: false, started: false };
   drawGrid();
   updateSingleStats("ready");
-  $("pauseBtn").disabled = true;
   $("runBtn").disabled = false;
 }
 // Single-scenario spread: rather than expanding the whole frontier synchronously,
@@ -453,14 +471,9 @@ function doStep() {
 }
 function playLoop() {
   if (!sim || !sim.running) return;
-  const spd = parseInt($("speed").value, 10);
-  if (spd === 4) { // instant: run to completion
-    while (doStep()) { /* loop */ }
-    stopSingle(); updateSingleStats("finished"); return;
-  }
   const more = doStep();
   if (!more) { stopSingle(); return; }
-  sim.timer = setTimeout(playLoop, SPEED_MS[spd] || 150);
+  sim.timer = setTimeout(playLoop, STEP_MS);
 }
 function startSingle() {
   if (!sim) resetSingle();
@@ -468,36 +481,22 @@ function startSingle() {
   if (!sim.started) {                            // introduce patient zero at a random location
     const pz = seedPatientZero();
     drawGrid();
-    if (pz < 0) { updateSingleStats("no susceptible agent"); $("runBtn").disabled = false; $("pauseBtn").disabled = true; return; }
+    if (pz < 0) { updateSingleStats("no susceptible agent"); $("runBtn").disabled = false; return; }
     updateSingleStats("running");
   }
-  sim.running = true;                            // (if paused mid-run, this simply resumes)
-  $("runBtn").disabled = true; $("pauseBtn").disabled = false;
+  sim.running = true;
+  $("runBtn").disabled = true;
   playLoop();
 }
 function stopSingle() {
   if (sim) { sim.running = false; if (sim.timer) clearTimeout(sim.timer); sim.timer = null; }
-  const rb = $("runBtn"), pb = $("pauseBtn");
+  const rb = $("runBtn");
   if (rb) rb.disabled = false;
-  if (pb) pb.disabled = true;
 }
 $("runBtn").addEventListener("click", startSingle);
-$("pauseBtn").addEventListener("click", () => { stopSingle(); updateSingleStats("paused"); });
-$("stepBtn").addEventListener("click", () => {
-  if (!sim) resetSingle();
-  if (sim.started && sim.ended) clearSpread();
-  stopSingle();
-  if (!sim.started) {                 // first step introduces patient zero (it appears now)
-    const pz = seedPatientZero();
-    drawGrid();
-    updateSingleStats(pz < 0 ? "no susceptible agent" : "running");
-    return;
-  }
-  doStep();
-});
 $("resetBtn").addEventListener("click", resetSingle);
 // Keep the shown population in sync with the controls (single mode only).
-["width", "height", "ptrans", "eff", "vax", "seed"].forEach(id =>
+["width", "height", "ptrans", "eff", "vax"].forEach(id =>
   $(id).addEventListener("change", () => { if (mode === "single") resetSingle(); }));
 
 /* ===================================================================
@@ -508,9 +507,9 @@ async function runSweep() {
   sweepCancel = false;
   $("sweepBtn").disabled = true; $("cancelBtn").disabled = false;
   const baseCfg = readConfig();
-  const step = parseFloat($("step").value);
-  const trials = clampInt($("trials").value, 1, 200, 20);
-  const baseSeed = readSeed();
+  const step = 0.02;   // fixed 2% steps
+  const trials = 50;   // fixed 50 trials per rate
+  const baseSeed = randSeed();   // fresh randomness each sweep
 
   // vaccination rates 0..1 inclusive
   const rates = [];
@@ -540,11 +539,10 @@ async function runSweep() {
     const std = Math.sqrt(variance);
     results.push({ rate, mean, std, min: Math.min(...pcts), max: Math.max(...pcts) });
     $("progBar").style.width = (100 * done / total) + "%";
-    drawChart(results, rates);
+    renderChart(results, rates);
     await new Promise(r => setTimeout(r, 0)); // yield to keep UI responsive
   }
-  drawChart(results, rates);
-  renderTable(results);
+  renderChart(results, rates);
   $("sweepBtn").disabled = false; $("cancelBtn").disabled = true;
   $("progBar").style.width = "100%";
 }
@@ -553,9 +551,20 @@ $("cancelBtn").addEventListener("click", () => { sweepCancel = true; });
 
 /* ---------- Chart ---------- */
 const chart = $("chart"), cctx = chart.getContext("2d");
+let lastSweep = { results: [], rates: [] };
+// Fit the chart canvas to its (fixed-width) container so it stays crisp and readable.
+function sizeChart() {
+  const box = document.getElementById("chartBox");
+  const w = Math.max(320, Math.floor(box.clientWidth || 700));
+  chart.width = w; chart.height = Math.round(w * 0.62);
+}
+function renderChart(results, rates) {
+  lastSweep = { results: results || [], rates: rates || [] };
+  drawChart(lastSweep.results, lastSweep.rates);
+}
 function drawChart(results, allRates) {
   const W = chart.width, H = chart.height;
-  const m = { l: 60, r: 20, t: 20, b: 50 };
+  const m = { l: 74, r: 24, t: 28, b: 70 };
   const pw = W - m.l - m.r, ph = H - m.t - m.b;
   cctx.clearRect(0, 0, W, H);
   cctx.fillStyle = "#0b0e12"; cctx.fillRect(0, 0, W, H);
@@ -563,22 +572,22 @@ function drawChart(results, allRates) {
   const yOf = v => m.t + (1 - v / 100) * ph;     // v percent [0,100]
 
   // grid + axes
-  cctx.strokeStyle = "#232a35"; cctx.fillStyle = "#98a2b3";
-  cctx.font = "12px sans-serif"; cctx.textAlign = "center";
+  cctx.strokeStyle = "#2a3340"; cctx.fillStyle = "#aeb7c6"; cctx.lineWidth = 1;
+  cctx.font = "17px sans-serif"; cctx.textAlign = "center";
   for (let gx = 0; gx <= 100; gx += 20) {
     const x = xOf(gx / 100);
     cctx.beginPath(); cctx.moveTo(x, m.t); cctx.lineTo(x, m.t + ph); cctx.stroke();
-    cctx.fillText(gx + "%", x, m.t + ph + 18);
+    cctx.fillText(gx + "%", x, m.t + ph + 26);
   }
   cctx.textAlign = "right";
   for (let gy = 0; gy <= 100; gy += 20) {
     const y = yOf(gy);
     cctx.beginPath(); cctx.moveTo(m.l, y); cctx.lineTo(m.l + pw, y); cctx.stroke();
-    cctx.fillText(gy + "%", m.l - 8, y + 4);
+    cctx.fillText(gy + "%", m.l - 12, y + 6);
   }
-  cctx.textAlign = "center";
-  cctx.fillText("Vaccination rate", m.l + pw / 2, H - 10);
-  cctx.save(); cctx.translate(16, m.t + ph / 2); cctx.rotate(-Math.PI / 2);
+  cctx.textAlign = "center"; cctx.font = "18px sans-serif"; cctx.fillStyle = "#eef1f6";
+  cctx.fillText("Vaccination rate", m.l + pw / 2, H - 18);
+  cctx.save(); cctx.translate(24, m.t + ph / 2); cctx.rotate(-Math.PI / 2);
   cctx.fillText("Infected (% of population)", 0, 0); cctx.restore();
 
   if (!results || results.length === 0) return;
@@ -597,7 +606,7 @@ function drawChart(results, allRates) {
   cctx.closePath(); cctx.fill();
 
   // mean line
-  cctx.strokeStyle = "#4f9dff"; cctx.lineWidth = 2; cctx.beginPath();
+  cctx.strokeStyle = "#4f9dff"; cctx.lineWidth = 3; cctx.beginPath();
   results.forEach((d, i) => {
     const x = xOf(d.rate), y = yOf(d.mean);
     i === 0 ? cctx.moveTo(x, y) : cctx.lineTo(x, y);
@@ -606,28 +615,26 @@ function drawChart(results, allRates) {
 
   // points
   cctx.fillStyle = "#4f9dff";
-  results.forEach(d => { cctx.beginPath(); cctx.arc(xOf(d.rate), yOf(d.mean), 3, 0, 7); cctx.fill(); });
-}
-function renderTable(results) {
-  let html = '<table class="res"><tr><th>Vax rate</th><th>Mean infected %</th><th>Std dev</th><th>Min</th><th>Max</th></tr>';
-  results.forEach(d => {
-    html += "<tr><td>" + Math.round(d.rate * 100) + "%</td><td>" + d.mean.toFixed(1) +
-            "</td><td>" + d.std.toFixed(1) + "</td><td>" + d.min.toFixed(1) +
-            "</td><td>" + d.max.toFixed(1) + "</td></tr>";
-  });
-  html += "</table>";
-  $("resWrap").innerHTML = html;
+  results.forEach(d => { cctx.beginPath(); cctx.arc(xOf(d.rate), yOf(d.mean), 5, 0, 7); cctx.fill(); });
 }
 
 /* ---------- Boot ---------- */
 bindLabels();
+sizeChart();
 setMode("single");
 resetSingle();
-drawChart([], []);
-// Visible proof the script executed. If you see "build 4" but NOT "· JS running",
+renderChart([], []);
+// Re-fit the grid / chart to the screen on rotate or resize (important on iPad).
+function onResize() {
+  if (mode === "single") layoutGrid();
+  else { sizeChart(); drawChart(lastSweep.results, lastSweep.rates); }
+}
+window.addEventListener("resize", onResize);
+window.addEventListener("orientationchange", () => setTimeout(onResize, 150));
+// Visible proof the script executed. If you see "build 6" but NOT "· JS running",
 // the page's JavaScript did not run (stale/cached page or a blocked preview).
-$("buildStamp").textContent = "build 5 · JS running ✓";
-console.log("[Vaccination Simulator] build 5 booted; default run infects ~69% of the grid.");
+$("buildStamp").textContent = "build 11 · JS running ✓";
+console.log("[Vaccination Simulator] build 11 booted (iPad landscape layout).");
 </script>
 </body>
 </html>

@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vaccination Simulator</title>
+<style>
+  :root {
+    --bg: #0f1216;
+    --panel: #1a1f27;
+    --panel2: #222834;
+    --ink: #e6e9ef;
+    --muted: #98a2b3;
+    --accent: #4f9dff;
+    --line: #303845;
+    --susceptible: #525c6e;
+    --vaccinated: #2f6fd0;
+    --infected: #ff4d4d;
+    --frontier: #ffb03d;
+    --immune: #2ecc71;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  header {
+    padding: 16px 20px; border-bottom: 1px solid var(--line);
+    display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;
+  }
+  header h1 { font-size: 18px; margin: 0; }
+  header .sub { color: var(--muted); font-size: 13px; }
+  .tabs { display: flex; gap: 6px; margin-left: auto; }
+  .tab {
+    padding: 7px 14px; border: 1px solid var(--line); background: var(--panel);
+    color: var(--ink); border-radius: 8px; cursor: pointer; font-size: 13px;
+  }
+  .tab.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+  main { display: grid; grid-template-columns: 320px 1fr; gap: 0; min-height: calc(100vh - 62px); }
+  .controls { padding: 18px 20px; border-right: 1px solid var(--line); background: var(--panel); }
+  .stage { padding: 18px 20px; overflow: auto; }
+  .field { margin-bottom: 14px; }
+  .field label { display: block; color: var(--muted); font-size: 12px; margin-bottom: 4px; }
+  .field .val { color: var(--accent); font-variant-numeric: tabular-nums; }
+  input[type=range] { width: 100%; }
+  input[type=number] {
+    width: 100%; background: var(--panel2); border: 1px solid var(--line);
+    color: var(--ink); border-radius: 6px; padding: 6px 8px; font-size: 13px;
+  }
+  .row { display: flex; gap: 10px; }
+  .row .field { flex: 1; }
+  .btns { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+  button.act {
+    padding: 8px 14px; border: 1px solid var(--accent); background: var(--accent);
+    color: #fff; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600;
+  }
+  button.ghost { background: var(--panel2); border-color: var(--line); color: var(--ink); }
+  button:disabled { opacity: .5; cursor: not-allowed; }
+  hr { border: none; border-top: 1px solid var(--line); margin: 18px 0; }
+  h3 { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 0 0 10px; }
+  canvas { background: #0b0e12; border: 1px solid var(--line); border-radius: 8px; image-rendering: pixelated; max-width: 100%; }
+  .stats { display: flex; gap: 18px; flex-wrap: wrap; margin: 14px 0; }
+  .stat { min-width: 90px; }
+  .stat .n { font-size: 22px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .stat .l { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .05em; }
+  .legend { display: flex; gap: 16px; flex-wrap: wrap; margin: 10px 0; font-size: 12px; color: var(--muted); }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .sw { width: 12px; height: 12px; border-radius: 3px; display: inline-block; border: 1px solid rgba(255,255,255,.12); }
+  .hidden { display: none; }
+  .note { color: var(--muted); font-size: 12px; }
+  .progress { height: 6px; background: var(--panel2); border-radius: 4px; overflow: hidden; margin: 10px 0; }
+  .progress > div { height: 100%; width: 0; background: var(--accent); transition: width .1s; }
+  table.res { border-collapse: collapse; font-size: 12px; margin-top: 12px; }
+  table.res th, table.res td { border: 1px solid var(--line); padding: 4px 10px; text-align: right; }
+  table.res th { color: var(--muted); font-weight: 600; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Vaccination Simulator</h1>
+  <span class="sub">Grid-based disease spread &amp; herd immunity</span>
+  <span class="sub" id="buildStamp" style="color:var(--accent);">build&nbsp;5</span>
+  <div class="tabs">
+    <button class="tab active" data-mode="single">Single scenario</button>
+    <button class="tab" data-mode="sweep">Sweep all rates</button>
+  </div>
+</header>
+
+<main>
+  <section class="controls">
+    <h3>Configuration</h3>
+    <div class="row">
+      <div class="field">
+        <label>Grid width <span class="val" id="wLabel">40</span></label>
+        <input type="number" id="width" min="1" max="256" value="40">
+      </div>
+      <div class="field">
+        <label>Grid height <span class="val" id="hLabel">100</span></label>
+        <input type="number" id="height" min="1" max="256" value="100">
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Transmission probability <span class="val" id="pLabel">0.85</span></label>
+      <input type="range" id="ptrans" min="0" max="1" step="0.01" value="0.85">
+    </div>
+
+    <div class="field">
+      <label>Vaccine effectiveness <span class="val" id="effLabel">80%</span></label>
+      <input type="range" id="eff" min="0" max="1" step="0.01" value="0.8">
+    </div>
+
+    <!-- Single-mode only -->
+    <div class="field single-only">
+      <label>Vaccination rate <span class="val" id="vaxLabel">20%</span></label>
+      <input type="range" id="vax" min="0" max="1" step="0.01" value="0.2">
+    </div>
+
+    <!-- Sweep-mode only -->
+    <div class="row sweep-only hidden">
+      <div class="field">
+        <label>Rate step <span class="val" id="stepLabel">5%</span></label>
+        <input type="range" id="step" min="0.01" max="0.25" step="0.01" value="0.05">
+      </div>
+      <div class="field">
+        <label>Trials / rate</label>
+        <input type="number" id="trials" min="1" max="200" value="20">
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Random seed</label>
+      <input type="number" id="seed" min="0" value="1">
+    </div>
+
+    <div class="field single-only">
+      <label>Animation speed <span class="val" id="spdLabel">medium</span></label>
+      <input type="range" id="speed" min="0" max="4" step="1" value="2">
+    </div>
+
+    <hr>
+
+    <div class="btns single-only">
+      <button class="act" id="runBtn">Run</button>
+      <button class="ghost" id="pauseBtn" disabled>Pause</button>
+      <button class="ghost" id="stepBtn">Step</button>
+      <button class="ghost" id="resetBtn">Reset</button>
+    </div>
+
+    <div class="btns sweep-only hidden">
+      <button class="act" id="sweepBtn">Run sweep</button>
+      <button class="ghost" id="cancelBtn" disabled>Cancel</button>
+    </div>
+
+    <p class="note" id="popNote" style="margin-top:14px;"></p>
+  </section>
+
+  <section class="stage">
+    <!-- SINGLE MODE -->
+    <div id="singleView">
+      <div class="stats">
+        <div class="stat"><div class="n" id="sInfected">0</div><div class="l">Infected</div></div>
+        <div class="stat"><div class="n" id="sPct">0%</div><div class="l">of population</div></div>
+        <div class="stat"><div class="n" id="sImmune">0</div><div class="l">Resisted</div></div>
+        <div class="stat"><div class="n" id="sRound">0</div><div class="l">Round</div></div>
+        <div class="stat"><div class="n" id="sStatus">idle</div><div class="l">Status</div></div>
+      </div>
+      <div class="legend">
+        <span><i class="sw" style="background:var(--susceptible)"></i>Susceptible</span>
+        <span><i class="sw" style="background:var(--vaccinated)"></i>Vaccinated</span>
+        <span><i class="sw" style="background:var(--frontier)"></i>Frontier</span>
+        <span><i class="sw" style="background:var(--infected)"></i>Infected</span>
+        <span><i class="sw" style="background:var(--immune)"></i>Resisted (immune)</span>
+      </div>
+      <canvas id="grid"></canvas>
+    </div>
+
+    <!-- SWEEP MODE -->
+    <div id="sweepView" class="hidden">
+      <div class="progress"><div id="progBar"></div></div>
+      <p class="note" id="sweepNote">Configure and press “Run sweep”. Each vaccination rate is simulated over the chosen number of trials; the line shows the mean infection percentage with ±1 standard-deviation shading.</p>
+      <canvas id="chart" width="900" height="520"></canvas>
+      <div id="resWrap"></div>
+    </div>
+  </section>
+</main>
+
+<script>
+"use strict";
+
+/* ---------- Seedable PRNG (mulberry32) ---------- */
+function mulberry32(a) {
+  return function () {
+    a |= 0; a = (a + 0x6D2B79F5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+/* ---------- State encoding ---------- */
+const S = 0;   // susceptible (unvaccinated)
+const SV = 1;  // susceptible (vaccinated)
+const INF = 2; // infected
+const IMM = 3; // resisted -> immune
+
+/* ---------- Core simulation ----------
+ * Grid of W*H agents, von Neumann neighbours, non-toroidal.
+ * One infection roll per susceptible agent, at first exposure.
+ * Infected is permanent; only the frontier drives new infections.
+ */
+function makeConfig(o) {
+  return {
+    width: o.width, height: o.height,
+    pTrans: o.pTrans, eff: o.eff, vaxRate: o.vaxRate
+  };
+}
+
+// Build initial state array + pick patient zero. Returns {state, frontier} or null if no unvaccinated agent exists.
+function initRun(cfg, rng) {
+  const W = cfg.width, H = cfg.height, N = W * H;
+  const state = new Uint8Array(N);
+  // assign vaccination
+  for (let i = 0; i < N; i++) state[i] = (rng() < cfg.vaxRate) ? SV : S;
+  // patient zero: random unvaccinated agent
+  let count0 = 0;
+  for (let i = 0; i < N; i++) if (state[i] === S) count0++;
+  if (count0 === 0) return { state, frontier: [], patientZero: -1 };
+  let pick = Math.floor(rng() * count0);
+  let pz = -1;
+  for (let i = 0; i < N; i++) {
+    if (state[i] === S) { if (pick === 0) { pz = i; break; } pick--; }
+  }
+  state[pz] = INF;
+  return { state, frontier: [pz], patientZero: pz };
+}
+
+// Advance one round. Mutates state, returns the next frontier array.
+function stepRound(cfg, state, frontier, rng) {
+  const W = cfg.width, H = cfg.height;
+  const next = [];
+  const seen = new Set(); // susceptibles already rolled this round (one roll total per agent)
+  for (let f = 0; f < frontier.length; f++) {
+    const idx = frontier[f];
+    const x = idx % W, y = (idx / W) | 0;
+    const neigh = [];
+    if (x > 0) neigh.push(idx - 1);
+    if (x < W - 1) neigh.push(idx + 1);
+    if (y > 0) neigh.push(idx - W);
+    if (y < H - 1) neigh.push(idx + W);
+    for (let k = 0; k < neigh.length; k++) {
+      const j = neigh[k];
+      const st = state[j];
+      if ((st === S || st === SV) && !seen.has(j)) {
+        seen.add(j);
+        const p = (st === SV) ? cfg.pTrans * (1 - cfg.eff) : cfg.pTrans;
+        if (rng() < p) { state[j] = INF; next.push(j); }
+        else { state[j] = IMM; }
+      }
+    }
+  }
+  return next;
+}
+
+// Run headless to completion; returns {infected, immune, rounds, N}
+function runToEnd(cfg, rng) {
+  const N = cfg.width * cfg.height;
+  const { state, frontier } = initRun(cfg, rng);
+  let fr = frontier, rounds = 0;
+  while (fr.length > 0) { fr = stepRound(cfg, state, fr, rng); rounds++; }
+  let infected = 0, immune = 0;
+  for (let i = 0; i < N; i++) { if (state[i] === INF) infected++; else if (state[i] === IMM) immune++; }
+  return { infected, immune, rounds, N };
+}
+
+/* ---------- DOM helpers ---------- */
+const $ = id => document.getElementById(id);
+function clampInt(v, lo, hi, dflt) {
+  v = parseInt(v, 10);
+  if (isNaN(v)) v = dflt;
+  return Math.max(lo, Math.min(hi, v));
+}
+function readConfig() {
+  const width = clampInt($("width").value, 1, 256, 40);
+  const height = clampInt($("height").value, 1, 256, 100);
+  $("width").value = width; $("height").value = height;
+  return makeConfig({
+    width, height,
+    pTrans: parseFloat($("ptrans").value),
+    eff: parseFloat($("eff").value),
+    vaxRate: parseFloat($("vax").value)
+  });
+}
+function readSeed() { return clampInt($("seed").value, 0, 0xffffffff, 12345) >>> 0; }
+
+/* ---------- Live labels ---------- */
+function bindLabels() {
+  const upd = () => {
+    $("wLabel").textContent = $("width").value;
+    $("hLabel").textContent = $("height").value;
+    $("pLabel").textContent = parseFloat($("ptrans").value).toFixed(2);
+    $("effLabel").textContent = Math.round(parseFloat($("eff").value) * 100) + "%";
+    $("vaxLabel").textContent = Math.round(parseFloat($("vax").value) * 100) + "%";
+    $("stepLabel").textContent = Math.round(parseFloat($("step").value) * 100) + "%";
+    const names = ["paused", "slow", "medium", "fast", "instant"];
+    $("spdLabel").textContent = names[parseInt($("speed").value, 10)];
+    const w = clampInt($("width").value, 1, 256, 40), h = clampInt($("height").value, 1, 256, 100);
+    $("popNote").textContent = "Population: " + (w * h).toLocaleString() + " agents (" + w + " × " + h + ").";
+  };
+  ["width", "height", "ptrans", "eff", "vax", "step", "speed"].forEach(id =>
+    $(id).addEventListener("input", upd));
+  upd();
+}
+
+/* ---------- Mode switching ---------- */
+let mode = "single";
+function setMode(m) {
+  mode = m;
+  document.querySelectorAll(".tab").forEach(t => t.classList.toggle("active", t.dataset.mode === m));
+  document.querySelectorAll(".single-only").forEach(e => e.classList.toggle("hidden", m !== "single"));
+  document.querySelectorAll(".sweep-only").forEach(e => e.classList.toggle("hidden", m !== "sweep"));
+  $("singleView").classList.toggle("hidden", m !== "single");
+  $("sweepView").classList.toggle("hidden", m !== "sweep");
+}
+document.querySelectorAll(".tab").forEach(t =>
+  t.addEventListener("click", () => { stopSingle(); setMode(t.dataset.mode); }));
+
+/* ===================================================================
+   MODE 1 — SINGLE SCENARIO
+=================================================================== */
+const canvas = $("grid"), ctx = canvas.getContext("2d");
+let sim = null; // {cfg, state, frontier, rounds, rng, running, timer}
+const COLORS = { [S]: "#525c6e", [SV]: "#2f6fd0", [INF]: "#ff4d4d", [IMM]: "#2ecc71" };
+const SPEED_MS = [0, 100, 30, 8, 0]; // per-tick delay by speed slider; ticks are now small sampled batches, so delays are short. 0 (paused) and 4 (instant) handled specially
+
+// Larger cells for low-vision readability: never smaller than MIN_CELL px.
+// The stage scrolls, so tall/large grids scroll rather than shrink the cells.
+function cellSize(cfg) {
+  const MIN_CELL = 12, maxW = 1200, maxH = 820;
+  const fit = Math.floor(Math.min(maxW / cfg.width, maxH / cfg.height));
+  return Math.max(MIN_CELL, fit);
+}
+function drawGrid() {
+  const cfg = sim.cfg, cs = sim.cell, W = cfg.width, H = cfg.height;
+  const frontierSet = sim.frontierSet;
+  const img = ctx;
+  for (let y = 0; y < H; y++) {
+    for (let x = 0; x < W; x++) {
+      const idx = y * W + x;
+      const st = sim.state[idx];
+      let col = COLORS[st];
+      if (st === INF && frontierSet.has(idx)) col = "#ffb03d";
+      img.fillStyle = col;
+      img.fillRect(x * cs, y * cs, cs, cs);
+    }
+  }
+}
+function countStates() {
+  let inf = 0, imm = 0;
+  const st = sim.state, n = st.length;
+  for (let i = 0; i < n; i++) { if (st[i] === INF) inf++; else if (st[i] === IMM) imm++; }
+  return { inf, imm };
+}
+function updateSingleStats(status) {
+  const { inf, imm } = countStates();
+  const N = sim.cfg.width * sim.cfg.height;
+  $("sInfected").textContent = inf.toLocaleString();
+  $("sPct").textContent = (100 * inf / N).toFixed(1) + "%";
+  $("sImmune").textContent = imm.toLocaleString();
+  $("sRound").textContent = sim.rounds;
+  $("sStatus").textContent = status;
+}
+// Build only the vaccination layout (seeded, so the shown population is reproducible).
+// No patient zero yet — the initial infection is not introduced until a run starts.
+function buildLayout(cfg, rng) {
+  const N = cfg.width * cfg.height;
+  const layout = new Uint8Array(N);
+  for (let i = 0; i < N; i++) layout[i] = (rng() < cfg.vaxRate) ? SV : S;
+  return layout;
+}
+// Introduce patient zero at a RANDOM unvaccinated location, using fresh entropy each
+// call so every run starts in a different spot. Returns the index, or -1 if the whole
+// population is vaccinated. Also seeds the run's RNG used for the spread.
+function seedPatientZero() {
+  sim.rng = mulberry32(((Date.now() >>> 0) ^ Math.floor(Math.random() * 0x100000000)) >>> 0);
+  const st = sim.state, N = st.length;
+  let c0 = 0; for (let i = 0; i < N; i++) if (st[i] === S) c0++;
+  if (c0 === 0) { sim.ended = true; sim.started = true; return -1; }
+  let pick = Math.floor(sim.rng() * c0), pz = -1;
+  for (let i = 0; i < N; i++) { if (st[i] === S) { if (pick === 0) { pz = i; break; } pick--; } }
+  st[pz] = INF;
+  sim.pool = [pz]; sim.frontierSet = new Set([pz]);
+  sim.started = true; sim.ended = false;
+  return pz;
+}
+// Clear a completed/started run's spread but keep the same vaccination layout.
+function clearSpread() {
+  sim.state = sim.layout.slice();
+  sim.pool = []; sim.frontierSet = new Set();
+  sim.rounds = 0; sim.ended = false; sim.started = false;
+}
+function resetSingle() {
+  stopSingle();
+  const cfg = readConfig();
+  const layout = buildLayout(cfg, mulberry32(readSeed()));
+  const cell = cellSize(cfg);
+  canvas.width = cfg.width * cell;
+  canvas.height = cfg.height * cell;
+  sim = { cfg, cell, layout, state: layout.slice(), pool: [], frontierSet: new Set(),
+          rounds: 0, rng: null, running: false, timer: null, ended: false, started: false };
+  drawGrid();
+  updateSingleStats("ready");
+  $("pauseBtn").disabled = true;
+  $("runBtn").disabled = false;
+}
+// Single-scenario spread: rather than expanding the whole frontier synchronously,
+// keep a POOL of infected agents that can still spread, sample a random subset each
+// tick, and expand only those (adding any newly infected back to the pool). Each
+// susceptible still gets exactly one roll at first contact, so the distribution of
+// the final outcome is unchanged (site percolation is traversal-order independent) —
+// only the visual dynamics become more organic/irregular.
+function doStep() {
+  if (!sim || sim.ended) return false;
+  const cfg = sim.cfg, st = sim.state, rng = sim.rng, pool = sim.pool, W = cfg.width, H = cfg.height;
+  if (pool.length === 0) { sim.ended = true; sim.frontierSet = new Set(); drawGrid(); updateSingleStats("finished"); return false; }
+  // sample "a few" random members of the pool for this tick; batch scales gently with pool size
+  const k = Math.min(pool.length, 1 + Math.floor(rng() * Math.max(4, Math.floor(pool.length * 0.3))));
+  const batch = [];
+  for (let s = 0; s < k; s++) {
+    const r = Math.floor(rng() * pool.length);
+    batch.push(pool[r]);
+    pool[r] = pool[pool.length - 1]; pool.pop();   // processed agents leave the active pool
+  }
+  for (let b = 0; b < batch.length; b++) {
+    const idx = batch[b], x = idx % W, y = (idx / W) | 0;
+    const nb = [];
+    if (x > 0) nb.push(idx - 1); if (x < W - 1) nb.push(idx + 1);
+    if (y > 0) nb.push(idx - W); if (y < H - 1) nb.push(idx + W);
+    for (let n = 0; n < nb.length; n++) {
+      const j = nb[n], c = st[j];
+      if (c === S || c === SV) {
+        const p = (c === SV) ? cfg.pTrans * (1 - cfg.eff) : cfg.pTrans;
+        if (rng() < p) { st[j] = INF; pool.push(j); } else st[j] = IMM;
+      }
+    }
+  }
+  sim.rounds++;
+  sim.frontierSet = new Set(pool);
+  if (pool.length === 0) sim.ended = true;
+  drawGrid();
+  updateSingleStats(sim.ended ? "finished" : "running");
+  return !sim.ended;
+}
+function playLoop() {
+  if (!sim || !sim.running) return;
+  const spd = parseInt($("speed").value, 10);
+  if (spd === 4) { // instant: run to completion
+    while (doStep()) { /* loop */ }
+    stopSingle(); updateSingleStats("finished"); return;
+  }
+  const more = doStep();
+  if (!more) { stopSingle(); return; }
+  sim.timer = setTimeout(playLoop, SPEED_MS[spd] || 150);
+}
+function startSingle() {
+  if (!sim) resetSingle();
+  if (sim.started && sim.ended) clearSpread();   // a run finished -> start a fresh one
+  if (!sim.started) {                            // introduce patient zero at a random location
+    const pz = seedPatientZero();
+    drawGrid();
+    if (pz < 0) { updateSingleStats("no susceptible agent"); $("runBtn").disabled = false; $("pauseBtn").disabled = true; return; }
+    updateSingleStats("running");
+  }
+  sim.running = true;                            // (if paused mid-run, this simply resumes)
+  $("runBtn").disabled = true; $("pauseBtn").disabled = false;
+  playLoop();
+}
+function stopSingle() {
+  if (sim) { sim.running = false; if (sim.timer) clearTimeout(sim.timer); sim.timer = null; }
+  const rb = $("runBtn"), pb = $("pauseBtn");
+  if (rb) rb.disabled = false;
+  if (pb) pb.disabled = true;
+}
+$("runBtn").addEventListener("click", startSingle);
+$("pauseBtn").addEventListener("click", () => { stopSingle(); updateSingleStats("paused"); });
+$("stepBtn").addEventListener("click", () => {
+  if (!sim) resetSingle();
+  if (sim.started && sim.ended) clearSpread();
+  stopSingle();
+  if (!sim.started) {                 // first step introduces patient zero (it appears now)
+    const pz = seedPatientZero();
+    drawGrid();
+    updateSingleStats(pz < 0 ? "no susceptible agent" : "running");
+    return;
+  }
+  doStep();
+});
+$("resetBtn").addEventListener("click", resetSingle);
+// Keep the shown population in sync with the controls (single mode only).
+["width", "height", "ptrans", "eff", "vax", "seed"].forEach(id =>
+  $(id).addEventListener("change", () => { if (mode === "single") resetSingle(); }));
+
+/* ===================================================================
+   MODE 2 — SWEEP ALL RATES
+=================================================================== */
+let sweepCancel = false;
+async function runSweep() {
+  sweepCancel = false;
+  $("sweepBtn").disabled = true; $("cancelBtn").disabled = false;
+  const baseCfg = readConfig();
+  const step = parseFloat($("step").value);
+  const trials = clampInt($("trials").value, 1, 200, 20);
+  const baseSeed = readSeed();
+
+  // vaccination rates 0..1 inclusive
+  const rates = [];
+  for (let r = 0; r <= 1.0000001; r += step) rates.push(Math.min(1, +r.toFixed(4)));
+  if (rates[rates.length - 1] < 1) rates.push(1);
+
+  const results = []; // {rate, mean, std, min, max}
+  const N = baseCfg.width * baseCfg.height;
+  let done = 0, total = rates.length * trials;
+
+  for (let ri = 0; ri < rates.length; ri++) {
+    if (sweepCancel) break;
+    const rate = rates[ri];
+    const cfg = makeConfig({ width: baseCfg.width, height: baseCfg.height,
+                             pTrans: baseCfg.pTrans, eff: baseCfg.eff, vaxRate: rate });
+    const pcts = [];
+    for (let t = 0; t < trials; t++) {
+      // distinct, reproducible sub-seed per (rate index, trial)
+      const subSeed = (baseSeed ^ Math.imul(ri + 1, 0x9E3779B1) ^ Math.imul(t + 1, 0x85EBCA77)) >>> 0;
+      const rng = mulberry32(subSeed);
+      const res = runToEnd(cfg, rng);
+      pcts.push(100 * res.infected / N);
+      done++;
+    }
+    const mean = pcts.reduce((a, b) => a + b, 0) / pcts.length;
+    const variance = pcts.reduce((a, b) => a + (b - mean) * (b - mean), 0) / pcts.length;
+    const std = Math.sqrt(variance);
+    results.push({ rate, mean, std, min: Math.min(...pcts), max: Math.max(...pcts) });
+    $("progBar").style.width = (100 * done / total) + "%";
+    drawChart(results, rates);
+    await new Promise(r => setTimeout(r, 0)); // yield to keep UI responsive
+  }
+  drawChart(results, rates);
+  renderTable(results);
+  $("sweepBtn").disabled = false; $("cancelBtn").disabled = true;
+  $("progBar").style.width = "100%";
+}
+$("sweepBtn").addEventListener("click", runSweep);
+$("cancelBtn").addEventListener("click", () => { sweepCancel = true; });
+
+/* ---------- Chart ---------- */
+const chart = $("chart"), cctx = chart.getContext("2d");
+function drawChart(results, allRates) {
+  const W = chart.width, H = chart.height;
+  const m = { l: 60, r: 20, t: 20, b: 50 };
+  const pw = W - m.l - m.r, ph = H - m.t - m.b;
+  cctx.clearRect(0, 0, W, H);
+  cctx.fillStyle = "#0b0e12"; cctx.fillRect(0, 0, W, H);
+  const xOf = r => m.l + r * pw;                 // r in [0,1]
+  const yOf = v => m.t + (1 - v / 100) * ph;     // v percent [0,100]
+
+  // grid + axes
+  cctx.strokeStyle = "#232a35"; cctx.fillStyle = "#98a2b3";
+  cctx.font = "12px sans-serif"; cctx.textAlign = "center";
+  for (let gx = 0; gx <= 100; gx += 20) {
+    const x = xOf(gx / 100);
+    cctx.beginPath(); cctx.moveTo(x, m.t); cctx.lineTo(x, m.t + ph); cctx.stroke();
+    cctx.fillText(gx + "%", x, m.t + ph + 18);
+  }
+  cctx.textAlign = "right";
+  for (let gy = 0; gy <= 100; gy += 20) {
+    const y = yOf(gy);
+    cctx.beginPath(); cctx.moveTo(m.l, y); cctx.lineTo(m.l + pw, y); cctx.stroke();
+    cctx.fillText(gy + "%", m.l - 8, y + 4);
+  }
+  cctx.textAlign = "center";
+  cctx.fillText("Vaccination rate", m.l + pw / 2, H - 10);
+  cctx.save(); cctx.translate(16, m.t + ph / 2); cctx.rotate(-Math.PI / 2);
+  cctx.fillText("Infected (% of population)", 0, 0); cctx.restore();
+
+  if (!results || results.length === 0) return;
+
+  // std-dev band
+  cctx.fillStyle = "rgba(79,157,255,0.20)";
+  cctx.beginPath();
+  results.forEach((d, i) => {
+    const x = xOf(d.rate), y = yOf(Math.min(100, d.mean + d.std));
+    i === 0 ? cctx.moveTo(x, y) : cctx.lineTo(x, y);
+  });
+  for (let i = results.length - 1; i >= 0; i--) {
+    const d = results[i];
+    cctx.lineTo(xOf(d.rate), yOf(Math.max(0, d.mean - d.std)));
+  }
+  cctx.closePath(); cctx.fill();
+
+  // mean line
+  cctx.strokeStyle = "#4f9dff"; cctx.lineWidth = 2; cctx.beginPath();
+  results.forEach((d, i) => {
+    const x = xOf(d.rate), y = yOf(d.mean);
+    i === 0 ? cctx.moveTo(x, y) : cctx.lineTo(x, y);
+  });
+  cctx.stroke();
+
+  // points
+  cctx.fillStyle = "#4f9dff";
+  results.forEach(d => { cctx.beginPath(); cctx.arc(xOf(d.rate), yOf(d.mean), 3, 0, 7); cctx.fill(); });
+}
+function renderTable(results) {
+  let html = '<table class="res"><tr><th>Vax rate</th><th>Mean infected %</th><th>Std dev</th><th>Min</th><th>Max</th></tr>';
+  results.forEach(d => {
+    html += "<tr><td>" + Math.round(d.rate * 100) + "%</td><td>" + d.mean.toFixed(1) +
+            "</td><td>" + d.std.toFixed(1) + "</td><td>" + d.min.toFixed(1) +
+            "</td><td>" + d.max.toFixed(1) + "</td></tr>";
+  });
+  html += "</table>";
+  $("resWrap").innerHTML = html;
+}
+
+/* ---------- Boot ---------- */
+bindLabels();
+setMode("single");
+resetSingle();
+drawChart([], []);
+// Visible proof the script executed. If you see "build 4" but NOT "· JS running",
+// the page's JavaScript did not run (stale/cached page or a blocked preview).
+$("buildStamp").textContent = "build 5 · JS running ✓";
+console.log("[Vaccination Simulator] build 5 booted; default run infects ~69% of the grid.");
+</script>
+</body>
+</html>

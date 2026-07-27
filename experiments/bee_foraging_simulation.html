@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>Bee Foraging Simulation</title>
+<style>
+  :root{
+    --bg-sky:#fbf3dd;
+    --bg-ground:#eadfb6;
+    --hive-fill:#8a5a2b;
+    --hive-edge:#5c3a17;
+    --panel-bg:#2c2417ee;
+    --panel-fg:#f7ecd0;
+    --accent:#e0a33a;
+    --danger:#c0533e;
+    --card-bg:#3a3020;
+  }
+  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+  html,body{
+    margin:0; padding:0; width:100%; height:100%; overflow:hidden;
+    background:#1b160e; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    touch-action:manipulation; user-select:none;
+  }
+  #app{
+    display:flex; flex-direction:column; width:100vw; height:100vh; height:100dvh;
+  }
+
+  /* ---------- Top control bar ---------- */
+  #topbar{
+    flex:0 0 auto;
+    display:flex; align-items:center; gap:14px;
+    background:linear-gradient(#332811,#241c0d);
+    color:var(--panel-fg);
+    padding:8px 14px;
+    border-bottom:2px solid #55420f;
+    overflow-x:auto;
+    white-space:nowrap;
+  }
+  #topbar h1{
+    font-size:15px; font-weight:700; margin:0; letter-spacing:.3px;
+    color:var(--accent); flex:0 0 auto;
+  }
+  #topbar .sub{font-size:11px; color:#c9b98a; display:block; font-weight:400;}
+  .ctrl{
+    display:flex; flex-direction:column; align-items:flex-start; gap:2px;
+    flex:0 0 auto; min-width:118px;
+  }
+  .ctrl label{font-size:10.5px; color:#cbb98d; display:flex; justify-content:space-between; width:100%;}
+  .ctrl label span.val{color:var(--accent); font-weight:600;}
+  .ctrl input[type=range]{
+    -webkit-appearance:none; width:100%; height:26px; background:transparent; margin:0;
+  }
+  .ctrl input[type=range]::-webkit-slider-runnable-track{
+    height:6px; border-radius:4px; background:#5a4a26;
+  }
+  .ctrl input[type=range]::-webkit-slider-thumb{
+    -webkit-appearance:none; width:26px; height:26px; border-radius:50%;
+    background:var(--accent); border:2px solid #201a0a; margin-top:-10px;
+  }
+  .ctrl input[type=range]::-moz-range-track{height:6px;border-radius:4px;background:#5a4a26;}
+  .ctrl input[type=range]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;background:var(--accent);border:2px solid #201a0a;}
+
+  button.iconbtn{
+    flex:0 0 auto; border:none; border-radius:10px; padding:10px 16px; font-size:14px;
+    font-weight:700; background:var(--accent); color:#231a06; min-height:44px; min-width:44px;
+    cursor:pointer;
+  }
+  button.iconbtn.secondary{background:#4a3d20; color:var(--panel-fg);}
+  button.iconbtn:active{filter:brightness(0.9);}
+
+  /* ---------- Main area ---------- */
+  #main{flex:1 1 auto; display:flex; min-height:0;}
+  #canvasWrap{flex:1 1 auto; position:relative; min-width:0;}
+  canvas{display:block; width:100%; height:100%;}
+
+  #legend{
+    position:absolute; left:10px; bottom:8px; font-size:11px; color:#6b5a34;
+    background:rgba(255,255,255,.55); padding:4px 8px; border-radius:8px; max-width:60%;
+  }
+
+  /* ---------- Sidebar ---------- */
+  #sidebar{
+    flex:0 0 268px; background:var(--panel-bg); color:var(--panel-fg);
+    padding:10px 12px; overflow-y:auto; border-left:2px solid #55420f;
+  }
+  #sidebar h2{font-size:12px; text-transform:uppercase; letter-spacing:.06em; color:#cbb98d; margin:0 0 8px;}
+  .summary{display:grid; grid-template-columns:1fr 1fr; gap:6px; margin-bottom:14px;}
+  .summary .cell{background:var(--card-bg); border-radius:8px; padding:6px 8px;}
+  .summary .cell .n{font-size:17px; font-weight:700; color:var(--accent);}
+  .summary .cell .l{font-size:9.5px; color:#b8a577; text-transform:uppercase;}
+
+  .patchRow{background:var(--card-bg); border-radius:9px; padding:7px 9px; margin-bottom:7px;}
+  .patchRow .top{display:flex; align-items:center; gap:6px; margin-bottom:4px;}
+  .swatch{width:11px; height:11px; border-radius:50%; flex:0 0 auto; box-shadow:0 0 0 1px #0004;}
+  .patchRow .pname{font-size:11px; font-weight:600; flex:1 1 auto;}
+  .patchRow .pcount{font-size:12px; font-weight:700; color:var(--accent);}
+  .bar{height:5px; border-radius:3px; background:#20180c; overflow:hidden; margin-top:3px;}
+  .bar > i{display:block; height:100%; border-radius:3px;}
+  .metaRow{display:flex; justify-content:space-between; font-size:9.5px; color:#b8a577; margin-top:4px;}
+
+  #emptyNote{font-size:11px; color:#a5926a; text-align:center; padding:16px 4px;}
+
+  /* ---------- Stats overlay (pop-up graphs) ---------- */
+  #statsOverlay{
+    position:fixed; inset:0; background:rgba(12,9,4,0.58);
+    display:flex; align-items:center; justify-content:center;
+    z-index:50;
+  }
+  #statsOverlay.hidden{display:none;}
+  #statsPanel{
+    width:min(820px, 94vw); height:min(640px, 90vh);
+    background:var(--panel-bg); border-radius:16px; padding:14px 18px 12px;
+    display:flex; flex-direction:column; box-shadow:0 14px 46px rgba(0,0,0,.55);
+    border:1px solid #5a4a26;
+  }
+  .statsHeader{display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;}
+  .statsHeader h2{margin:0; font-size:15px; color:var(--accent); text-transform:none; letter-spacing:0;}
+  .statsHeader p{margin:0; font-size:11px; color:#b8a577;}
+  #chartCanvas{flex:1 1 auto; width:100%; min-height:0;}
+  #chartLegend{
+    display:flex; flex-wrap:wrap; gap:8px 14px; padding-top:6px;
+    font-size:11px; color:#e7d9b3; border-top:1px solid #4a3d20; margin-top:4px;
+  }
+  #chartLegend .lg{display:flex; align-items:center; gap:5px;}
+  #chartLegend .lg .swatch{width:10px; height:10px; border-radius:50%;}
+  button.iconbtn.small{padding:7px 12px; font-size:12px; min-height:36px;}
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="topbar">
+    <h1>Bee Foraging Sim<span class="sub">Bartholdi · Seeley · Tovey · Vande&nbsp;Vate, 1993</span></h1>
+
+    <button class="iconbtn" id="playBtn">Pause</button>
+
+    <div class="ctrl">
+      <label>Speed <span class="val" id="speedVal">1.0×</span></label>
+      <input type="range" id="speed" min="0.25" max="3" step="0.05" value="1">
+    </div>
+    <div class="ctrl">
+      <label>Colony size <span class="val" id="colonyVal">180</span></label>
+      <input type="range" id="colony" min="60" max="360" step="10" value="180">
+    </div>
+    <div class="ctrl">
+      <label>Patch spawn rate <span class="val" id="spawnVal">1.0/min</span></label>
+      <input type="range" id="spawn" min="0.2" max="2.5" step="0.1" value="1">
+    </div>
+    <div class="ctrl">
+      <label>Scout fraction <span class="val" id="scoutVal">8%</span></label>
+      <input type="range" id="scout" min="0.02" max="0.3" step="0.01" value="0.08">
+    </div>
+
+    <button class="iconbtn secondary" id="statsToggleBtn">Graphs</button>
+    <button class="iconbtn secondary" id="resetBtn">Reset world</button>
+  </div>
+
+  <div id="main">
+    <div id="canvasWrap">
+      <canvas id="scene"></canvas>
+      <div id="legend">● patch color = which flowers a bee is loyal to · dance floor near hive shows live recruitment</div>
+    </div>
+    <div id="sidebar">
+      <h2>Colony</h2>
+      <div class="summary" id="summary"></div>
+      <h2>Patches</h2>
+      <div id="patchList"></div>
+    </div>
+  </div>
+
+  <div id="statsOverlay" class="hidden">
+    <div id="statsPanel">
+      <div class="statsHeader">
+        <div>
+          <h2>Patch Trends</h2>
+          <p>Trip time, value rate, and colony share -- per patch, over time</p>
+        </div>
+        <button class="iconbtn secondary small" id="statsCloseBtn">Close</button>
+      </div>
+      <canvas id="chartCanvas"></canvas>
+      <div id="chartLegend"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+"use strict";
+
+/* ============================================================
+   CONFIG — tunable constants (numerically validated headlessly)
+   ============================================================ */
+const CFG = {
+  colonySize: 180,
+  speed: 1.0,
+  spawnPerMin: 1.0,
+  scoutFraction: 0.08,
+};
+
+const BEE_SPEED       = 150;   // px/sec at baseline canvas scale
+const FORAGE_BASE     = 3.0;   // sec, scaled by richness
+const F_MIN           = 0.02, F_MAX = 0.9;
+const DIVERSION_K      = 3.0;
+const DANCE_MIN       = 0.4, DANCE_MAX = 6.0;
+const DANCE_K         = 10;
+const CONGESTION_K    = 14;    // n_x at which interference ~doubles effective trip time
+const MAX_PATCHES     = 8;
+const MIN_PATCH_DIST  = 95;    // min separation between patch centers
+const HARVEST_DECAY_PER_VISIT = 0.0; // kept 0: long-run richness comes from bloom curve, not instant depletion
+const TRIP_EMA_ALPHA  = 0.2;   // smoothing for the empirical rolling trip-time average
+const HISTORY_INTERVAL = 1.0;  // sim-seconds between history samples
+const MAX_HISTORY      = 240;  // samples kept per patch (ring buffer)
+
+let running = true;
+let lastT = null;
+let uiAccum = 0;
+let simClock = 0;      // total sim-seconds elapsed (respects speed multiplier)
+let historyAccum = 0;
+let statsOverlayOpen = false;
+
+/* ============================================================
+   Canvas / world-space setup
+   ============================================================ */
+const canvas = document.getElementById('scene');
+const ctx = canvas.getContext('2d');
+let worldW = 800, worldH = 600, DPR = Math.max(1, window.devicePixelRatio || 1);
+
+function resizeCanvas(){
+  const rect = canvas.parentElement.getBoundingClientRect();
+  const newW = Math.max(200, rect.width), newH = Math.max(200, rect.height);
+  if (worldW && worldH && (newW !== worldW || newH !== worldH) && patches.length){
+    const sx = newW / worldW, sy = newH / worldH;
+    hive.x *= sx; hive.y *= sy;
+    patches.forEach(p => { p.x *= sx; p.y *= sy; });
+    bees.forEach(b => { b.x *= sx; b.y *= sy; });
+  }
+  worldW = newW; worldH = newH;
+  DPR = Math.max(1, window.devicePixelRatio || 1);
+  canvas.width = Math.round(worldW * DPR);
+  canvas.height = Math.round(worldH * DPR);
+  ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  hive.x = worldW * 0.14; hive.y = worldH * 0.5;
+}
+
+/* ============================================================
+   Entities
+   ============================================================ */
+const hive = { x: 0, y: 0, danceR: 78 };
+let patches = [];
+let bees = [];
+let patchIdCounter = 0;
+let nextSpawnIn = 4;
+
+function hue(id){ return (id * 137.508) % 360; }
+function patchColor(p, alpha){ return `hsla(${hue(p.id)}, 68%, 52%, ${alpha})`; }
+
+function randRange(a,b){ return a + Math.random()*(b-a); }
+
+function makePatch(forceNear){
+  const id = patchIdCounter++;
+  let x, y, ok = false, tries = 0;
+  const minX = worldW*0.30, maxX = worldW*0.94, minY = worldH*0.08, maxY = worldH*0.94;
+  while (!ok && tries < 25){
+    x = randRange(minX, maxX); y = randRange(minY, maxY);
+    ok = true;
+    if (Math.hypot(x-hive.x, y-hive.y) < 130) ok = false;
+    for (const p of patches){ if (Math.hypot(x-p.x,y-p.y) < MIN_PATCH_DIST) { ok=false; break; } }
+    tries++;
+  }
+  const richness = randRange(0.35, 1.0);
+  const lifespan = randRange(75, 150);
+  return { id, x, y, richness, age:0, lifespan, n:0, v:0.001, Teff:0, dist:0, removed:false,
+           tripEMA:null, history:[] };
+}
+
+function bloom(ageFrac){
+  if (ageFrac <= 0.15) return ageFrac/0.15;
+  if (ageFrac <= 0.75) return 1;
+  if (ageFrac <= 1) return Math.max(0, 1 - (ageFrac-0.75)/0.25);
+  return 0;
+}
+
+function richnessEff(p){ return p.richness * bloom(Math.min(1.05, p.age/p.lifespan)); }
+
+function recomputePatchDerived(dtEff){
+  // counts
+  for (const p of patches) p.n = 0;
+  for (const b of bees){
+    if (b.patchId!=null && (b.state==='outbound'||b.state==='foraging'||b.state==='inbound'||b.state==='dancing')){
+      const p = patchById(b.patchId); if (p) p.n++;
+    }
+  }
+  for (const p of patches){
+    const rEff = richnessEff(p);
+    p.dist = Math.hypot(p.x-hive.x, p.y-hive.y);
+    const flightRT = 2*p.dist/BEE_SPEED;
+    const forageTime = FORAGE_BASE / Math.max(0.2, p.richness);
+    const Tbase = flightRT + forageTime;
+    p.Teff = Tbase * (1 + p.n/CONGESTION_K);
+    p.v = rEff / Math.max(0.4, p.Teff);
+    p.rEff = rEff;
+  }
+}
+
+function recordHistory(){
+  const totalBees = Math.max(1, bees.length);
+  for (const p of patches){
+    p.history.push({ t: simClock, trip: p.tripEMA!=null ? p.tripEMA : p.Teff, value: p.v, pct: 100*p.n/totalBees });
+    if (p.history.length > MAX_HISTORY) p.history.shift();
+  }
+}
+
+function patchById(id){
+  // small arrays (<=8) -> linear scan is fine
+  for (const p of patches) if (p.id===id) return p;
+  return null;
+}
+
+function makeBee(){
+  return { state:'unemployed', patchId:null, x:hive.x+randRange(-10,10), y:hive.y+randRange(-10,10),
+           tx:hive.x, ty:hive.y, timer: randRange(0.1,1.2), danceAngle:0, danceRadius:0,
+           phase:Math.random()*Math.PI*2, tripStart:0 };
+}
+
+function resetWorld(){
+  patches = [];
+  patchIdCounter = 0;
+  for (let i=0;i<4;i++) patches.push(makePatch());
+  bees = [];
+  for (let i=0;i<CFG.colonySize;i++) bees.push(makeBee());
+  nextSpawnIn = expDelay();
+  simClock = 0; historyAccum = 0;
+  recomputePatchDerived(0);
+}
+
+function expDelay(){
+  const meanSec = 60/Math.max(0.05,CFG.spawnPerMin);
+  return -Math.log(Math.random()) * meanSec;
+}
+
+/* ============================================================
+   Simulation step
+   ============================================================ */
+function sampleWeightedPatchFromDances(){
+  // weight = value rate of patch each dancer represents
+  let total = 0;
+  const dancers = [];
+  for (const b of bees){
+    if (b.state==='dancing'){
+      const p = patchById(b.patchId);
+      const w = p ? (p.v + 0.01) : 0.01;
+      dancers.push({p, w});
+      total += w;
+    }
+  }
+  if (total<=0 || dancers.length===0) return null;
+  let r = Math.random()*total;
+  for (const d of dancers){ r -= d.w; if (r<=0) return d.p; }
+  return dancers[dancers.length-1].p;
+}
+
+function moveToward(b, tx, ty, dtEff, speed){
+  const dx = tx-b.x, dy = ty-b.y;
+  const dist = Math.hypot(dx,dy);
+  const step = speed*dtEff;
+  if (dist <= step || dist < 0.5){ b.x=tx; b.y=ty; return true; }
+  b.x += dx/dist*step; b.y += dy/dist*step;
+  return false;
+}
+
+function updatePatches(dtEff){
+  for (const p of patches){ p.age += dtEff; }
+  patches = patches.filter(p => p.age < p.lifespan*1.05 && richnessEff(p) > 0.015 || p.age < p.lifespan*0.2);
+  // spawn
+  nextSpawnIn -= dtEff;
+  if (nextSpawnIn <= 0){
+    if (patches.length < MAX_PATCHES) patches.push(makePatch());
+    nextSpawnIn = expDelay();
+  }
+}
+
+function updateBees(dtEff){
+  for (const b of bees){
+    switch(b.state){
+      case 'outbound': {
+        const p = patchById(b.patchId);
+        if (!p){ b.state='unemployed'; b.patchId=null; b.timer=randRange(0.1,0.5); break; }
+        if (moveToward(b, p.x, p.y, dtEff, BEE_SPEED)){
+          b.state='foraging'; b.timer = FORAGE_BASE/Math.max(0.2,p.richness);
+        }
+        break;
+      }
+      case 'foraging': {
+        b.timer -= dtEff;
+        if (b.timer<=0){ b.state='inbound'; b.tx=hive.x; b.ty=hive.y; }
+        break;
+      }
+      case 'inbound': {
+        if (moveToward(b, hive.x, hive.y, dtEff, BEE_SPEED)){
+          const p = patchById(b.patchId);
+          if (p){
+            // She just completed a real hive->patch->hive trip -- fold it into
+            // this patch's empirically observed rolling average trip time.
+            const tripDuration = Math.max(0.1, simClock - b.tripStart);
+            p.tripEMA = (p.tripEMA==null) ? tripDuration : p.tripEMA*(1-TRIP_EMA_ALPHA) + tripDuration*TRIP_EMA_ALPHA;
+          }
+          const v = p ? p.v : 0;
+          const fx = Math.max(F_MIN, Math.min(F_MAX, F_MAX*Math.exp(-v*DIVERSION_K)));
+          if (!p || Math.random()<fx){
+            b.state='unemployed'; b.patchId=null; b.timer=randRange(0.1,0.5);
+          } else {
+            const gx = Math.max(DANCE_MIN, Math.min(DANCE_MAX, DANCE_MIN + v*DANCE_K));
+            b.state='dancing'; b.timer=gx; b.isScout=false; // she's now a committed forager for this patch
+            b.danceAngle = Math.random()*Math.PI*2;
+            b.danceRadius = Math.random()*(hive.danceR-14);
+            b.danceVigor = gx/DANCE_MAX;
+          }
+        }
+        break;
+      }
+      case 'dancing': {
+        b.timer -= dtEff;
+        b.phase += dtEff*4;
+        if (b.timer<=0){
+          const p = patchById(b.patchId);
+          if (p){ b.state='outbound'; b.tripStart = simClock; }
+          else { b.state='unemployed'; b.patchId=null; b.timer=randRange(0.1,0.5); }
+        }
+        break;
+      }
+      case 'unemployed': {
+        b.timer -= dtEff;
+        if (b.timer<=0){
+          if (patches.length===0){ b.timer=0.4; break; }
+          const wantScout = Math.random() < CFG.scoutFraction;
+          if (wantScout){
+            // Scouts search independently -- they don't need a dance to follow.
+            const target = patches[Math.floor(Math.random()*patches.length)];
+            b.patchId = target.id; b.state='outbound'; b.isScout = true; b.tripStart = simClock;
+          } else {
+            // Regular foragers only ever leave the hive by following a dance.
+            // If nobody is dancing yet, she waits and checks again shortly --
+            // this is what makes scouts return before the rest of the colony departs.
+            const target = sampleWeightedPatchFromDances();
+            if (target){ b.patchId = target.id; b.state='outbound'; b.isScout = false; b.tripStart = simClock; }
+            else { b.timer = randRange(0.3, 0.9); }
+          }
+        }
+        break;
+      }
+    }
+  }
+  // colony size changes
+  if (bees.length < CFG.colonySize){
+    const toAdd = CFG.colonySize - bees.length;
+    for (let i=0;i<toAdd;i++) bees.push(makeBee());
+  } else if (bees.length > CFG.colonySize){
+    let toRemove = bees.length - CFG.colonySize;
+    bees.sort((a,b2)=> (a.state==='unemployed'?0:1) - (b2.state==='unemployed'?0:1));
+    bees.splice(0, Math.min(toRemove, bees.length));
+  }
+}
+
+function step(dtReal){
+  const dtEff = Math.min(0.06, dtReal) * CFG.speed;
+  if (dtEff<=0) return;
+  simClock += dtEff;
+  updatePatches(dtEff);
+  recomputePatchDerived(dtEff);
+  updateBees(dtEff);
+  historyAccum += dtEff;
+  if (historyAccum >= HISTORY_INTERVAL){ historyAccum -= HISTORY_INTERVAL; recordHistory(); }
+}
+
+/* ============================================================
+   Rendering
+   ============================================================ */
+function drawHex(cx,cy,r){
+  ctx.beginPath();
+  for (let i=0;i<6;i++){
+    const a = Math.PI/6 + i*Math.PI/3;
+    const x = cx + r*Math.cos(a), y = cy + r*Math.sin(a);
+    if (i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+  }
+  ctx.closePath();
+}
+
+function render(){
+  ctx.clearRect(0,0,worldW,worldH);
+  // background
+  const g = ctx.createLinearGradient(0,0,0,worldH);
+  g.addColorStop(0,'#fbf3dd'); g.addColorStop(1,'#eee0ac');
+  ctx.fillStyle = g; ctx.fillRect(0,0,worldW,worldH);
+
+  // patches
+  for (const p of patches){
+    const rEff = p.rEff!==undefined ? p.rEff : richnessEff(p);
+    const radius = 20 + rEff*44;
+    ctx.beginPath(); ctx.arc(p.x,p.y,radius,0,Math.PI*2);
+    ctx.fillStyle = patchColor(p, 0.18+rEff*0.42);
+    ctx.fill();
+    ctx.lineWidth=2; ctx.strokeStyle = patchColor(p, 0.8);
+    ctx.stroke();
+    // little flower dots
+    const dots = 5;
+    for (let i=0;i<dots;i++){
+      const a = i/dots*Math.PI*2 + p.id;
+      const dr = radius*0.45;
+      ctx.beginPath();
+      ctx.arc(p.x+Math.cos(a)*dr, p.y+Math.sin(a)*dr, 3.2, 0, Math.PI*2);
+      ctx.fillStyle = patchColor(p, 0.55+rEff*0.4);
+      ctx.fill();
+    }
+  }
+
+  // hive
+  drawHex(hive.x,hive.y,42);
+  ctx.fillStyle = '#8a5a2b'; ctx.fill();
+  ctx.lineWidth=3; ctx.strokeStyle='#5c3a17'; ctx.stroke();
+  drawHex(hive.x,hive.y,26);
+  ctx.fillStyle='#a9743f'; ctx.fill();
+  ctx.font='11px sans-serif'; ctx.fillStyle='#fff2d8'; ctx.textAlign='center';
+  ctx.fillText('HIVE', hive.x, hive.y+40+16);
+
+  // dance floor
+  ctx.beginPath(); ctx.arc(hive.x+70, hive.y, hive.danceR, 0, Math.PI*2);
+  ctx.fillStyle='rgba(30,22,10,0.32)'; ctx.fill();
+  ctx.setLineDash([4,4]); ctx.strokeStyle='rgba(255,235,190,0.55)'; ctx.lineWidth=1.5; ctx.stroke();
+  ctx.setLineDash([]);
+  for (const b of bees){
+    if (b.state!=='dancing') continue;
+    const p = patchById(b.patchId); if(!p) continue;
+    const cx = hive.x+70 + Math.cos(b.danceAngle)*b.danceRadius;
+    const cy = hive.y + Math.sin(b.danceAngle)*b.danceRadius;
+    const size = 3 + (b.danceVigor||0)*6;
+    ctx.save();
+    ctx.translate(cx,cy); ctx.rotate(b.phase);
+    ctx.strokeStyle = patchColor(p,0.95); ctx.lineWidth=2;
+    ctx.beginPath();
+    ctx.ellipse(-size*0.55,0,size*0.6,size*0.35,0,0,Math.PI*2);
+    ctx.ellipse(size*0.55,0,size*0.6,size*0.35,0,0,Math.PI*2);
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  // bees
+  for (const b of bees){
+    let color = '#8a6d1f';
+    if (b.patchId!=null && (b.state==='outbound'||b.state==='foraging'||b.state==='inbound')){
+      const p = patchById(b.patchId);
+      if (p) color = b.isScout ? '#55524a' : patchColor(p,1);
+    }
+    if (b.state==='dancing' || b.state==='unemployed') continue; // drawn via dance floor / hidden inside hive
+    let angle = 0;
+    if (b.state==='outbound'){ const p=patchById(b.patchId); if(p) angle=Math.atan2(p.y-b.y,p.x-b.x); }
+    else if (b.state==='inbound'){ angle = Math.atan2(hive.y-b.y,hive.x-b.x); }
+    ctx.save();
+    ctx.translate(b.x,b.y); ctx.rotate(angle);
+    ctx.beginPath();
+    ctx.moveTo(6,0); ctx.lineTo(-5,3.6); ctx.lineTo(-5,-3.6); ctx.closePath();
+    ctx.fillStyle = color; ctx.fill();
+    ctx.restore();
+  }
+}
+
+/* ============================================================
+   Stats sidebar (throttled DOM updates)
+   ============================================================ */
+const summaryEl = document.getElementById('summary');
+const patchListEl = document.getElementById('patchList');
+
+function updateStats(){
+  let dancing=0, scouting=0, unemployed=0;
+  for (const b of bees){
+    if (b.state==='dancing') dancing++;
+    else if (b.state==='unemployed') unemployed++;
+    else if (b.isScout) scouting++;
+  }
+  summaryEl.innerHTML = `
+    <div class="cell"><div class="n">${bees.length}</div><div class="l">Foragers</div></div>
+    <div class="cell"><div class="n">${patches.length}</div><div class="l">Patches</div></div>
+    <div class="cell"><div class="n">${dancing}</div><div class="l">Dancing</div></div>
+    <div class="cell"><div class="n">${unemployed}</div><div class="l">Unemployed</div></div>
+    <div class="cell"><div class="n">${scouting}</div><div class="l">Scouting</div></div>
+  `;
+
+  if (patches.length===0){
+    patchListEl.innerHTML = '<div id="emptyNote">No patches yet — scouts are searching…</div>';
+    return;
+  }
+  const maxN = Math.max(1, ...patches.map(p=>p.n));
+  const rows = patches.slice().sort((a,b)=>b.n-a.n).map(p=>{
+    const barPct = Math.round(100*p.n/maxN);
+    const vigorPct = Math.round(100*Math.min(1, (p.v)/0.05));
+    const col = patchColor(p,1);
+    return `<div class="patchRow">
+      <div class="top">
+        <span class="swatch" style="background:${col}"></span>
+        <span class="pname">Patch ${p.id}</span>
+        <span class="pcount">${p.n}</span>
+      </div>
+      <div class="bar"><i style="width:${barPct}%; background:${col}"></i></div>
+      <div class="metaRow"><span>trip ${(p.tripEMA!=null?p.tripEMA:p.Teff).toFixed(1)}s</span><span>value ${p.v.toFixed(3)}</span></div>
+      <div class="bar"><i style="width:${vigorPct}%; background:${col}; opacity:.6"></i></div>
+    </div>`;
+  }).join('');
+  patchListEl.innerHTML = rows;
+}
+
+/* ============================================================
+   Stats overlay: pop-up line charts of per-patch history
+   ============================================================ */
+const chartCanvas = document.getElementById('chartCanvas');
+const chartCtx = chartCanvas.getContext('2d');
+const chartLegendEl = document.getElementById('chartLegend');
+let chartW = 0, chartH = 0;
+
+function resizeChartCanvas(){
+  const rect = chartCanvas.getBoundingClientRect();
+  chartW = Math.max(100, rect.width);
+  chartH = Math.max(100, rect.height);
+  const dpr = Math.max(1, window.devicePixelRatio || 1);
+  chartCanvas.width = Math.round(chartW * dpr);
+  chartCanvas.height = Math.round(chartH * dpr);
+  chartCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+
+const CHART_METRICS = [
+  { key:'trip',  label:'Trip time (s) -- ongoing average per patch', fmt:v=>v.toFixed(1) },
+  { key:'value', label:'Value rate -- richness / trip time',         fmt:v=>v.toFixed(3) },
+  { key:'pct',   label:'% of colony currently allocated',            fmt:v=>v.toFixed(0)+'%' },
+];
+
+function updateChartLegend(){
+  if (patches.length===0){
+    chartLegendEl.innerHTML = '<span style="color:#a5926a">No patches yet</span>';
+    return;
+  }
+  chartLegendEl.innerHTML = patches.map(p =>
+    `<span class="lg"><span class="swatch" style="background:${patchColor(p,1)}"></span>Patch ${p.id}</span>`
+  ).join('');
+}
+
+function renderCharts(){
+  if (chartW<=0 || chartH<=0) return;
+  chartCtx.clearRect(0,0,chartW,chartH);
+
+  let tMin = Infinity, tMax = -Infinity;
+  for (const p of patches){
+    if (p.history.length===0) continue;
+    tMin = Math.min(tMin, p.history[0].t);
+    tMax = Math.max(tMax, p.history[p.history.length-1].t);
+  }
+  if (!isFinite(tMin)){ tMin = simClock-1; tMax = simClock; }
+  if (tMax-tMin < 1) tMax = tMin+1;
+
+  const padL=48, padR=8, padTop=16, rowGap=20;
+  const rowH = (chartH - rowGap*2 - padTop) / 3;
+
+  CHART_METRICS.forEach((m, idx) => {
+    const rowY = padTop + idx*(rowH+rowGap);
+    const plotX = padL, plotY = rowY, plotW = chartW-padL-padR, plotH = rowH-4;
+
+    let vMin = Infinity, vMax = -Infinity;
+    for (const p of patches){
+      for (const pt of p.history){
+        const v = pt[m.key];
+        if (v<vMin) vMin=v;
+        if (v>vMax) vMax=v;
+      }
+    }
+    if (!isFinite(vMin)){ vMin=0; vMax=1; }
+    if (m.key==='pct') vMin = Math.min(vMin, 0);
+    const pad = Math.max(1e-4, (vMax-vMin)*0.15);
+    vMin -= pad; vMax += pad;
+    if (vMax-vMin < 1e-6) vMax = vMin+1;
+
+    chartCtx.fillStyle = '#cbb98d'; chartCtx.font='11px sans-serif'; chartCtx.textAlign='left';
+    chartCtx.fillText(m.label, plotX, rowY-4);
+
+    chartCtx.strokeStyle = 'rgba(255,255,255,0.14)'; chartCtx.lineWidth=1;
+    chartCtx.beginPath();
+    chartCtx.moveTo(plotX, plotY); chartCtx.lineTo(plotX, plotY+plotH); chartCtx.lineTo(plotX+plotW, plotY+plotH);
+    chartCtx.stroke();
+
+    chartCtx.fillStyle = '#8d7c54'; chartCtx.font='9.5px sans-serif'; chartCtx.textAlign='right';
+    chartCtx.fillText(m.fmt(vMax), plotX-5, plotY+9);
+    chartCtx.fillText(m.fmt(vMin), plotX-5, plotY+plotH);
+
+    const xFor = t => plotX + (t-tMin)/(tMax-tMin)*plotW;
+    const yFor = v => plotY + plotH - (v-vMin)/(vMax-vMin)*plotH;
+
+    for (const p of patches){
+      if (p.history.length < 2) continue;
+      chartCtx.beginPath();
+      chartCtx.strokeStyle = patchColor(p, 0.95);
+      chartCtx.lineWidth = 2;
+      p.history.forEach((pt,i) => {
+        const x = xFor(pt.t), y = yFor(pt[m.key]);
+        if (i===0) chartCtx.moveTo(x,y); else chartCtx.lineTo(x,y);
+      });
+      chartCtx.stroke();
+    }
+  });
+
+  updateChartLegend();
+}
+
+/* ============================================================
+   Main loop
+   ============================================================ */
+function frame(t){
+  if (lastT==null) lastT = t;
+  const dtReal = Math.min(0.1, (t-lastT)/1000);
+  lastT = t;
+  if (running) step(dtReal);
+  render();
+  uiAccum += dtReal;
+  if (uiAccum > 0.2){ uiAccum = 0; updateStats(); }
+  if (statsOverlayOpen) renderCharts();
+  requestAnimationFrame(frame);
+}
+
+/* ============================================================
+   Controls wiring
+   ============================================================ */
+const el = id => document.getElementById(id);
+function bindSlider(id, valId, fmt, onChange){
+  const input = el(id), out = el(valId);
+  const apply = () => { const v = parseFloat(input.value); out.textContent = fmt(v); onChange(v); };
+  input.addEventListener('input', apply);
+  apply();
+}
+bindSlider('speed','speedVal', v=>v.toFixed(2)+'×', v=>CFG.speed=v);
+bindSlider('colony','colonyVal', v=>Math.round(v), v=>CFG.colonySize=Math.round(v));
+bindSlider('spawn','spawnVal', v=>v.toFixed(1)+'/min', v=>CFG.spawnPerMin=v);
+bindSlider('scout','scoutVal', v=>Math.round(v*100)+'%', v=>CFG.scoutFraction=v);
+
+el('playBtn').addEventListener('click', ()=>{
+  running = !running;
+  el('playBtn').textContent = running ? 'Pause' : 'Play';
+});
+el('resetBtn').addEventListener('click', resetWorld);
+
+el('statsToggleBtn').addEventListener('click', () => {
+  statsOverlayOpen = !statsOverlayOpen;
+  el('statsOverlay').classList.toggle('hidden', !statsOverlayOpen);
+  if (statsOverlayOpen){ resizeChartCanvas(); renderCharts(); }
+});
+el('statsCloseBtn').addEventListener('click', () => {
+  statsOverlayOpen = false;
+  el('statsOverlay').classList.add('hidden');
+});
+el('statsOverlay').addEventListener('click', (e) => {
+  if (e.target.id === 'statsOverlay'){ statsOverlayOpen = false; el('statsOverlay').classList.add('hidden'); }
+});
+
+window.addEventListener('resize', () => { resizeCanvas(); if (statsOverlayOpen) resizeChartCanvas(); });
+window.addEventListener('orientationchange', ()=>setTimeout(()=>{ resizeCanvas(); if (statsOverlayOpen) resizeChartCanvas(); },150));
+
+/* ============================================================
+   Boot
+   ============================================================ */
+resizeCanvas();
+resetWorld();
+requestAnimationFrame(frame);
+
+})();
+</script>
+</body>
+</html>
